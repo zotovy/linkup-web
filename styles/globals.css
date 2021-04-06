@@ -3,8 +3,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: "Lato", serif;
-    color: var(--text);
+    font-family: "Poppins", sans-serif;
+    color: var(--textPrimary);
     background: var(--bg);
 }
 
@@ -17,13 +17,14 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 :root {
-    --primary: #4C63CD;
-    --bg: #060D2E;
-    --lightBg: #171A36;
-    --text: #ecececde;
-    --textSecondary: #A2A4AF;
-    --textDisabled: #6B6F8C;
-    --borderColor: #27283C;
+    --primary: #5f2eea;
+    --bg: #f7f7fc;
+    --textPrimary: #14142b;
+    --textSecondary: #4e4b66;
+    --textContrast: #f7f7fc;
+    --textDisabled: #6e7191;
+    --textError: #ed2e7e;
+    --inputBorder: #d9dbe9;
 }
 
 /** react-toastify styles  **/

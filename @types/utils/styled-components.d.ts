@@ -5,12 +5,17 @@ declare module "styled-components" {
         colors: {
             primary: string,
             bg: string,
-            lightBg: string,
-            text: string,
-            textSecondary: string,
-            textDisabled: string,
-            borderColor: string,
-        };
+            text: {
+                primary: string,
+                secondary: string,
+                contrast: string,
+                disabled: string,
+                error: string,
+            },
+            input: {
+                border: string,
+            }
+        }
         centerContent: string;
     }
 }

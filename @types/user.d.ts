@@ -5,4 +5,6 @@ declare type User = {
     password: string;
     createdAt: Date;
     profileImagePath?: string;
+    theme: Theme;
+    links: Link[];
 }

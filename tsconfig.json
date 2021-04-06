@@ -24,6 +24,7 @@
       "@/redux/*": [ "redux/*" ],
       "@/utils/*": [ "utils/*" ],
       "@/components/*": [ "components/*" ],
+      "@/containers/*": [ "containers/*" ],
       "@/helpers/*": [ "helpers/*" ],
       "@/services/*": [ "services/*" ],
       "@/layouts/*": [ "layouts/*" ]
