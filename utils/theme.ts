@@ -1,6 +1,7 @@
 export default {
     colors: {
         primary: "#5f2eea",
+        primaryHover: "#6534ea",
         bg: "#f7f7fc",
         text: {
             primary: "#14142b",

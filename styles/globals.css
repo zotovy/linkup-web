@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6, p, span {
     box-sizing: border-box;
 }
 
+.button-ripple {
+    border-radius: 10px;
+}
+
 :root {
     --primary: #5f2eea;
     --bg: #f7f7fc;

@@ -4,6 +4,7 @@ declare module "styled-components" {
     export interface DefaultTheme {
         colors: {
             primary: string,
+            primaryHover: string
             bg: string,
             text: {
                 primary: string,
@@ -14,7 +15,7 @@ declare module "styled-components" {
             },
             input: {
                 border: string,
-            }
+            },
         }
         centerContent: string;
     }
