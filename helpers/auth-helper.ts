@@ -1,4 +1,3 @@
-import SSRHelper from "@/helpers/ssr-helper";
 import Cookies from 'universal-cookie';
 
 

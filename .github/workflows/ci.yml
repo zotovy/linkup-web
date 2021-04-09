@@ -1,14 +1,12 @@
 name: Continuous Integration
 on: push
 jobs:
-  buildAndTest:
-    name: Build and Test
+  Test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - name: Install Dependencies
         run: yarn
-      - name: Build
-        run: yarn build
       - name: Test
         run: yarn test --watchAll=false
