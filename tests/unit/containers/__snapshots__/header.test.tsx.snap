@@ -1,0 +1,766 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Header component should render correctly authorized 1`] = `
+<DocumentFragment>
+  .c4 svg {
+  height: 22px;
+  width: 22px;
+  color: #6e7191;
+  fill: #6e7191;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #14142b;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  cursor: pointer;
+  position: relative;
+}
+
+.c3 .chevron {
+  margin-left: 5px;
+  margin-top: 4px;
+}
+
+.c5 {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  -webkit-transition: -webkit-transform 200ms ease,opacity 200ms ease;
+  -webkit-transition: transform 200ms ease,opacity 200ms ease;
+  transition: transform 200ms ease,opacity 200ms ease;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+.c5.disabled {
+  -webkit-transform: translateX(-50px);
+  -ms-transform: translateX(-50px);
+  transform: translateX(-50px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.c5 a {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 3px;
+  color: #14142b;
+}
+
+.c5 a.error {
+  color: #ed2e7e;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+}
+
+.c0 .space {
+  width: 100%;
+}
+
+.c1 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 48px;
+  margin: 3.5px 70px 3.5px 0;
+}
+
+.c2 {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  color: #6e7191;
+  position: relative;
+  margin-right: 70px;
+  padding: 4.5px 0;
+}
+
+.c2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 3px;
+  background-color: #5f2eea;
+  -webkit-transition: width 200ms ease,margin-left 200ms ease;
+  transition: width 200ms ease,margin-left 200ms ease;
+  width: 0;
+  margin-left: 0;
+}
+
+.c2:not(.selected).links:after {
+  margin-left: 28px;
+}
+
+.c2:not(.selected).theme:after {
+  margin-left: 42px;
+}
+
+.c2:not(.selected).settings:after {
+  margin-left: 49px;
+}
+
+.c2.selected {
+  color: #14142b;
+  position: relative;
+}
+
+.c2.selected.links:after {
+  width: 56px;
+}
+
+.c2.selected.theme:after {
+  width: 84px;
+}
+
+.c2.selected.settings:after {
+  width: 98px;
+}
+
+.c2:not(.selected) {
+  cursor: pointer;
+}
+
+.c10 {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.c7 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.c8 {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: -webkit-transform 300ms ease;
+  -webkit-transition: transform 300ms ease;
+  transition: transform 300ms ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  pointer-events: all;
+}
+
+.c9 {
+  font-size: 18px;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.c9 p.name {
+  margin-top: 10px;
+}
+
+.c11 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #6e7191;
+  margin-bottom: 15px;
+  z-index: 100001;
+  cursor: pointer;
+}
+
+.c6 {
+  margin: 8px 0;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 10001;
+  -webkit-flex: 0 0 34px;
+  -ms-flex: 0 0 34px;
+  flex: 0 0 34px;
+}
+
+.c6 span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #6e7191;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.c6 span:nth-child(1) {
+  top: 0px;
+}
+
+.c6 span:nth-child(2),
+.c6 span:nth-child(3) {
+  top: 10px;
+}
+
+.c6 span:nth-child(4) {
+  top: 20px;
+}
+
+.c6.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.c6.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c6.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.c6.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+@media screen and (max-width:960px) {
+  .c3 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:960px) {
+  .c0 .user-skeleton {
+    display: none;
+  }
+}
+
+@media screen and (max-width:960px) {
+  .c2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width:960px) {
+  .c6 {
+    display: none;
+  }
+}
+
+<div
+    class="c0"
+  >
+    <img
+      class="c1"
+      src="/images/logo-48x35.png"
+    />
+    <div
+      class="c2  links"
+    >
+      Links
+    </div>
+    <div
+      class="c2  theme"
+    >
+      Theme
+    </div>
+    <div
+      class="c2 selected settings"
+    >
+      Settings
+    </div>
+    <div
+      class="space"
+    />
+    <div
+      class="c3"
+      data-testid="user-in-header"
+    >
+      Yaroslav Zotov
+      <span
+        class="c4"
+        color="#6e7191"
+        height="22px"
+        rotate="0"
+        width="22px"
+      >
+        <svg
+          class="chevron"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M112 184l144 144 144-144"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="48"
+          />
+        </svg>
+      </span>
+      <div
+        class="c5 disabled"
+        data-testid="user-modal-in-header"
+      >
+        <a>
+          My page
+        </a>
+        <a
+          class="error"
+        >
+          Logout
+        </a>
+      </div>
+    </div>
+    <div
+      class="c6"
+      data-testid="burger-menu"
+    >
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
+    <div
+      class="c7"
+    >
+      <div
+        class="c8"
+        data-testid="mobile-slide-slide"
+      >
+        <div
+          class="c9"
+        >
+          <div
+            class="c10 user-avatar"
+            data-testid="avatar"
+            style="width: 60px; height: 60px; background-image: url(https://sun9-70.userapi.com/impg/Afr3SX4BeAJzLemVyNMhHhr-5qvMlj1MedV0wA/5B6s0MBC6Y8.jpg?size=1728x2160&quality=96&sign=7a48ae45b2c91959995e58331fa10926&type=album);"
+          />
+          <p
+            class="name"
+          >
+            Yaroslav Zotov
+          </p>
+        </div>
+        <p
+          class="c11"
+        >
+          Links
+        </p>
+        <p
+          class="c11"
+        >
+          Theme
+        </p>
+        <p
+          class="c11"
+        >
+          Settings
+        </p>
+        <p
+          class="c11"
+        >
+          Login
+        </p>
+        <p
+          class="c11"
+        >
+          Signup
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Testing Header component should render correctly loading 1`] = `
+<DocumentFragment>
+  .c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto 0;
+  padding: 0 20px;
+}
+
+.c0 .space {
+  width: 100%;
+}
+
+.c1 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 48px;
+  margin: 3.5px 70px 3.5px 0;
+}
+
+.c2 {
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  color: #6e7191;
+  position: relative;
+  margin-right: 70px;
+  padding: 4.5px 0;
+}
+
+.c2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 3px;
+  background-color: #5f2eea;
+  -webkit-transition: width 200ms ease,margin-left 200ms ease;
+  transition: width 200ms ease,margin-left 200ms ease;
+  width: 0;
+  margin-left: 0;
+}
+
+.c2:not(.selected).links:after {
+  margin-left: 28px;
+}
+
+.c2:not(.selected).theme:after {
+  margin-left: 42px;
+}
+
+.c2:not(.selected).settings:after {
+  margin-left: 49px;
+}
+
+.c2.selected {
+  color: #14142b;
+  position: relative;
+}
+
+.c2.selected.links:after {
+  width: 56px;
+}
+
+.c2.selected.theme:after {
+  width: 84px;
+}
+
+.c2.selected.settings:after {
+  width: 98px;
+}
+
+.c2:not(.selected) {
+  cursor: pointer;
+}
+
+.c4 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.c5 {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: -webkit-transform 300ms ease;
+  -webkit-transition: transform 300ms ease;
+  transition: transform 300ms ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  pointer-events: all;
+}
+
+.c6 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #6e7191;
+  margin-bottom: 15px;
+  z-index: 100001;
+  cursor: pointer;
+}
+
+.c3 {
+  margin: 8px 0;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 10001;
+  -webkit-flex: 0 0 34px;
+  -ms-flex: 0 0 34px;
+  flex: 0 0 34px;
+}
+
+.c3 span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #6e7191;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.c3 span:nth-child(1) {
+  top: 0px;
+}
+
+.c3 span:nth-child(2),
+.c3 span:nth-child(3) {
+  top: 10px;
+}
+
+.c3 span:nth-child(4) {
+  top: 20px;
+}
+
+.c3.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.c3.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.c3.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.c3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+@media screen and (max-width:960px) {
+  .c0 .user-skeleton {
+    display: none;
+  }
+}
+
+@media screen and (max-width:960px) {
+  .c2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width:960px) {
+  .c3 {
+    display: none;
+  }
+}
+
+<div
+    class="c0"
+  >
+    <img
+      class="c1"
+      src="/images/logo-48x35.png"
+    />
+    <div
+      class="c2 selected links"
+    >
+      Links
+    </div>
+    <div
+      class="c2"
+    >
+      Theme
+    </div>
+    <div
+      class="c2"
+    >
+      Settings
+    </div>
+    <div
+      class="space"
+    />
+    <span>
+      <span
+        class="react-loading-skeleton user-skeleton css-1eg0sfo-skeletonStyles-Skeleton"
+        style="width: 175px; height: 37px;"
+      >
+        ‌
+      </span>
+    </span>
+    <div
+      class="c3"
+      data-testid="burger-menu"
+    >
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+        data-testid="mobile-slide-slide"
+      >
+        <p
+          class="c6"
+        >
+          Links
+        </p>
+        <p
+          class="c6"
+        >
+          Theme
+        </p>
+        <p
+          class="c6"
+        >
+          Settings
+        </p>
+        <p
+          class="c6"
+        >
+          Login
+        </p>
+        <p
+          class="c6"
+        >
+          Signup
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

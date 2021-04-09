@@ -74,6 +74,7 @@ export type Props = {
 const BurgerMenu: React.FC<Props> = (props) => {
 
     return <Container
+            data-testid="burger-menu"
             onClick={ () => {
                 if (props.onClick) props.onClick(!props.open);
             }}

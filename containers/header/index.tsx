@@ -13,7 +13,7 @@ export type Props = {
 
 
 const HeaderContainer: React.FC<Props> = (props) => {
-    if (props.user) return <Authorized {...props.user}/>;
+    if (props.user && !props.loading) return <Authorized {...props.user}/>;
     return <Loading/>;
 }
 

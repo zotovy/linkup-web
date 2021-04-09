@@ -26,10 +26,10 @@ const Authorized: React.FC<Props> = (props) => {
         <Tab className={ f.getTabClass("theme") } onClick={ f.onTabClickHandler("theme") }>Theme</Tab>
         <Tab className={ f.getTabClass("settings") } onClick={ f.onTabClickHandler("settings") }>Settings</Tab>
         <div className="space"/>
-        <User onClick={ f.toggleUserModalWindow }>
+        <User onClick={ f.toggleUserModalWindow } data-testid="user-in-header">
             { props.name }
             <ChevronDownOutline cssClasses="chevron" color={ theme.colors.text.disabled }/>
-            <UserModelWindow className={ f.getUserModalWindowClass() }>
+            <UserModelWindow className={ f.getUserModalWindowClass() } data-testid="user-modal-in-header">
                 <a>My page</a>
                 <a className="error">Logout</a>
             </UserModelWindow>

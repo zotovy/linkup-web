@@ -64,7 +64,7 @@ const MobileMenuSlide: React.FC<Props> = (props) => {
     const router = useRouter();
 
     return <Container>
-        <Slide open={ props.isOpen }>
+        <Slide open={ props.isOpen } data-testid="mobile-slide-slide">
             {
                 props.user
                         ? <User>
