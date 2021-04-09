@@ -58,8 +58,11 @@ const Button: React.FC<Props> = (props: Props) => {
             ? "rgba(255, 255, 255, 0.3)"
             : "rgba(95, 46, 234, 0.15)"
 
-    return <Ripples color={splashColor} className={`button-ripple button-container button-${role}`}>
-        <Container { ...props } type={ props.htmlType } role={ role } size={ size }>
+    return <Ripples
+            color={ splashColor }
+            className={ `button-ripple button-container button-${ role }` }
+            >
+        <Container { ...props } type={ props.htmlType } role={ role } size={ size } data-testid="button">
             {
                 props.children
             }

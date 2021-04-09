@@ -3,6 +3,7 @@
 exports[`Testing avatar component should renders correctly 1`] = `
 <div
   className="avatar__Container-sc-1ww9vzg-0 cecCNc user-avatar"
+  data-testid="avatar"
   style={
     Object {
       "backgroundImage": "url(https://avatars.githubusercontent.com/u/35657233?v=4)",
