@@ -1,37 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing button component should renders correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 12.5px;
+  outline: none;
+  -webkit-transition: background-color 150ms ease;
+  transition: background-color 150ms ease;
+  padding: 12.5px 30px;
+  color: #f7f7fc;
+  background-color: #5f2eea;
+  border: 2px solid #5f2eea;
+}
+
+.c0 .content {
+  border-radius: 15px;
+  width: calc(100% + 20px);
+  text-align: center;
+}
+
+.c0:hover {
+  background-color: #6534ea;
+}
+
 <div
-  className="react-ripples button-ripple button-container button-primary"
-  onClick={[Function]}
-  style={
-    Object {
-      "display": "inline-flex",
-      "overflow": "hidden",
-      "position": "relative",
-    }
-  }
->
-  <button
-    className="button__Container-kgsnoi-0 heniDW"
-    data-testid="button"
-    role="primary"
-    size="default"
+    class="react-ripples button-ripple button-container button-primary"
+    style="position: relative; display: inline-flex; overflow: hidden;"
   >
-    hello there
-  </button>
-  <s
-    style={
-      Object {
-        "borderRadius": "50%",
-        "height": 35,
-        "opacity": 0,
-        "pointerEvents": "none",
-        "position": "absolute",
-        "transform": "translate(-50%, -50%)",
-        "width": 35,
-      }
-    }
-  />
-</div>
+    <button
+      class="c0"
+      data-testid="button"
+      role="primary"
+    />
+    <s
+      style="position: absolute; border-radius: 50%; opacity: 0; width: 35px; height: 35px; transform: translate(-50%, -50%); pointer-events: none;"
+    />
+  </div>
+</DocumentFragment>
 `;

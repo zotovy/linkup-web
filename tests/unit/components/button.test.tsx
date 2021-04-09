@@ -1,11 +1,10 @@
 /// <reference types="@types/jest" />
-import { render, screen, ThemeWrapper } from "../../test-utils";
-import renderer from 'react-test-renderer';
+import { render, screen } from "../../test-utils";
 import '@testing-library/jest-dom';
+import 'jest-styled-components'
 
 import Button from "@/components/button";
 import { cleanup, fireEvent } from "@testing-library/react";
-
 
 describe("Testing button component", () => {
 
@@ -32,10 +31,7 @@ describe("Testing button component", () => {
     });
 
     test("should renders correctly", () => {
-        const tree = renderer
-                .create(<ThemeWrapper><Button>{ props.text }</Button></ThemeWrapper>)
-                .toJSON();
-
-        expect(tree).toMatchSnapshot();
+        const { asFragment } = render(<Button />);
+        expect(asFragment()).toMatchSnapshot();
     });
 });

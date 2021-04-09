@@ -2,6 +2,7 @@
 import { render, screen, ThemeWrapper } from "../../test-utils";
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
+import 'jest-styled-components'
 
 import ThemeComponent, { Props } from "@/components/theme";
 import { cleanup, fireEvent } from "@testing-library/react";

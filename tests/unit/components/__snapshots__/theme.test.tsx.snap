@@ -1,17 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing theme component should renders correctly 1`] = `
+.c0 {
+  width: 185px;
+  height: 185px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.c1 {
+  width: 165px;
+  height: 128px;
+  background: linear-gradient(243.5deg,#3A3A60 1.01%,#19192F 94.5%);
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.c2 {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: normal;
+  color: #4e4b66;
+}
+
 <div
-  className="theme__Container-sc-1q5y7sm-0 fUCSLI theme-component"
+  className="c0 theme-component"
   data-testid="theme"
   name="Dark theme"
 >
   <div
-    className="theme__Preview-sc-1q5y7sm-1 fdTDcu"
+    className="c1"
     name="Dark theme"
   />
   <span
-    className="theme__Name-sc-1q5y7sm-2 izzcna"
+    className="c2"
     name="Dark theme"
   >
     Dark theme
@@ -20,17 +44,41 @@ exports[`Testing theme component should renders correctly 1`] = `
 `;
 
 exports[`Testing theme component should renders correctly as selected 1`] = `
+.c0 {
+  width: 185px;
+  height: 185px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.c1 {
+  width: 165px;
+  height: 128px;
+  background: linear-gradient(243.5deg,#3A3A60 1.01%,#19192F 94.5%);
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.c2 {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 500;
+  color: #14142b;
+}
+
 <div
-  className="theme__Container-sc-1q5y7sm-0 fUCSLI theme-component"
+  className="c0 theme-component"
   data-testid="theme"
   name="Dark theme"
 >
   <div
-    className="theme__Preview-sc-1q5y7sm-1 fdTDcu"
+    className="c1"
     name="Dark theme"
   />
   <span
-    className="theme__Name-sc-1q5y7sm-2 gmVQuL"
+    className="c2"
     name="Dark theme"
   >
     Dark theme

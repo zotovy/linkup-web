@@ -2,6 +2,7 @@
 import { ThemeWrapper } from "../../test-utils";
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom';
+import 'jest-styled-components'
 
 import AvatarComponent, { Props } from "@/components/avatar";
 import { cleanup } from "@testing-library/react";

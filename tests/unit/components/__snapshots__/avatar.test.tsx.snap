@@ -1,8 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing avatar component should renders correctly 1`] = `
+.c0 {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 <div
-  className="avatar__Container-sc-1ww9vzg-0 cecCNc user-avatar"
+  className="c0 user-avatar"
   data-testid="avatar"
   style={
     Object {
