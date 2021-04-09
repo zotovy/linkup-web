@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing theme component should renders correctly 1`] = `
+<div
+  className="theme__Container-sc-1q5y7sm-0 fUCSLI theme-component"
+  data-testid="theme"
+  name="Dark theme"
+>
+  <div
+    className="theme__Preview-sc-1q5y7sm-1 fdTDcu"
+    name="Dark theme"
+  />
+  <span
+    className="theme__Name-sc-1q5y7sm-2 izzcna"
+    name="Dark theme"
+  >
+    Dark theme
+  </span>
+</div>
+`;
+
+exports[`Testing theme component should renders correctly as selected 1`] = `
+<div
+  className="theme__Container-sc-1q5y7sm-0 fUCSLI theme-component"
+  data-testid="theme"
+  name="Dark theme"
+>
+  <div
+    className="theme__Preview-sc-1q5y7sm-1 fdTDcu"
+    name="Dark theme"
+  />
+  <span
+    className="theme__Name-sc-1q5y7sm-2 gmVQuL"
+    name="Dark theme"
+  >
+    Dark theme
+  </span>
+</div>
+`;

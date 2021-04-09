@@ -17,3 +17,9 @@ const customRender = (
 export * from '@testing-library/react'
 
 export { customRender as render }
+
+export const ThemeWrapper: React.FC = ({ children }) => {
+    return <ThemeProvider theme={theme}>
+        { children }
+    </ThemeProvider>
+}

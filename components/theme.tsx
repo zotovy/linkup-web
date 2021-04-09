@@ -36,7 +36,7 @@ export type Props = {
 }
 
 const ThemeComponent: React.FC<Props> = (props) => {
-    return <Container {...props}>
+    return <Container {...props} className="theme-component" data-testid="theme">
         <Preview { ...props } />
         <Name { ...props }>{ props.name }</Name>
     </Container>
