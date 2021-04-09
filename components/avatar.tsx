@@ -32,7 +32,7 @@ const UserAvatar: React.FC<Props> = (props) => {
         ...props.style,
     };
 
-    return <Container style={ styles } className="user-avatar"/>
+    return <Container style={ styles } className="user-avatar" data-testid="avatar"/>
 }
 
 export default UserAvatar;
