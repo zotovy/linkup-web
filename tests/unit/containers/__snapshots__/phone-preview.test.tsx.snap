@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing PhonePreview component should renders correctly 1`] = `
+<DocumentFragment>
+  .c2 {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.c3 {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 11px;
+  color: #14142b;
+}
+
+.c1 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c5 {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #5f2eea;
+  cursor: pointer;
+}
+
+.c5 img {
+  margin-right: 10px;
+}
+
+.c0 {
+  width: 350px;
+  height: 768px;
+  border-radius: 50px;
+  box-shadow: 0 0 0 15px #111111;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #f7f7fc;
+  padding: 0 20px;
+  position: relative;
+}
+
+.c0 .UserInformationPreview {
+  margin-top: 30px;
+}
+
+.c4 {
+  margin-top: 51px;
+  width: 100%;
+}
+
+<div
+    class="c0"
+  >
+    <div
+      class="c1 UserInformationPreview"
+    >
+      <div
+        class="c2 user-avatar"
+        data-testid="avatar"
+        style="background-image: url(https://sun9-70.userapi.com/impg/Afr3SX4BeAJzLemVyNMhHhr-5qvMlj1MedV0wA/5B6s0MBC6Y8.jpg?size=1728x2160&quality=96&sign=7a48ae45b2c91959995e58331fa10926&type=album);"
+      />
+      <p
+        class="c3"
+      >
+        Yaroslav Zotov
+      </p>
+    </div>
+    <div
+      class="c4"
+    />
+    <div
+      class="c5"
+    >
+      <img
+        alt="linkup logo small"
+        src="/images/logo-small.png"
+      />
+      <span>
+        Linkup
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
