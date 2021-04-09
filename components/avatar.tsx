@@ -14,6 +14,7 @@ export type Props = (User | {
     profileImagePath?: string;
 }) & {
     style?: React.CSSProperties
+    diameter?: React.CSSProperties["width"]
 }
 
 const UserAvatar: React.FC<Props> = (props) => {
@@ -25,11 +26,13 @@ const UserAvatar: React.FC<Props> = (props) => {
 
     const bg = `url(${profileImagePath})`;
     const styles: React.CSSProperties = {
+        width: props.diameter ?? "",
+        height: props.diameter ?? "",
         backgroundImage: bg,
         ...props.style,
     };
 
-    return <Container style={ styles }/>
+    return <Container style={ styles } className="user-avatar"/>
 }
 
 export default UserAvatar;

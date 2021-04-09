@@ -9,7 +9,7 @@ import LinkComponent from "@/containers/phone-preview/link";
 import WaterMarkComponent from "@/containers/phone-preview/watermark";
 
 export default {
-    title: 'Preview/Phone preview',
+    title: 'Containers/Phone preview',
     component: PhonePreviewContainer,
 } as Meta;
 

@@ -1,7 +1,11 @@
+import { DefaultTheme } from "styled-components";
+
 export default {
     colors: {
         primary: "#5f2eea",
         primaryHover: "#6534ea",
+        lightPrimary: "#BCA4FF",
+        lightPrimaryHover: "#d1bff3",
         bg: "#f7f7fc",
         text: {
             primary: "#14142b",
@@ -15,4 +19,4 @@ export default {
         }
     },
     centerContent: "margin: 15px auto 0;\n    max-width: 1400px;",
-}
+} as DefaultTheme

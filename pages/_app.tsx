@@ -1,10 +1,9 @@
 import React from "react";
 import { AppProps } from "next/app";
-import { wrapper } from "@/redux/store";
 import { ThemeProvider } from "styled-components";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { CookiesProvider } from "react-cookie"
-import {  AnimateSharedLayout } from "framer-motion"
+import { AnimateSharedLayout } from "framer-motion"
 import theme from "@/utils/theme";
 import EnvHelper from "@/helpers/env-helper";
 import "../styles/globals.css"
@@ -15,7 +14,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps, router}) => {
 
     return <ThemeProvider theme={theme}>
         <AnimateSharedLayout>
-            <SkeletonTheme color={theme.colors.lightBg} highlightColor={theme.colors.skeletonHighlight}>
+            <SkeletonTheme color="#D9DBE9" highlightColor="#e2e3ed">
                 <CookiesProvider>
                     <Component {...pageProps} key={router.route} />
                 </CookiesProvider>
@@ -24,4 +23,4 @@ const App: React.FC<AppProps> = ({ Component, pageProps, router}) => {
     </ThemeProvider>
 }
 
-export default wrapper.withRedux(App);
+export default App;

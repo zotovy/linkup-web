@@ -17,3 +17,9 @@ export const Primary = TemplatePrimary.bind({});
 Primary.args = {
     text: "My button"
 }
+
+const TemplateSecondary: Story<StoriesProps> = (args) => <Button role="secondary">{ args.text }</Button>;
+export const Secondary = TemplateSecondary.bind({});
+Secondary.args = {
+    text: "My button"
+}

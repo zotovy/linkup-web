@@ -5,6 +5,8 @@ declare module "styled-components" {
         colors: {
             primary: string,
             primaryHover: string
+            lightPrimary: string;
+            lightPrimaryHover: string;
             bg: string,
             text: {
                 primary: string,
