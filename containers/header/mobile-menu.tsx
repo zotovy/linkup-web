@@ -3,7 +3,6 @@ import styled from "styled-components";
 import UserAvatar from "@/components/avatar";
 import { useRouter } from "next/router";
 import AppRoutes from "@/utils/app-routes";
-import useHeaderLogic from "@/containers/header/logic";
 
 const Container = styled.div`
     position: fixed;

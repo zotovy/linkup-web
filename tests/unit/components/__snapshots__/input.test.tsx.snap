@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing input component should renders correctly 1`] = `
+<DocumentFragment>
+  .c0 {
+  border: 1.5px solid #D9DDE9;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 28px;
+  outline: none;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  -webkit-transition: border 200ms;
+  transition: border 200ms;
+}
+
+.c0:focus {
+  border: 1.5px solid #14142B;
+}
+
+<input
+    class="c0"
+    placeholder="Hello my friend!"
+  />
+</DocumentFragment>
+`;
+
+exports[`Testing input component should renders correctly with error 1`] = `
+<DocumentFragment>
+  .c0 {
+  border: 1.5px solid #D9DDE9;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 28px;
+  outline: none;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  -webkit-transition: border 200ms;
+  transition: border 200ms;
+  border: 1.5px solid #ED2E7E !important;
+  color: #ED2E7E;
+}
+
+.c0:focus {
+  border: 1.5px solid #14142B;
+}
+
+<input
+    class="c0"
+    placeholder="Hello my friend!"
+  />
+</DocumentFragment>
+`;

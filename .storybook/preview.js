@@ -7,6 +7,19 @@ import theme from "../utils/theme";
 
 export const parameters = {
     actions: {argTypesRegex: "^on[A-Z].*"},
+    backgrounds: {
+        default: "light",
+        values: [
+            {
+                name: "light",
+                value: theme.colors.bg,
+            },
+            {
+                name: "white",
+                value: "#FFF",
+            }
+        ]
+    }
 }
 
 addDecorator(storyfn => <ThemeProvider theme={ theme }>{ storyfn() }</ThemeProvider>);

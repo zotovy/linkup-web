@@ -17,7 +17,10 @@ declare module "styled-components" {
             },
             input: {
                 border: string,
+                focus: string,
+                error: string,
             },
+            disabled: string,
         }
         centerContent: string;
     }
