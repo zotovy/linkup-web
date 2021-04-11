@@ -4,8 +4,8 @@ export default {
     colors: {
         primary: "#5f2eea",
         primaryHover: "#6534ea",
-        lightPrimary: "#BCA4FF",
-        lightPrimaryHover: "#d1bff3",
+        lightPrimary: "#F3EFFF",
+        lightPrimaryHover: "#eee9fe",
         bg: "#f7f7fc",
         text: {
             primary: "#14142b",

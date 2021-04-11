@@ -1,6 +1,6 @@
 import React from "react";
-import Authorized from "@/containers/header/authorized";
-import Loading from "@/containers/header/loading";
+import Authorized from "@/components/header/authorized";
+import Loading from "@/components/header/loading";
 
 export type Props = {
     user?: User | {

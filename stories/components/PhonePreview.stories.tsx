@@ -3,13 +3,13 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { user, link } from "../data";
 import "../../styles/globals.css";
 
-import PhonePreviewContainer from "@/containers/phone-preview";
-import UserComponent from "@/containers/phone-preview/user";
-import LinkComponent from "@/containers/phone-preview/link";
-import WaterMarkComponent from "@/containers/phone-preview/watermark";
+import PhonePreviewContainer from "@/components/phone-preview";
+import UserComponent from "@/components/phone-preview/user";
+import LinkComponent from "@/components/phone-preview/link";
+import WaterMarkComponent from "@/components/phone-preview/watermark";
 
 export default {
-    title: 'Containers/Phone preview',
+    title: 'Component/Phone preview',
     component: PhonePreviewContainer,
 } as Meta;
 

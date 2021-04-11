@@ -1,15 +1,15 @@
 import React  from "react";
 import { ChevronDownOutline } from "react-ionicons";
 import theme from "@/utils/theme";
-import useHeaderLogic from "@/containers/header/logic";
+import useHeaderLogic from "@/components/header/logic";
 
 // Components
-import User, { UserModelWindow } from "@/containers/header/user";
-import Container from "@/containers/header/container";
-import Logo from "@/containers/header/logo";
-import Tab from "@/containers/header/tab";
-import MobileMenuSlide from "@/containers/header/mobile-menu";
-import BurgerMenu from "@/containers/header/burger";
+import User, { UserModelWindow } from "@/components/header/user";
+import Container from "@/components/header/container";
+import Logo from "@/components/header/logo";
+import Tab from "@/components/header/tab";
+import MobileMenuSlide from "@/components/header/mobile-menu";
+import BurgerMenu from "@/components/header/burger";
 
 type Props = User | {
     username: string;

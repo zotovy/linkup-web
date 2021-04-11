@@ -1,13 +1,13 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
-import useHeaderLogic from "@/containers/header/logic";
+import useHeaderLogic from "@/components/header/logic";
 
 // Components
-import MobileMenuSlide from "@/containers/header/mobile-menu";
-import Container from "@/containers/header/container";
-import BurgerMenu from "@/containers/header/burger";
-import Logo from "@/containers/header/logo";
-import Tab from "@/containers/header/tab";
+import MobileMenuSlide from "@/components/header/mobile-menu";
+import Container from "@/components/header/container";
+import BurgerMenu from "@/components/header/burger";
+import Logo from "@/components/header/logo";
+import Tab from "@/components/header/tab";
 
 const LoadingHeader: React.FC = () => {
     const { f: { toggleUserSlide, onTabClick }, v: { isMobileSlideOpen } } = useHeaderLogic();

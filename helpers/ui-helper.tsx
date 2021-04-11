@@ -43,10 +43,29 @@ export default class UiHelper {
     }
 
     /// Formats to react-ionicons icon name
+    /// logo-github --> LogoGithub
     static formatNameToIcon(icon: string) {
-        icon = icon.replaceAll("-", " ");
-        icon = icon.split(" ").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join("")
+        if (!icon) return "";
+        icon = icon.split("-").map(x => x.charAt(0).toUpperCase() + x.slice(1)).join("")
         return icon;
+    }
+
+    /// Formats react-ionicons to domain icon name
+    /// LogoGithub --> logo-github
+    static formatIconToName(icon: string) {
+        if (!icon) return "";
+
+        const arr = [];
+        let lastI = 0;
+
+        for (let i = 1; i < icon.length; i++) {
+            if (icon[i].toUpperCase() == icon[i]) {
+                arr.push(icon.slice(lastI, i).toLowerCase());
+                lastI = i
+            }
+        }
+        arr.push(icon.substr(lastI).toLowerCase());
+        return arr.join("-");
     }
 }
 

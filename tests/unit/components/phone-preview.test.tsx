@@ -3,7 +3,7 @@ import { render } from "../../test-utils";
 import '@testing-library/jest-dom';
 import 'jest-styled-components';
 
-import PhonePreview, { Props } from "@/containers/phone-preview";
+import PhonePreview, { Props } from "@/components/phone-preview";
 import { cleanup } from "@testing-library/react";
 import { user } from "../../data";
 

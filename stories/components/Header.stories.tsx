@@ -3,10 +3,10 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { user } from "../data";
 import "../../styles/globals.css";
 
-import Header, { Props } from "@/containers/header";
+import Header, { Props } from "@/components/header";
 
 export default {
-    title: 'Containers/Header',
+    title: 'Component/Header',
     component: Header,
 } as Meta;
 

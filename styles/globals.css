@@ -59,3 +59,19 @@ textarea {
 a {
     text-decoration: none;
 }
+
+.scrollable
+
+.scrollable::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.scrollable::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+/*.scrollable::-webkit-scrollbar-track {*/
+/*    !*background-color: red;*!*/
+/*}*/

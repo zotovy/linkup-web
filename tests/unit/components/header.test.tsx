@@ -3,7 +3,7 @@ import { render, cleanup, fireEvent } from "../../test-utils";
 import '@testing-library/jest-dom';
 import 'jest-styled-components';
 
-import Header, { Props } from "@/containers/header";
+import Header, { Props } from "@/components/header";
 import { user } from "../../data";
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')

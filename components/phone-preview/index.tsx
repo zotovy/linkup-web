@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import UiHelper from "@/helpers/ui-helper";
 
-import UserInformationPreview from "@/containers/phone-preview/user";
-import LinkComponent from "@/containers/phone-preview/link";
-import Watermark from "@/containers/phone-preview/watermark";
+import UserInformationPreview from "@/components/phone-preview/user";
+import LinkComponent from "@/components/phone-preview/link";
+import Watermark from "@/components/phone-preview/watermark";
 
 const Container = styled.div<{ userTheme: Theme }>`
     width: 350px;

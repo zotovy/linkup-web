@@ -1,10 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import * as icons from "react-ionicons";
 import UiHelper from "@/helpers/ui-helper";
 import theme from "@/utils/theme";
 
-const Container = styled.div<{ userTheme: Theme }>`
+export const ContainerStyles = css<{ userTheme: Theme }>`
     display: flex;
     padding: 10px;
     border-radius: 16px;
@@ -18,7 +18,9 @@ const Container = styled.div<{ userTheme: Theme }>`
     }
 `;
 
-const Information = styled.div<{ userTheme: Theme }>`
+const Container = styled.div`${ContainerStyles}`;
+
+export const Information = styled.div<{ userTheme: Theme }>`
     display: flex;
     flex-direction: column;
     justify-content: center;
