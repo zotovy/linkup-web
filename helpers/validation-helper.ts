@@ -6,6 +6,11 @@ export default class ValidationHelper {
     static PasswordValidator = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/)
     static NameValidator = new RegExp("^[a-zA-Zа-яёА-ЯЁ]+(([',. -][a-zA-Zа-яёА-ЯЁ])?[a-zA-Zа-яёА-ЯЁ]*)*$");
 
+    static validateLoginForm = Yup.object().shape({
+        email: Yup.string().required().email(),
+        password: Yup.string().required().matches(ValidationHelper.PasswordValidator),
+    });
+
     static validateSignupForm = Yup.object().shape({
         name: Yup.string().required("Name is required").max(1024, "Name is too long").matches(ValidationHelper.NameValidator, "Invalid name"),
         email: Yup.string().required("Email is required").email("Email is invalid").max(1024, "Email is too long"),
