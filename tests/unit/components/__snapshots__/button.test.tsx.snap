@@ -3,6 +3,7 @@
 exports[`Testing button component should renders correctly 1`] = `
 <DocumentFragment>
   .c0 {
+  width: 100%;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
@@ -27,7 +28,7 @@ exports[`Testing button component should renders correctly 1`] = `
 }
 
 <div
-    class="react-ripples button-ripple button-container button-primary"
+    class="react-ripples button-ripple button-container button-primary button"
     style="position: relative; display: inline-flex; overflow: hidden;"
   >
     <button
