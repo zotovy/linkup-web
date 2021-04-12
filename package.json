@@ -46,6 +46,7 @@
     "@storybook/theming": "^6.1.21",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.1.1",
     "@types/cookies": "^0.7.6",
     "@types/jest": "^26.0.22",
     "@types/jest-image-snapshot": "^4.3.0",

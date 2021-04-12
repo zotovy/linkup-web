@@ -43,7 +43,7 @@ const formValues = {
     password: "",
 }
 
-const useLoginPage = () => {
+export const useLoginPage = () => {
     const router = useRouter();
 
     const handleChange = (field: "email" | "password") => (e: React.ChangeEvent<HTMLInputElement>) => {

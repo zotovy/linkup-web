@@ -1,9 +1,6 @@
-import axios from "axios";
-import Cookies from 'cookies'
 import client from "@/utils/api/client";
 import AuthHelper from "@/helpers/auth-helper";
 import ApiRoutes from "@/utils/api/routes";
-import { GetServerSidePropsContext } from "next";
 
 export default class UserService {
 
@@ -33,29 +30,29 @@ export default class UserService {
         return "ok";
     }
 
-    static async setAvatar(id: number, file: File): Promise<SetAvatarResponse> {
-        const form = new FormData();
-        form.append("image", file);
-        const response = await client.post(ApiRoutes.changeUserAvatar(id), form);
+    // static async setAvatar(id: number, file: File): Promise<SetAvatarResponse> {
+    //     const form = new FormData();
+    //     form.append("image", file);
+    //     const response = await client.post(ApiRoutes.changeUserAvatar(id), form);
+    //
+    //     if (typeof response.data === "string") return "ok";
+    //     if (response.data.error === "invalid-image-size-error") return "invalid_size"
+    //     return "invalid_error";
+    // }
 
-        if (typeof response.data === "string") return "ok";
-        if (response.data.error === "invalid-image-size-error") return "invalid_size"
-        return "invalid_error";
-    }
-
-    static async updateUser(id: number, data: User | { email?: string, password?: string }): Promise<UpdateUserResponse> {
-        const response = await client.put(ApiRoutes.updateUser(id), data);
-
-        if (response.status === 200) return "ok";
-        if (response.data.errors) {
-            const errors = response.data.errors as ApiValidationError[];
-            if (errors.find(x => x.path === "name")) return "name_too_long";
-            if (errors.find(x => x.path === "email")) return "email_format_error";
-            return "invalid_error";
-        }
-        if (response.data.error === "email-unique-error") return "email_not_unique_error";
-        return "invalid_error";
-    }
+    // static async updateUser(id: number, data: User | { email?: string, password?: string }): Promise<UpdateUserResponse> {
+    //     const response = await client.put(ApiRoutes.updateUser(id), data);
+    //
+    //     if (response.status === 200) return "ok";
+    //     if (response.data.errors) {
+    //         const errors = response.data.errors as ApiValidationError[];
+    //         if (errors.find(x => x.path === "name")) return "name_too_long";
+    //         if (errors.find(x => x.path === "email")) return "email_format_error";
+    //         return "invalid_error";
+    //     }
+    //     if (response.data.error === "email-unique-error") return "email_not_unique_error";
+    //     return "invalid_error";
+    // }
 }
 
 type ApiValidationError = {
