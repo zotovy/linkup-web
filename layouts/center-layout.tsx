@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const CenterLayoutStyles = css`
     width: 100vw;
-    max-width: 768px;
+    max-width: 450px;
     height: 100vh;
     display: flex;
     flex-direction: column;

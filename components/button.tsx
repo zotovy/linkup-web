@@ -8,6 +8,7 @@ type StyledProps = {
 }
 
 const Container = styled.button<StyledProps>`
+    width: 100%;
     font-size: ${ props => props.size === "small" ? "16px" : "18px" };
     font-weight: 500;
     cursor: pointer;
@@ -60,7 +61,7 @@ const Button: React.FC<Props> = (props: Props) => {
 
     return <Ripples
             color={ splashColor }
-            className={ `button-ripple button-container button-${ role }` }
+            className={ `button-ripple button-container button-${ role } button` }
             >
         <Container { ...props } type={ props.htmlType } role={ role } size={ size } data-testid="button">
             {
