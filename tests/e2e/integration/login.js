@@ -21,10 +21,14 @@ it("User can login", () => {
 
     cy.visit(Cypress.env("url") + "/login");
 
+    cy.get("main").toMatchImageSnapshot();
+
     cy.get("input[placeholder=\"Enter your email\"]").type(email);
     cy.get("input[placeholder=\"Enter your password\"]").type(password);
 
     cy.get("button").click();
+
+    cy.get("main").toMatchImageSnapshot();
 
     cy.wait(["@login-route"]);
     cy.wait(1000);
@@ -61,6 +65,7 @@ it("User can't login with invalid credentials", () => {
     cy.wait(1000);
 
     cy.get("div:contains(\"Invalid email or password\")");
+    cy.get("main").toMatchImageSnapshot();
 
     cy.location('pathname').should('eq', '/login');
 });

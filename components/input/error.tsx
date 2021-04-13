@@ -12,7 +12,8 @@ export const ErrorLabel = styled.span`
 `;
 
 export const Container = styled.div`
-
+    width: 100%;
+    
     &.error {
 
         ${ InputBase } {

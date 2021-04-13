@@ -22,6 +22,7 @@ it("should signup user", () => {
     ).as("signup-route");
 
     cy.visit(Cypress.env("url") + "/signup");
+    cy.get("main").toMatchImageSnapshot();
 
     cy.get("input[placeholder=\"Full name\"]").type(name);
     cy.get("input[placeholder=\"Username\"]").type(username);
@@ -30,6 +31,7 @@ it("should signup user", () => {
     cy.get("input[placeholder=\"Password Confirm\"]").type(password);
 
     cy.get("button").click();
+    cy.get("main").toMatchImageSnapshot();
 
     cy.wait(["@signup-route"]);
     cy.wait(1000);
@@ -48,6 +50,7 @@ it("shouldn't signup user with no data", () => {
     cy.contains("Email is required")
     cy.contains("Password is required")
     cy.contains("Confirm your password")
+    cy.get("main").toMatchImageSnapshot();
 
     cy.location('pathname').should('eq', '/signup');
 });
@@ -93,6 +96,7 @@ it("should say that email is not unique", () => {
 
     cy.wait(["@signup-route"]);
     cy.contains("This email is already in use");
+    cy.get("main").toMatchImageSnapshot();
 
     cy.location('pathname').should('eq', '/signup');
 });
@@ -122,6 +126,7 @@ it("should say that username is not unique", () => {
 
     cy.wait(["@signup-route"]);
     cy.contains("This username is already in use");
+    cy.get("main").toMatchImageSnapshot();
 
     cy.location('pathname').should('eq', '/signup');
 });

@@ -8,5 +8,9 @@
   "env": {
     "url": "https://localhost:3000",
     "server": "https://localhost:5001/api/1.0"
-  }
+  },
+  "ignoreTestFiles": [
+    "**/__snapshots__/*",
+    "**/__image_snapshots__/*"
+  ]
 }
