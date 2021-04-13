@@ -23,11 +23,8 @@ export default class UserService {
             if (response.status === 400) {
                 if (response.data.error === "email-already-exists-error") return "email_not_unique_error";
                 if (response.data.error === "username-already-exists-error") return "username_not_unique_error";
+                return "invalid_error";
             }
-            if (response.status === 400 && response.data.error === "email-already-exists-error") {
-
-            }
-            return "invalid_error";
         }
 
         // save tokens
