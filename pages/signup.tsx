@@ -1,15 +1,18 @@
+import React from "react";
 import { NextPage } from "next";
 import styled from "styled-components";
+import { ToastContainer } from "react-toastify";
 import { FormikProps, withFormik } from "formik";
+import "react-toastify/dist/ReactToastify.css";
 
-import { CenterLayoutStyles } from "@/layouts/center-layout";
-import Input from "@/components/input/error";
-import PasswordInput from "@/components/input/password";
-import { withRouter } from "next/router";
 import { WithRouterProps } from "next/dist/client/with-router";
+import { CenterLayoutStyles } from "@/layouts/center-layout";
 import ValidationHelper from "@/helpers/validation-helper";
+import PasswordInput from "@/components/input/password";
 import UserService from "@/services/user-service";
+import Input from "@/components/input/error";
 import UiHelper from "@/helpers/ui-helper";
+import { withRouter } from "next/router";
 import Button from "@/components/button";
 import Title from "@/components/title";
 
@@ -107,10 +110,13 @@ const Form = withRouter(withFormik<WithRouterProps, FormValues>({
 })(InnerForm));
 
 const SignupPage: NextPage = () => {
-    return <Page>
-        <Title>Signup</Title>
-        <Form/>
-    </Page>;
+    return <React.Fragment>
+        <Page>
+            <Title>Signup</Title>
+            <Form/>
+        </Page>
+        <ToastContainer/>
+    </React.Fragment>;
 }
 
 export default SignupPage;
