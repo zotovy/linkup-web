@@ -110,7 +110,7 @@ exports[`Test input with error label should renders correctly without 1`] = `
 
 exports[`Test password input should renders correctly 1`] = `
 <DocumentFragment>
-  .c2 {
+  .c3 {
   border: 1.5px solid #D9DDE9;
   padding: 7px 14px;
   border-radius: 10px;
@@ -124,11 +124,31 @@ exports[`Test password input should renders correctly 1`] = `
   transition: border 200ms;
 }
 
-.c2:focus {
+.c3:focus {
   border: 1.5px solid #14142B;
 }
 
-.c3 {
+.c6 {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 200ms ease;
+  transition: height 200ms ease;
+  color: #EE4C31;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.c0.error .c2 {
+  border: 1px solid #EE4C31;
+  color: #EE4C31;
+}
+
+.c0.error .c5 {
+  margin-top: 5px;
+  height: 20px;
+}
+
+.c4 {
   height: 20px;
   position: absolute;
   top: 12.5px;
@@ -136,23 +156,23 @@ exports[`Test password input should renders correctly 1`] = `
   cursor: pointer;
 }
 
-.c0 {
+.c1 {
   width: 100%;
   position: relative;
 }
 
-.c0 .c1 {
+.c1 .c2 {
   width: 100%;
 }
 
-.c0 .c1:not(:placeholder-shown) {
+.c1 .c2:not(:placeholder-shown) {
   -webkit-letter-spacing: 7px;
   -moz-letter-spacing: 7px;
   -ms-letter-spacing: 7px;
   letter-spacing: 7px;
 }
 
-.c0[data-open=true] .c1 {
+.c1[data-open=true] .c2 {
   -webkit-letter-spacing: initial;
   -moz-letter-spacing: initial;
   -ms-letter-spacing: initial;
@@ -161,15 +181,22 @@ exports[`Test password input should renders correctly 1`] = `
 
 <div
     class="c0"
-    data-open="false"
   >
-    <input
-      class="c1 c2"
-      type="password"
-    />
-    <img
-      class="c3"
-      src="/icons/closed-eye.png"
+    <div
+      class="c1"
+      data-open="false"
+    >
+      <input
+        class="c2 c3"
+        type="password"
+      />
+      <img
+        class="c4"
+        src="/icons/closed-eye.png"
+      />
+    </div>
+    <span
+      class="c5 c6"
     />
   </div>
 </DocumentFragment>

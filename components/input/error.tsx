@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import InputBase from "./index";
 
-const ErrorLabel = styled.span`
+export const ErrorLabel = styled.span`
     height: 0;
     overflow: hidden;
     transition: height 200ms ease;
@@ -11,7 +11,7 @@ const ErrorLabel = styled.span`
     font-weight: normal;
 `;
 
-const Container = styled.div`
+export const Container = styled.div`
 
     &.error {
 
@@ -35,8 +35,8 @@ export type Props = React.ComponentPropsWithoutRef<"input"> & {
 
 /// This component contains error props
 const Input: React.FC<Props> = (props) => {
-    return <Container className={ !!props.error ? "error" : "" }>
-        <InputBase/>
+    return <Container className={ !!props.error ? "error" : "" + " input" }>
+        <InputBase { ...props } error={false} />
         <ErrorLabel>{ props.error }</ErrorLabel>
     </Container>
 }

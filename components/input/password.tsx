@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import Input from "@/components/input";
+import { ErrorLabel, Container as MainContainer, Props } from "@/components/input/error";
 
 const Eye = styled.img`
     height: 20px;
@@ -29,17 +31,19 @@ const Container = styled.div`
     }
 `;
 
-export type PasswordInputTypes = React.ComponentPropsWithoutRef<"input">;
-const PasswordInput: React.FC<PasswordInputTypes> = (props: PasswordInputTypes) => {
+const PasswordInput: React.FC<Props> = (props: Props) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
 
     const eyeSrc = isPasswordShown ? "/icons/open-eye.png" : "/icons/closed-eye.png";
     const inputType = isPasswordShown ? "text" : "password";
 
-    return <Container data-open={ isPasswordShown }>
-        <Input { ...props } type={ inputType }/>
-        <Eye src={ eyeSrc } onClick={ () => setIsPasswordShown(!isPasswordShown) }/>
-    </Container>
+    return <MainContainer className="input">
+        <Container data-open={ isPasswordShown }>
+            <Input { ...props } type={ inputType } error={!!props.error} />
+            <Eye src={ eyeSrc } onClick={ () => setIsPasswordShown(!isPasswordShown) }/>
+        </Container>
+        <ErrorLabel>{ props.error }</ErrorLabel>
+    </MainContainer>
 }
 
 export default PasswordInput;
