@@ -1,5 +1,180 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test input with error label should renders correctly with error 1`] = `
+<DocumentFragment>
+  .c2 {
+  border: 1.5px solid #D9DDE9;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 28px;
+  outline: none;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  -webkit-transition: border 200ms;
+  transition: border 200ms;
+}
+
+.c2:focus {
+  border: 1.5px solid #14142B;
+}
+
+.c4 {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 200ms ease;
+  transition: height 200ms ease;
+  color: #EE4C31;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.c0.error .c1 {
+  border: 1px solid #EE4C31;
+  color: #EE4C31;
+}
+
+.c0.error .c3 {
+  margin-top: 5px;
+  height: 20px;
+}
+
+<div
+    class="c0 error"
+  >
+    <input
+      class="c1 c2"
+    />
+    <span
+      class="c3 c4"
+    >
+      This field is required
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Test input with error label should renders correctly without 1`] = `
+<DocumentFragment>
+  .c2 {
+  border: 1.5px solid #D9DDE9;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 28px;
+  outline: none;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  -webkit-transition: border 200ms;
+  transition: border 200ms;
+}
+
+.c2:focus {
+  border: 1.5px solid #14142B;
+}
+
+.c4 {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 200ms ease;
+  transition: height 200ms ease;
+  color: #EE4C31;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.c0.error .c1 {
+  border: 1px solid #EE4C31;
+  color: #EE4C31;
+}
+
+.c0.error .c3 {
+  margin-top: 5px;
+  height: 20px;
+}
+
+<div
+    class="c0"
+  >
+    <input
+      class="c1 c2"
+    />
+    <span
+      class="c3 c4"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Test password input should renders correctly 1`] = `
+<DocumentFragment>
+  .c2 {
+  border: 1.5px solid #D9DDE9;
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 28px;
+  outline: none;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  -webkit-transition: border 200ms;
+  transition: border 200ms;
+}
+
+.c2:focus {
+  border: 1.5px solid #14142B;
+}
+
+.c3 {
+  height: 20px;
+  position: absolute;
+  top: 12.5px;
+  right: 12.5px;
+  cursor: pointer;
+}
+
+.c0 {
+  width: 100%;
+  position: relative;
+}
+
+.c0 .c1 {
+  width: 100%;
+}
+
+.c0 .c1:not(:placeholder-shown) {
+  -webkit-letter-spacing: 7px;
+  -moz-letter-spacing: 7px;
+  -ms-letter-spacing: 7px;
+  letter-spacing: 7px;
+}
+
+.c0[data-open=true] .c1 {
+  -webkit-letter-spacing: initial;
+  -moz-letter-spacing: initial;
+  -ms-letter-spacing: initial;
+  letter-spacing: initial;
+}
+
+<div
+    class="c0"
+    data-open="false"
+  >
+    <input
+      class="c1 c2"
+      type="password"
+    />
+    <img
+      class="c3"
+      src="/icons/closed-eye.png"
+    />
+  </div>
+</DocumentFragment>
+`;
+
 exports[`Testing input component should renders correctly 1`] = `
 <DocumentFragment>
   .c0 {

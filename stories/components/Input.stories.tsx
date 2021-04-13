@@ -4,6 +4,7 @@ import "../../styles/globals.css";
 
 import Input, { Props } from "@/components/input";
 import PasswordInput from "@/components/input/password";
+import ErrorInput from "@/components/input/error";
 
 export default {
     title: 'Components/Input',
@@ -34,5 +35,16 @@ Password.args = {
     placeholder: "Enter your password",
 }
 
+const TemplateError: Story<{ error: string }> = (args) => {
+    const error = args.error === "" ? undefined : args.error;
+
+    return <div style={{ width: "400px" }}>
+        <ErrorInput {...args} error={error} />
+    </div>
+}
+export const WithError = TemplateError.bind({});
+WithError.args = {
+    error: "This field is required",
+}
 
 
