@@ -30,6 +30,10 @@ exports[`Test input with error label should renders correctly with error 1`] = `
   font-weight: normal;
 }
 
+.c0 {
+  width: 100%;
+}
+
 .c0.error .c1 {
   border: 1px solid #EE4C31;
   color: #EE4C31;
@@ -85,6 +89,10 @@ exports[`Test input with error label should renders correctly without 1`] = `
   font-weight: normal;
 }
 
+.c0 {
+  width: 100%;
+}
+
 .c0.error .c1 {
   border: 1px solid #EE4C31;
   color: #EE4C31;
@@ -136,6 +144,10 @@ exports[`Test password input should renders correctly 1`] = `
   color: #EE4C31;
   font-size: 14px;
   font-weight: normal;
+}
+
+.c0 {
+  width: 100%;
 }
 
 .c0.error .c2 {
