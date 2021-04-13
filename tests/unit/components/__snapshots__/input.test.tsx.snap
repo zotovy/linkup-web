@@ -96,7 +96,7 @@ exports[`Test input with error label should renders correctly without 1`] = `
 }
 
 <div
-    class="c0"
+    class="c0  input"
   >
     <input
       class="c1 c2"
@@ -180,7 +180,7 @@ exports[`Test password input should renders correctly 1`] = `
 }
 
 <div
-    class="c0"
+    class="c0 input"
   >
     <div
       class="c1"

@@ -1,6 +1,7 @@
 import client from "@/utils/api/client";
 import AuthHelper from "@/helpers/auth-helper";
 import ApiRoutes from "@/utils/api/routes";
+import { FormValues } from "../pages/signup";
 
 export default class UserService {
 
@@ -16,11 +17,15 @@ export default class UserService {
         return "ok";
     }
 
-    static async signupUser(data: any): Promise<SignupResponse> {
+    static async signupUser(data: User | FormValues): Promise<SignupResponse> {
         const response = await client.post(ApiRoutes.signup, data);
         if (response.status !== 200) {
+            if (response.status === 400) {
+                if (response.data.error === "email-already-exists-error") return "email_not_unique_error";
+                if (response.data.error === "username-already-exists-error") return "username_not_unique_error";
+            }
             if (response.status === 400 && response.data.error === "email-already-exists-error") {
-                return "email_not_unique_error";
+
             }
             return "invalid_error";
         }
@@ -61,6 +66,6 @@ type ApiValidationError = {
     message?: string;
 }
 export type LoginResponse = "ok" | "invalid_credentials" | "invalid_error";
-export type SignupResponse = "ok" | "email_not_unique_error" | "invalid_error";
+export type SignupResponse = "ok" | "email_not_unique_error" | "username_not_unique_error" | "invalid_error";
 export type SetAvatarResponse = "ok" | "invalid_size" | "invalid_error";
 export type UpdateUserResponse = "ok" | "email_not_unique_error" | "email_format_error" | "name_too_long" | "invalid_error";

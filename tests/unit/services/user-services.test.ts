@@ -100,3 +100,90 @@ describe("Login user", () => {
     });
 });
 
+describe("Signup user", () => {
+    let axios: jest.SpyInstance;
+
+    beforeEach(() => {
+        axios = jest.spyOn(client, "post");
+    })
+
+    afterEach(() => {
+        jest.clearAllMocks();
+        deleteAllCookies();
+    });
+
+    test("should create user", async () => {
+        // Arrange
+        const data = {
+            status: 200,
+            data: {
+                uid: user.id,
+                tokens,
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.signupUser(user);
+
+        // Assert
+        expect(res).toEqual("ok");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toHaveBeenCalledWith(
+            ApiRoutes.signup,
+            user,
+        );
+        expect(document.cookie).toEqual(
+            `accessToken=${tokens.access}; refreshToken=${tokens.refresh}; uid=${user.id}`
+        );
+    });
+
+    test("shouldn't create user if user email uniqueness error", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: true,
+                error: "email-already-exists-error"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.signupUser(user);
+
+        // Assert
+        expect(res).toEqual("email_not_unique_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toHaveBeenCalledWith(
+            ApiRoutes.signup,
+            user,
+        );
+        expect(document.cookie).toEqual("");
+    });
+
+    test("shouldn't create user if username uniqueness error", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: true,
+                error: "username-already-exists-error"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.signupUser(user);
+
+        // Assert
+        expect(res).toEqual("username_not_unique_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toHaveBeenCalledWith(
+            ApiRoutes.signup,
+            user,
+        );
+        expect(document.cookie).toEqual("");
+    });
+});
+
