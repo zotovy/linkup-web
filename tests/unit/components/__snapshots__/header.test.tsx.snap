@@ -40,7 +40,7 @@ exports[`Testing Header component should render correctly authorized 1`] = `
 .c5 {
   position: absolute;
   top: 40px;
-  left: 0;
+  right: 0;
   background-color: white;
   border-radius: 15px;
   padding: 15px;
@@ -59,6 +59,7 @@ exports[`Testing Header component should render correctly authorized 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   width: 100%;
+  min-width: 125px;
 }
 
 .c5.disabled {

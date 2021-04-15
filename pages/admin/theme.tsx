@@ -16,10 +16,12 @@ const Container = styled.div`
 `;
 
 export type Props = {
-    theme: Theme
+    theme?: Theme
 }
 
 const Theme: React.FC<Props> = (props) => {
+    if (typeof props.theme === "undefined") return <h1>loading</h1>;
+
     return <Container>
         {
             themes.map(theme => <ThemeComponent

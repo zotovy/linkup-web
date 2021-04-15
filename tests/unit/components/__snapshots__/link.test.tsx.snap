@@ -229,7 +229,7 @@ exports[`Testing link component should renders correctly 1`] = `
 }
 
 <div
-    class="c0"
+    class="c0 link-component"
     data-testid="link"
   >
     <div
@@ -598,7 +598,7 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
 }
 
 <div
-    class="c0"
+    class="c0 link-component"
     data-testid="link"
   >
     <div
@@ -1055,7 +1055,7 @@ exports[`Testing link component should renders correctly in edit mode with open 
 }
 
 <div
-    class="c0"
+    class="c0 link-component"
     data-testid="link"
   >
     <div

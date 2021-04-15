@@ -6,9 +6,10 @@ import { State } from "@/redux/store"
 import { useRouter } from "next/router";
 import AuthHelper from "@/helpers/auth-helper";
 
-import Header from "@/components/../components/header";
-import PhonePreviewContainer from "@/components/phone-preview";
 import { fetchUserAction } from "@/redux/actions/user-actions";
+import PhonePreviewContainer from "@/components/phone-preview";
+import Header from "@/components/../components/header";
+import Settings from "./admin/settings";
 import LinksPage from "./admin/links";
 import Theme from "./admin/theme";
 
@@ -35,6 +36,7 @@ const Admin: NextPage = () => {
     const getPage = () => {
         if (tab === "links") return <LinksPage links={user.links} />
         if (tab === "theme") return <Theme theme={user.theme} />
+        if (tab === "settings") return <Settings user={user} />
         return <React.Fragment/>
     }
 
