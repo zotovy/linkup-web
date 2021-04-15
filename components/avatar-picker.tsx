@@ -55,8 +55,6 @@ const AvatarPicker: React.FC<Props> = (props: Props) => {
 
     const iconSize = typeof props.diameter === "number" ? ((props.diameter as number) / 3) : 42;
 
-    console.log(iconSize);
-
     return <Container style={styles} className="user-avatar">
         <UserAvatar { ...props } />
         <Hover>
@@ -65,7 +63,7 @@ const AvatarPicker: React.FC<Props> = (props: Props) => {
         <Input
                 type="file"
                 accept="image/*"
-                date-testid="input"
+                data-testid="input"
                 onChange={e => e.target.files ? props.onPick(e.target.files[0]) : null} />
     </Container>
 }

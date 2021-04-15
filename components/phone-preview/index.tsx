@@ -17,6 +17,7 @@ const Container = styled.div<{ userTheme: Theme }>`
     background-color: ${ props => UiHelper.getThemedStyles(props.userTheme).bg.primary };
     padding: 0 20px;
     position: relative;
+    overflow: hidden;
 
     // todo: adaptive for different sizes     
 

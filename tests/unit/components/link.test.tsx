@@ -16,6 +16,8 @@ describe("Testing link component", () => {
         },
         save: () => {
         },
+        onChange: () => {
+        },
     }
 
     test("should renders correctly", () => {

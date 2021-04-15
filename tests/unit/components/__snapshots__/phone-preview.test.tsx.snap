@@ -79,6 +79,7 @@ exports[`Testing PhonePreview component should renders correctly 1`] = `
   background-color: #f7f7fc;
   padding: 0 20px;
   position: relative;
+  overflow: hidden;
 }
 
 .c0 .UserInformationPreview {

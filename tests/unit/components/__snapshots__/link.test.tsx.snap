@@ -137,6 +137,7 @@ exports[`Testing link component should renders correctly 1`] = `
   height: 69px;
   margin-bottom: 0;
   width: 100%;
+  pointer-events: initial;
 }
 
 .c1:hover {
@@ -194,6 +195,8 @@ exports[`Testing link component should renders correctly 1`] = `
   cursor: pointer;
   position: absolute;
   left: 100%;
+  z-index: 100;
+  pointer-events: all;
 }
 
 .c4 {
@@ -502,6 +505,7 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   height: 69px;
   margin-bottom: 0;
   width: 100%;
+  pointer-events: none;
 }
 
 .c1:hover {
@@ -563,6 +567,8 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   cursor: pointer;
   position: absolute;
   left: 100%;
+  z-index: 100;
+  pointer-events: all;
 }
 
 .c4 {
@@ -604,6 +610,7 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
     <div
       class="c1"
       data-testid="link-header"
+      open=""
     >
       <span
         class="c2"
@@ -959,6 +966,7 @@ exports[`Testing link component should renders correctly in edit mode with open 
   height: 69px;
   margin-bottom: 0;
   width: 100%;
+  pointer-events: none;
 }
 
 .c1:hover {
@@ -1020,6 +1028,8 @@ exports[`Testing link component should renders correctly in edit mode with open 
   cursor: pointer;
   position: absolute;
   left: 100%;
+  z-index: 100;
+  pointer-events: all;
 }
 
 .c4 {
@@ -1061,6 +1071,7 @@ exports[`Testing link component should renders correctly in edit mode with open 
     <div
       class="c1"
       data-testid="link-header"
+      open=""
     >
       <span
         class="c2"

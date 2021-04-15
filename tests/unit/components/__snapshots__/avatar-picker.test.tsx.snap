@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing avatar component should renders correctly 1`] = `
+exports[`Testing avatar picker component should renders correctly 1`] = `
 <DocumentFragment>
   .c4 svg {
   height: 42px;
@@ -107,6 +107,7 @@ exports[`Testing avatar component should renders correctly 1`] = `
     <input
       accept="image/*"
       class="c5"
+      data-testid="input"
       type="file"
     />
   </div>
