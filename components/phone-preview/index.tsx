@@ -8,7 +8,8 @@ import Watermark from "@/components/phone-preview/watermark";
 
 const Container = styled.div<{ userTheme: Theme }>`
     width: 350px;
-    height: 768px;
+    height: 740px;
+    flex: 0 0 auto;
     border-radius: 50px;
     box-shadow: 0 0 0 15px #111111;
     display: flex;

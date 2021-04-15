@@ -1,7 +1,7 @@
 import client from "@/utils/api/client";
 import AuthHelper from "@/helpers/auth-helper";
 import ApiRoutes from "@/utils/api/routes";
-import { FormValues } from "../pages/signup";
+import { FormValues } from "../pages/signup.page";
 
 export default class UserService {
 

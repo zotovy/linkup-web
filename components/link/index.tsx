@@ -65,7 +65,7 @@ class LinkComponent extends React.Component<Props, State> {
         // @ts-ignore because react-icons have badly support ts
         const IconComponent = icons[UiHelper.formatNameToIcon(iconName)];
 
-        return <Container isOpen={ this.state.isOpen } data-testid="link">
+        return <Container className="link-component" isOpen={ this.state.isOpen } data-testid="link">
             <HeaderContainer userTheme={ 0 } onClick={ this.toggleOpen } data-testid="link-header">
                 <IconComponent { ...this.iconProps } />
                 <Information userTheme={ 0 }>

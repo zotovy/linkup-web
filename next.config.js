@@ -1,18 +1,19 @@
-const { PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER } = require('next/constants')
+const {PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER} = require('next/constants')
 
 module.exports = (phase) => {
 
+    let env = {
+        SERVER_URL: "https://localhost:5001",
+    }
+
     if (phase === PHASE_PRODUCTION_SERVER || phase === PHASE_PRODUCTION_BUILD) {
-        return {
-            env: {
-                SERVER_URL: process.env.SERVER_URL,
-            }
+        env = {
+            SERVER_URL: process.env.SERVER_URL,
         }
     }
 
     return {
-        env: {
-            SERVER_URL: "https://localhost:5001",
-        },
+        env,
+        pageExtensions: ["page.tsx"],
     }
 }
