@@ -7,11 +7,12 @@ import { useRouter } from "next/router";
 import AuthHelper from "@/helpers/auth-helper";
 
 import { fetchUserAction, setUserAction } from "@/redux/actions/user-actions";
+import PhonePreviewSkeleton from "@/components/phone-preview/skeleton";
 import PhonePreviewContainer from "@/components/phone-preview";
+import Settings, { SettingsSkeleton } from "./admin/settings";
+import LinksPage, { LinksLoading } from "./admin/links";
+import Theme, { ThemeSkeleton } from "./admin/theme";
 import Header from "@/components/../components/header";
-import Settings from "./admin/settings";
-import LinksPage from "./admin/links";
-import Theme from "./admin/theme";
 
 const Page = styled.main`
     margin-top: 50px;
@@ -27,7 +28,6 @@ const Admin: NextPage = () => {
     const {
         user,
         goToPromo,
-        loading,
         tab,
         onLinksUpdate,
         addedLinkIndex,
@@ -42,9 +42,13 @@ const Admin: NextPage = () => {
         return <React.Fragment/>;
     }
 
-    if (loading || !user) return <h1>loading</h1> // todo;
-
     const getPage = () => {
+        if (!user) {
+            if (tab === "links") return <LinksLoading/>;
+            if (tab === "theme") return <ThemeSkeleton/>;
+            if (tab === "settings") return <SettingsSkeleton/>;
+        }
+
         if (tab === "links") return <LinksPage
                 onLinkDelete={ onLinkDelete }
                 onLinkCreate={ onLinkCreate }
@@ -60,7 +64,11 @@ const Admin: NextPage = () => {
         <Header user={ user }/>
         <Page>
             { getPage() }
-            <PhonePreviewContainer { ...user }/>
+            {
+                user
+                        ? <PhonePreviewContainer { ...user }/>
+                        : <PhonePreviewSkeleton/>
+            }
         </Page>
     </React.Fragment>;
 }

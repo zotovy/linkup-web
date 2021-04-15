@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { LayoutStyles } from "@/layouts/admin-layout";
-import ThemeComponent from "@/components/theme";
+import ThemeComponent, { ThemeSkeleton as ThemeSkeletonComponent } from "@/components/theme";
 import Head from "next/head";
 
 const Container = styled.div`
@@ -17,13 +17,11 @@ const Container = styled.div`
 `;
 
 export type Props = {
-    theme?: Theme,
+    theme: Theme,
     onThemeChange: (theme: number) => any,
 }
 
 const Theme: React.FC<Props> = (props) => {
-    if (typeof props.theme === "undefined") return <h1>loading</h1>;
-
     return <React.Fragment>
         <Head>
             <title>Theme</title>
@@ -55,3 +53,15 @@ const themes = [
         theme: 1,
     },
 ];
+
+export const ThemeSkeleton: React.FC = () => {
+    return <React.Fragment>
+        <Head>
+            <title>Theme</title>
+        </Head>
+        <Container>
+            <ThemeSkeletonComponent/>
+            <ThemeSkeletonComponent/>
+        </Container>
+    </React.Fragment>
+}

@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import "../../styles/globals.css";
 
 import Link, { Props } from "@/components/link";
+import SkeletonLink from "@/components/link/skeleton";
 import { link } from "../data";
 
 export default {
@@ -20,3 +21,5 @@ export const Default = TemplatePrimary.bind({});
 Default.args = {
     link,
 }
+
+export const Skeleton = SkeletonLink.bind({});

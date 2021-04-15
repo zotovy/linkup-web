@@ -8,6 +8,7 @@ const Container = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: ${ props => props.theme.colors.disabled };
 `;
 
 export type Props = (User | {

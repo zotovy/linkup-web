@@ -3,10 +3,10 @@ import styled from "styled-components";
 import UiHelper from "@/helpers/ui-helper";
 
 import UserInformationPreview from "@/components/phone-preview/user";
-import LinkComponent from "@/components/phone-preview/link";
 import Watermark from "@/components/phone-preview/watermark";
+import LinkComponent from "@/components/phone-preview/link";
 
-const Container = styled.div<{ userTheme: Theme }>`
+export const Container = styled.div<{ userTheme: Theme }>`
     width: 350px;
     height: 740px;
     flex: 0 0 auto;
@@ -26,7 +26,7 @@ const Container = styled.div<{ userTheme: Theme }>`
     }
 `;
 
-const LinksContainer = styled.div`
+export const LinksContainer = styled.div`
     margin-top: 51px;
     width: 100%;
 `;
@@ -47,3 +47,4 @@ const PhonePreviewContainer: React.FC<Props> = (props) => {
 }
 
 export default PhonePreviewContainer;
+

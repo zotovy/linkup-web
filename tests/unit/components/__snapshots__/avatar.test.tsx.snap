@@ -8,6 +8,7 @@ exports[`Testing avatar component should renders correctly 1`] = `
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #D9DDE9;
 }
 
 <div

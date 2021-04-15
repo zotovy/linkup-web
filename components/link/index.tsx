@@ -69,7 +69,6 @@ class LinkComponent extends React.Component<Props, State> {
 
     handleSave() {
         if (!this.validate()) return;
-        console.log(this.state.errors);
         this.props.save(this.state.link);
     }
 

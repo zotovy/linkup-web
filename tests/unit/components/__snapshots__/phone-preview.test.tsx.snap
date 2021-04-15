@@ -9,6 +9,7 @@ exports[`Testing PhonePreview component should renders correctly 1`] = `
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #D9DDE9;
 }
 
 .c3 {

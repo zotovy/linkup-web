@@ -3,8 +3,9 @@ import Head from "next/head";
 import styled from "styled-components";
 
 import { LayoutStyles } from "@/layouts/admin-layout";
-import Button from "@/components/button";
+import LinkSkeleton from "@/components/link/skeleton";
 import LinkComponent from "@/components/link";
+import Button from "@/components/button";
 
 const Container = styled.div`
     ${ LayoutStyles };
@@ -27,7 +28,7 @@ const Container = styled.div`
 `;
 
 export type Props = {
-    links?: Link[],
+    links: Link[],
     onLinksUpdate: (links: Link[]) => any,
     onLinkCreate: () => any,
     onLinkDelete: (i: number) => any,
@@ -35,8 +36,6 @@ export type Props = {
 }
 
 const LinksPage: React.FC<Props> = ({ links, onLinksUpdate, addedLinkIndex, onLinkCreate, onLinkDelete }) => {
-    if (!links) return <h1>Loading</h1> // todo
-
     const handleChange = (link: Link, i: number) => {
         links[i] = link;
         onLinksUpdate(links);
@@ -64,3 +63,17 @@ const LinksPage: React.FC<Props> = ({ links, onLinksUpdate, addedLinkIndex, onLi
 }
 
 export default LinksPage;
+
+export const LinksLoading: React.FC = () => {
+    return <React.Fragment>
+        <Head>
+            <title>Links</title>
+        </Head>
+        <Container>
+            <LinkSkeleton/>
+            <LinkSkeleton/>
+            <LinkSkeleton/>
+            <LinkSkeleton/>
+        </Container>
+    </React.Fragment>
+}

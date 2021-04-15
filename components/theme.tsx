@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Skeleton from "react-loading-skeleton";
 
 const Container = styled.div`
     width: 185px;
@@ -43,3 +44,11 @@ const ThemeComponent: React.FC<Props> = (props) => {
 }
 
 export default ThemeComponent;
+
+
+export const ThemeSkeleton: React.FC = () => {
+    return <Container className="theme-component">
+        <Skeleton width={165} height={128} style={{ borderRadius: "16px", marginBottom: "7px" }} />
+        <Skeleton width={100} height={18} />
+    </Container>
+}
