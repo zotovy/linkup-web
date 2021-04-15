@@ -6,6 +6,7 @@ export const LayoutStyles = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 740px;
 `;
 
 export default styled.div`${LayoutStyles}`;

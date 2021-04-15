@@ -10,11 +10,12 @@ import Header from "@/components/../components/header";
 import PhonePreviewContainer from "@/components/phone-preview";
 import { fetchUserAction } from "@/redux/actions/user-actions";
 import LinksPage from "./admin/links";
+import Theme from "./admin/theme";
 
 const Page = styled.main`
     margin-top: 50px;
     width: 100%;
-    height: calc(100vh - 114px);
+    min-height: calc(100vh - 114px);
     display: flex;
     align-items: center;
     ${ props => props.theme.centerContent };
@@ -22,7 +23,7 @@ const Page = styled.main`
 `;
 
 const Admin: NextPage = () => {
-    const { user, goToPromo, loading } = useAdminPage();
+    const { user, goToPromo, loading, tab } = useAdminPage();
 
     if (user === null) {
         goToPromo();
@@ -31,10 +32,16 @@ const Admin: NextPage = () => {
 
     if (loading || !user) return <h1>loading</h1> // todo;
 
+    const getPage = () => {
+        if (tab === "links") return <LinksPage links={user.links} />
+        if (tab === "theme") return <Theme theme={user.theme} />
+        return <React.Fragment/>
+    }
+
     return <React.Fragment>
         <Header user={user}/>
         <Page>
-            <LinksPage links={user?.links}/>
+            { getPage() }
             <PhonePreviewContainer {...user}/>
         </Page>
     </React.Fragment>;
@@ -53,10 +60,14 @@ export const useAdminPage = () => {
 
     const goToPromo = () => router.push("/"); // todo: go to promo home page
 
+    let tab = (router.query.tab ?? "links") as "links" | "theme" | "settings";
+    if (!["links", "theme", "settings"].includes(tab)) tab = "links";
+
 
     return {
         loading: typeof user === "undefined",
         user,
-        goToPromo
+        goToPromo,
+        tab,
     }
 }

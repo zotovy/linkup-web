@@ -9,7 +9,7 @@ const Container = styled.div`
     ${ LayoutStyles };
     flex-direction: column;
     justify-content: initial;
-    padding-top: 20%;
+    padding-top: 5%;
     
     .button, .link-component { 
         width: 100%;
