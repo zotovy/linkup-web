@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { LayoutStyles } from "@/layouts/admin-layout";
-import UserAvatar from "@/components/avatar";
+import AvatarPicker from "@/components/avatar-picker";
 import Input from "@/components/input/error";
 import Button from "@/components/button";
 
@@ -32,7 +32,7 @@ const Settings: React.FC<Props> = ({ user }) => {
     if (!user) return <h1>loading</h1> // todo
 
     return <Container>
-        <UserAvatar profileImagePath={user.profileImagePath} diameter={150} />
+        <AvatarPicker onPick={() => {}} profileImagePath={user.profileImagePath} diameter={150} />
         <Input placeholder="Your name" value={user.name} />
         <Button>Save</Button>
     </Container>

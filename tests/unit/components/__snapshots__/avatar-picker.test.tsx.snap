@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing avatar component should renders correctly 1`] = `
+<DocumentFragment>
+  .c4 svg {
+  height: 42px;
+  width: 42px;
+  color: white;
+  fill: white;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.c1 {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.c3 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.2);
+  opacity: 1;
+  border-radius: 50%;
+  -webkit-transition: opacity 150ms;
+  transition: opacity 150ms;
+}
+
+.c5 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.c0 {
+  position: relative;
+  overflow: hidden;
+  width: 90px;
+  height: 90px;
+}
+
+.c0:not(:hover) > .c2 {
+  opacity: 0;
+}
+
+<div
+    class="c0 user-avatar"
+  >
+    <div
+      class="c1 user-avatar"
+      data-testid="avatar"
+      style="background-image: url(https://avatars.githubusercontent.com/u/35657233?v=4);"
+    />
+    <div
+      class="c2 c3"
+    >
+      <span
+        class="c4"
+        color="white"
+        height="42px"
+        rotate="0"
+        width="42px"
+      >
+        <svg
+          class=""
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="32"
+          />
+        </svg>
+      </span>
+    </div>
+    <input
+      accept="image/*"
+      class="c5"
+      type="file"
+    />
+  </div>
+</DocumentFragment>
+`;
