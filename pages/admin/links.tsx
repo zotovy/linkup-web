@@ -10,36 +10,48 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: initial;
     padding-top: 5%;
-    
-    .button, .link-component { 
+
+    .button, .link-component {
         width: 100%;
         max-width: 400px;
     }
-    
+
     .button {
         margin-bottom: 26px;
     }
-    
+
     .link-component {
         margin-bottom: 20px;
     }
 `;
 
 export type Props = {
-    links?: Link[]
+    links?: Link[],
+    onLinksUpdate: (links: Link[]) => any,
+    onLinkCreate: () => any,
+    onLinkDelete: (i: number) => any,
+    addedLinkIndex?: number,
 }
 
-const LinksPage: React.FC<Props> = ({ links }) => {
+const LinksPage: React.FC<Props> = ({ links, onLinksUpdate, addedLinkIndex, onLinkCreate, onLinkDelete }) => {
     if (!links) return <h1>Loading</h1> // todo
 
+    const handleChange = (link: Link, i: number) => {
+        links[i] = link;
+        onLinksUpdate(links);
+    }
+
     return <Container>
-        <Button>Create link</Button>
+        <Button onClick={ onLinkCreate }>Create link</Button>
         {
-            links.map(e => <LinkComponent
-                    link={e}
-                    key={e.createdAt.toString()}
-                    save={() => {}}
-                    remove={() => {}}
+            links.map((e, i) => <LinkComponent
+                    onChange={ (link) => handleChange(link, i) }
+                    link={ e }
+                    initialIsOpen={ addedLinkIndex === i }
+                    key={ e.createdAt.toString() }
+                    save={ () => {
+                    } }
+                    remove={ () => onLinkDelete(i) }
             />)
         }
     </Container>

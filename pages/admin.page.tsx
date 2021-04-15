@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NextPage } from "next";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { State } from "@/redux/store"
 import { useRouter } from "next/router";
 import AuthHelper from "@/helpers/auth-helper";
 
-import { fetchUserAction } from "@/redux/actions/user-actions";
+import { fetchUserAction, setUserAction } from "@/redux/actions/user-actions";
 import PhonePreviewContainer from "@/components/phone-preview";
 import Header from "@/components/../components/header";
 import Settings from "./admin/settings";
@@ -24,7 +24,18 @@ const Page = styled.main`
 `;
 
 const Admin: NextPage = () => {
-    const { user, goToPromo, loading, tab } = useAdminPage();
+    const {
+        user,
+        goToPromo,
+        loading,
+        tab,
+        onLinksUpdate,
+        addedLinkIndex,
+        onLinkCreate,
+        onLinkDelete,
+        onThemeChange,
+        changeSettings
+    } = useAdminPage();
 
     if (user === null) {
         goToPromo();
@@ -34,17 +45,22 @@ const Admin: NextPage = () => {
     if (loading || !user) return <h1>loading</h1> // todo;
 
     const getPage = () => {
-        if (tab === "links") return <LinksPage links={user.links} />
-        if (tab === "theme") return <Theme theme={user.theme} />
-        if (tab === "settings") return <Settings user={user} />
+        if (tab === "links") return <LinksPage
+                onLinkDelete={ onLinkDelete }
+                onLinkCreate={ onLinkCreate }
+                addedLinkIndex={ addedLinkIndex }
+                onLinksUpdate={ onLinksUpdate }
+                links={ user.links }/>
+        if (tab === "theme") return <Theme onThemeChange={ onThemeChange } theme={ user.theme }/>
+        if (tab === "settings") return <Settings onSettingsChanged={ changeSettings } user={ user }/>
         return <React.Fragment/>
     }
 
     return <React.Fragment>
-        <Header user={user}/>
+        <Header user={ user }/>
         <Page>
             { getPage() }
-            <PhonePreviewContainer {...user}/>
+            <PhonePreviewContainer { ...user }/>
         </Page>
     </React.Fragment>;
 }
@@ -55,6 +71,7 @@ export const useAdminPage = () => {
     const router = useRouter();
     const user = useSelector<State, User | undefined | null>(state => state.userReducer.user) as User | null;
     const dispatch = useDispatch();
+    const [addedLinkIndex, setAddedLinkIndex] = useState<number | undefined>();
 
     useEffect(() => {
         dispatch(fetchUserAction(AuthHelper.uid));
@@ -71,5 +88,38 @@ export const useAdminPage = () => {
         user,
         goToPromo,
         tab,
+        onLinksUpdate: (links: Link[]) => {
+            if (!user) return;
+            dispatch(setUserAction({ ...user, links }));
+        },
+        onLinkCreate: () => {
+            if (!user) return;
+            setAddedLinkIndex(user.links.length);
+            const link: Link = {
+                createdAt: new Date(),
+                iconName: "link-outline",
+                href: "",
+                subtitle: "",
+                title: "",
+                id: 0,
+                user: user,
+            }
+            const links = [...user.links, link];
+            dispatch(setUserAction({ ...user, links }));
+        },
+        onLinkDelete: (i: number) => {
+            if (!user) return;
+            const links = user.links.splice(i - 1, 1);
+            dispatch(setUserAction({ ...user, links }));
+        },
+        onThemeChange: (theme: Theme) => {
+            if (!user) return;
+            dispatch(setUserAction({ ...user, theme }));
+        },
+        changeSettings: (user: User) => {
+            if (!user) return;
+            dispatch(setUserAction({ ...user }));
+        },
+        addedLinkIndex
     }
 }

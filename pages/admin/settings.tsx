@@ -14,26 +14,37 @@ const Container = styled.div`
         width: 100%;
         max-width: 400px;
     }
-    
+
     .user-avatar {
         margin-bottom: 40px;
     }
-    
+
     .input {
         margin-bottom: 22px;
     }
 `;
 
 export type Props = {
-    user?: User
+    user?: User,
+    onSettingsChanged: (user: User) => any,
 }
 
-const Settings: React.FC<Props> = ({ user }) => {
+const Settings: React.FC<Props> = ({ user, onSettingsChanged }) => {
     if (!user) return <h1>loading</h1> // todo
 
+    const handleNameChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+        user.name = e.target.value;
+        onSettingsChanged(user);
+    }
+
     return <Container>
-        <AvatarPicker onPick={() => {}} profileImagePath={user.profileImagePath} diameter={150} />
-        <Input placeholder="Your name" value={user.name} />
+        <AvatarPicker onPick={ () => {
+        } } profileImagePath={ user.profileImagePath } diameter={ 150 }/>
+        <Input
+                maxLength={50}
+                onChange={ handleNameChanged }
+                placeholder="Your name"
+                defaultValue={ user.name }/>
         <Button>Save</Button>
     </Container>
 }

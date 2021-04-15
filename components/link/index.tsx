@@ -13,6 +13,8 @@ export type Props = {
     link: Link;
     save: (link: Link) => any;
     remove: (link: Link) => any;
+    onChange: (link: Link) => any;
+    initialIsOpen?: boolean;
 }
 
 type State = {
@@ -29,19 +31,23 @@ class LinkComponent extends React.Component<Props, State> {
         this.handleLinkChange = this.handleLinkChange.bind(this);
         this.handleSave = this.handleSave.bind(this);
         this.handleRemove = this.handleRemove.bind(this);
+        this.close = this.close.bind(this);
+        this.open = this.open.bind(this);
     }
 
     state: State = {
-        isOpen: false,
+        isOpen: this.props.initialIsOpen ?? false,
         link: this.props.link,
     }
 
-    toggleOpen = () => this.setState({ ...this.state, isOpen: !this.state.isOpen });
+    close = () => this.setState({ ...this.state, isOpen: false })
+    open = () => this.setState({ ...this.state, isOpen: true });
 
     handleIconChange(iconName: string) {
         const link = this.state.link;
         link.iconName = iconName;
         this.setState({ ...this.state, link });
+        this.props.onChange(link);
     }
 
     handleLinkChange(name: "title" | "subtitle" | "href") {
@@ -49,6 +55,7 @@ class LinkComponent extends React.Component<Props, State> {
             const link = this.state.link;
             link[name] = e.target.value;
             this.setState({ ...this.state, link });
+            this.props.onChange(link);
         }
     }
 
@@ -66,16 +73,22 @@ class LinkComponent extends React.Component<Props, State> {
         const IconComponent = icons[UiHelper.formatNameToIcon(iconName)];
 
         return <Container className="link-component" isOpen={ this.state.isOpen } data-testid="link">
-            <HeaderContainer userTheme={ 0 } onClick={ this.toggleOpen } data-testid="link-header">
+            <HeaderContainer open={ this.state.isOpen } userTheme={ 0 } onClick={ this.open } data-testid="link-header">
                 <IconComponent { ...this.iconProps } />
                 <Information userTheme={ 0 }>
-                    <span className="title">{ this.state.link.title }</span>
-                    <span className="subtitle">{ this.state.link.subtitle }</span>
+                    <span className="title">{ this.state.link.title.length === 0 ? "Title" : this.state.link.title }</span>
+                    <span className="subtitle">{ this.state.link.subtitle.length === 0 ? "Subtitle" : this.state.link.subtitle }</span>
                 </Information>
 
                 <OpenTrigger data-open={ this.state.isOpen }>
                     <ChevronForwardOutline cssClasses="chevron" color={ theme.colors.disabled }/>
-                    <SaveText onClick={ this.handleSave }>Save</SaveText>
+                    <SaveText onClick={ (e) => {
+                        this.close();
+                        e.stopPropagation();
+                        this.handleSave();
+                    } }>
+                        Save
+                    </SaveText>
                 </OpenTrigger>
             </HeaderContainer>
 
@@ -118,12 +131,13 @@ const Container = styled.div<{ isOpen: boolean }>`
     border-radius: 16px;
 `;
 
-const HeaderContainer = styled.div<{ userTheme: Theme }>`
+const HeaderContainer = styled.div<{ userTheme: Theme, open: boolean }>`
     ${ ContainerStyles };
     user-select: none;
     height: 69px;
     margin-bottom: 0;
     width: 100%;
+    pointer-events: ${ props => props.open ? "none" : "initial" };
 `;
 
 const EditLinkContainer = styled.div<{ isOpen: boolean }>`
@@ -162,6 +176,8 @@ const SaveText = styled.span`
     cursor: pointer;
     position: absolute;
     left: 100%;
+    z-index: 100;
+    pointer-events: all;
 `;
 
 const OpenTrigger = styled.div`

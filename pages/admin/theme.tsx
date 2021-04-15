@@ -16,7 +16,8 @@ const Container = styled.div`
 `;
 
 export type Props = {
-    theme?: Theme
+    theme?: Theme,
+    onThemeChange: (theme: number) => any,
 }
 
 const Theme: React.FC<Props> = (props) => {
@@ -27,7 +28,7 @@ const Theme: React.FC<Props> = (props) => {
             themes.map(theme => <ThemeComponent
                     name={theme.name}
                     gradient={theme.gradient}
-                    onClick={() => {}}
+                    onClick={() => props.onThemeChange(theme.theme)}
                     isSelected={props.theme === theme.theme}
             />)
         }
