@@ -1,5 +1,7 @@
-import Document, { DocumentContext, Html, NextScript, Head, Main } from "next/document";
+import Document, { DocumentContext, Html, NextScript, Main, Head } from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import { CookiesProvider } from "react-cookie";
+import React from "react";
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -10,7 +12,7 @@ export default class MyDocument extends Document {
             ctx.renderPage = () =>
                     originalRenderPage({
                         enhanceApp: (App) => (props) =>
-                                sheet.collectStyles(<App {...props} />),
+                                sheet.collectStyles(<App { ...props } />),
                     });
 
             const initialProps = await Document.getInitialProps(ctx);
@@ -18,8 +20,8 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                         <>
-                            {initialProps.styles}
-                            {sheet.getStyleElement()}
+                            { initialProps.styles }
+                            { sheet.getStyleElement() }
                         </>
                 ),
             };
@@ -30,8 +32,10 @@ export default class MyDocument extends Document {
 
     render() {
         return (
-                <Html>
-                    <Head/>
+                <Html lang="en">
+                    <Head>
+                        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+                    </Head>
                     <body>
                     <Main/>
                     <NextScript/>

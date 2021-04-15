@@ -13,6 +13,7 @@ import Title from "@/components/title";
 import UserService from "@/services/user-service";
 import UiHelper from "@/helpers/ui-helper";
 import ValidationHelper from "@/helpers/validation-helper";
+import Head from "next/head";
 
 const Page = styled.main`
     ${ CenterLayoutStyles }
@@ -34,6 +35,9 @@ const LoginPage: NextPage = () => {
     const { handleChange, onLogin } = useLoginPage();
 
     return <React.Fragment>
+        <Head>
+            <title>Login</title>
+        </Head>
         <Page>
             <Title>Login</Title>
             <Input onChange={ handleChange("email") } placeholder="Enter your email" type="email"/>

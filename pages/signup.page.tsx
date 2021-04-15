@@ -15,6 +15,7 @@ import UiHelper from "@/helpers/ui-helper";
 import { withRouter } from "next/router";
 import Button from "@/components/button";
 import Title from "@/components/title";
+import Head from "next/head";
 
 const Page = styled.main`
     ${ CenterLayoutStyles }
@@ -114,6 +115,9 @@ const Form = withRouter(withFormik<WithRouterProps, FormValues>({
 
 const SignupPage: NextPage = () => {
     return <React.Fragment>
+        <Head>
+            <title>Signup</title>
+        </Head>
         <Page>
             <Title>Signup</Title>
             <Form/>

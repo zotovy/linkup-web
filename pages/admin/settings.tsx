@@ -5,6 +5,7 @@ import { LayoutStyles } from "@/layouts/admin-layout";
 import AvatarPicker from "@/components/avatar-picker";
 import Input from "@/components/input/error";
 import Button from "@/components/button";
+import Head from "next/head";
 
 const Container = styled.div`
     ${ LayoutStyles };
@@ -37,16 +38,21 @@ const Settings: React.FC<Props> = ({ user, onSettingsChanged }) => {
         onSettingsChanged(user);
     }
 
-    return <Container>
-        <AvatarPicker onPick={ () => {
-        } } profileImagePath={ user.profileImagePath } diameter={ 150 }/>
-        <Input
-                maxLength={50}
-                onChange={ handleNameChanged }
-                placeholder="Your name"
-                defaultValue={ user.name }/>
-        <Button>Save</Button>
-    </Container>
+    return <React.Fragment>
+        <Head>
+            <title>Settings</title>
+        </Head>
+        <Container>
+            <AvatarPicker onPick={ () => {
+            } } profileImagePath={ user.profileImagePath } diameter={ 150 }/>
+            <Input
+                    maxLength={50}
+                    onChange={ handleNameChanged }
+                    placeholder="Your name"
+                    defaultValue={ user.name }/>
+            <Button>Save</Button>
+        </Container>
+    </React.Fragment>
 }
 
 export default Settings;

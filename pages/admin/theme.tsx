@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import { LayoutStyles } from "@/layouts/admin-layout";
 import ThemeComponent from "@/components/theme";
+import Head from "next/head";
 
 const Container = styled.div`
     ${ LayoutStyles };
@@ -23,16 +24,21 @@ export type Props = {
 const Theme: React.FC<Props> = (props) => {
     if (typeof props.theme === "undefined") return <h1>loading</h1>;
 
-    return <Container>
-        {
-            themes.map(theme => <ThemeComponent
-                    name={theme.name}
-                    gradient={theme.gradient}
-                    onClick={() => props.onThemeChange(theme.theme)}
-                    isSelected={props.theme === theme.theme}
-            />)
-        }
-    </Container>
+    return <React.Fragment>
+        <Head>
+            <title>Theme</title>
+        </Head>
+        <Container>
+            {
+                themes.map(theme => <ThemeComponent
+                        name={theme.name}
+                        gradient={theme.gradient}
+                        onClick={() => props.onThemeChange(theme.theme)}
+                        isSelected={props.theme === theme.theme}
+                />)
+            }
+        </Container>
+    </React.Fragment>
 }
 
 export default Theme;

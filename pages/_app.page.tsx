@@ -1,6 +1,7 @@
 import React from "react";
 import { wrapper } from "@/redux/store";
 import { AppProps } from "next/app";
+import { Head } from "next/document";
 import { ThemeProvider } from "styled-components";
 import { SkeletonTheme } from "react-loading-skeleton";
 import { CookiesProvider } from "react-cookie"

@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 
 import { LayoutStyles } from "@/layouts/admin-layout";
@@ -41,20 +42,25 @@ const LinksPage: React.FC<Props> = ({ links, onLinksUpdate, addedLinkIndex, onLi
         onLinksUpdate(links);
     }
 
-    return <Container>
-        <Button onClick={ onLinkCreate }>Create link</Button>
-        {
-            links.map((e, i) => <LinkComponent
-                    onChange={ (link) => handleChange(link, i) }
-                    link={ e }
-                    initialIsOpen={ addedLinkIndex === i }
-                    key={ e.createdAt.toString() }
-                    save={ () => {
-                    } }
-                    remove={ () => onLinkDelete(i) }
-            />)
-        }
-    </Container>
+    return <React.Fragment>
+        <Head>
+            <title>Links</title>
+        </Head>
+        <Container>
+            <Button onClick={ onLinkCreate }>Create link</Button>
+            {
+                links.map((e, i) => <LinkComponent
+                        onChange={ (link) => handleChange(link, i) }
+                        link={ e }
+                        initialIsOpen={ addedLinkIndex === i }
+                        key={ e.createdAt.toString() }
+                        save={ () => {
+                        } }
+                        remove={ () => onLinkDelete(i) }
+                />)
+            }
+        </Container>
+    </React.Fragment>
 }
 
 export default LinksPage;
