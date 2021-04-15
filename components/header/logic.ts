@@ -18,7 +18,6 @@ const useHeaderLogic = () => {
     const onTabClick = (tab: "links" | "theme" | "settings") => {
         const route = AppRoutes[tab];
         router.push(route);
-
         setTab(tab);
         setIsMobileSlideOpen(false);
     };

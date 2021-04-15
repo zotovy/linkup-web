@@ -9,4 +9,5 @@ export default class ApiRoutes {
     static authenticate = ApiRoutes.buildRoute("/user/authenticate");
     static signup = ApiRoutes.buildRoute("/user");
     static updateToken = ApiRoutes.buildRoute("/user/reauthenticate");
+    static getUserById = (id: number | string) => ApiRoutes.buildRoute(`/user/${id}`);
 }

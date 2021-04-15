@@ -32,6 +32,12 @@ export default class UserService {
         return "ok";
     }
 
+    static async fetchUser(id: number): Promise<User | null> {
+        const response = await client.get(ApiRoutes.getUserById(id));
+        if (response.status !== 200 || !response.data) return null;
+        return response.data;
+    }
+
     // static async setAvatar(id: number, file: File): Promise<SetAvatarResponse> {
     //     const form = new FormData();
     //     form.append("image", file);

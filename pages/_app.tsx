@@ -1,4 +1,5 @@
 import React from "react";
+import { wrapper } from "@/redux/store";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import { SkeletonTheme } from "react-loading-skeleton";
@@ -23,4 +24,4 @@ const App: React.FC<AppProps> = ({ Component, pageProps, router}) => {
     </ThemeProvider>
 }
 
-export default App;
+export default wrapper.withRedux(App);

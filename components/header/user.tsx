@@ -25,7 +25,7 @@ export default User;
 export const UserModelWindow = styled.div`
     position: absolute;
     top: 40px;
-    left: 0;
+    right: 0;
     background-color: white;
     border-radius: 15px;
     padding: 15px;
@@ -35,6 +35,7 @@ export const UserModelWindow = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-width: 125px;
 
     &.disabled {
         transform: translateX(-50px);
