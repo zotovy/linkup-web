@@ -137,4 +137,29 @@ describe("Testing link component", () => {
         // Assert
         expect(isDeleted).toEqual(true);
     });
+
+    test("should validate link", () => {
+        const wrongData = {
+            title: "≥≥aß∂¡™£¡™∂ßå∂åß",
+            subtitle: "¡ºª™∆¡¬™˚™∆¡¬",
+            href: "loook at me",
+        }
+        let isSaved = false;
+        const onSave = () => isSaved = true;
+        const { getByPlaceholderText, getByTestId, getByText } = render(<LinkComponent { ...props } save={ onSave }/>)
+
+        // Act
+        fireEvent.click(getByTestId("link-header"));
+        fireEvent.change(getByPlaceholderText("Title"), { target: { value: wrongData.title } });
+        fireEvent.change(getByPlaceholderText("Subtitle"), { target: { value: wrongData.subtitle } });
+        fireEvent.change(getByPlaceholderText("Link"), { target: { value: wrongData.href } });
+        fireEvent.click(getByText("Save"));
+
+        // Arrange
+        expect(isSaved).toBe(false);
+        expect(getByTestId("link-header")).toHaveAttribute("open");
+        expect(getByPlaceholderText("Title")).toHaveStyle("border: 1.5px solid #ED2E7E;")
+        expect(getByPlaceholderText("Subtitle")).toHaveStyle("border: 1.5px solid #ED2E7E;")
+        expect(getByPlaceholderText("Link")).toHaveStyle("border: 1.5px solid #ED2E7E;")
+    });
 });

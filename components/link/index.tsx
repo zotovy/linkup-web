@@ -8,6 +8,7 @@ import theme from "@/utils/theme";
 import { ContainerStyles, Information } from "@/components/phone-preview/link";
 import IconSelector from "@/components/link/icon-selector";
 import Input from "@/components/input";
+import ValidationHelper from "@/helpers/validation-helper";
 
 export type Props = {
     link: Link;
@@ -20,6 +21,11 @@ export type Props = {
 type State = {
     link: Link;
     isOpen: boolean;
+    errors: {
+        title?: boolean,
+        subtitle?: boolean,
+        href?: boolean,
+    }
 }
 
 
@@ -33,11 +39,13 @@ class LinkComponent extends React.Component<Props, State> {
         this.handleRemove = this.handleRemove.bind(this);
         this.close = this.close.bind(this);
         this.open = this.open.bind(this);
+        this.validate = this.validate.bind(this);
     }
 
     state: State = {
         isOpen: this.props.initialIsOpen ?? false,
         link: this.props.link,
+        errors: {},
     }
 
     close = () => this.setState({ ...this.state, isOpen: false })
@@ -60,14 +68,35 @@ class LinkComponent extends React.Component<Props, State> {
     }
 
     handleSave() {
-        this.setState({ ...this.state, isOpen: false });
+        if (!this.validate()) return;
+        console.log(this.state.errors);
         this.props.save(this.state.link);
+    }
+
+    validate(): boolean {
+        const link = {
+            title: this.state.link.title,
+            subtitle: this.state.link.subtitle,
+            href: this.state.link.href,
+        }
+        try {
+            ValidationHelper.LinkValidator.validateSync(link, { abortEarly: false });
+            this.setState({ ...this.state, isOpen: false, errors: {} });
+            return true;
+        } catch (e) {
+            const errors = {
+                title: e.errors.includes("title"),
+                subtitle: e.errors.includes("subtitle"),
+                href: e.errors.includes("href"),
+            };
+            this.setState({ ...this.state, errors });
+            return false;
+        }
     }
 
     handleRemove = () => this.props.remove(this.state.link);
 
     render() {
-
         const iconName = this.state.link.iconName;
         // @ts-ignore because react-icons have badly support ts
         const IconComponent = icons[UiHelper.formatNameToIcon(iconName)];
@@ -83,7 +112,6 @@ class LinkComponent extends React.Component<Props, State> {
                 <OpenTrigger data-open={ this.state.isOpen }>
                     <ChevronForwardOutline cssClasses="chevron" color={ theme.colors.disabled }/>
                     <SaveText onClick={ (e) => {
-                        this.close();
                         e.stopPropagation();
                         this.handleSave();
                     } }>
@@ -95,12 +123,15 @@ class LinkComponent extends React.Component<Props, State> {
             <EditLinkContainer isOpen={ this.state.isOpen } data-testid="link-edit">
                 <Input onChange={ this.handleLinkChange("title") }
                        defaultValue={ this.props.link.title }
+                       error={ this.state.errors.title }
                        placeholder="Title"/>
                 <Input onChange={ this.handleLinkChange("subtitle") }
                        defaultValue={ this.props.link.subtitle }
+                       error={ this.state.errors.subtitle }
                        placeholder="Subtitle"/>
                 <Input onChange={ this.handleLinkChange("href") }
                        defaultValue={ this.props.link.href }
+                       error={ this.state.errors.href }
                        placeholder="Link"/>
 
                 <DeleteContainer>

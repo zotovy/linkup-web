@@ -18,7 +18,7 @@ const Input = styled.input<Props>`
     }
 
     ${
-            props => props.error
+            props => typeof props.error != "undefined" && props.error
                     ? `
                         border: 1.5px solid ${ props.theme.colors.input.error } !important;
                         color: ${ props.theme.colors.input.error };
