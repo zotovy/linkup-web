@@ -36,7 +36,7 @@ export type Props = React.ComponentPropsWithoutRef<"input"> & {
 
 /// This component contains error props
 const Input: React.FC<Props> = (props) => {
-    return <Container className={ !!props.error ? "error" : "" + " input" }>
+    return <Container className={ (!!props.error ? "error" : "") + " input" }>
         <InputBase { ...props } error={false} />
         <ErrorLabel>{ props.error }</ErrorLabel>
     </Container>

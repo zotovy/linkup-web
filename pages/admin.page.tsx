@@ -60,7 +60,10 @@ const Admin: NextPage = () => {
                 onLinkUpdate={ onLinkUpdate }
                 links={ user.links }/>
         if (tab === "theme") return <Theme onThemeChange={ onThemeChange } theme={ user.theme }/>
-        if (tab === "settings") return <Settings onSettingsChanged={ changeSettings } user={ user }/>
+        if (tab === "settings") return <Settings
+                save={() => {}}
+                onSettingsChanged={ changeSettings }
+                user={ user }/>
         return <React.Fragment/>
     }
 
