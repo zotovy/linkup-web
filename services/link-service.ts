@@ -33,6 +33,7 @@ export default class LinkService {
         return LinkService._handleError(res.data);
     }
 
+    /// Update received link
     static async updateLink(link: Link): Promise<ActionLinkResponse> {
         const body = {
             title: link.title,
@@ -42,6 +43,16 @@ export default class LinkService {
         }
 
         const res = await client.put(ApiRoutes.updateLink(link.id), body);
+
+        if (res.status === 200) return;
+        return LinkService._handleError(res.data);
+    }
+
+    /// Remove received link
+    static async removeLink(link: Link | number): Promise<ActionLinkResponse> {
+        const id = typeof link === "number" ? link : link.id;
+
+        const res = await client.delete(ApiRoutes.removeLink(id));
 
         if (res.status === 200) return;
         return LinkService._handleError(res.data);

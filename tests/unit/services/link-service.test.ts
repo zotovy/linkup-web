@@ -177,3 +177,98 @@ describe("Test update link", () => {
     });
 
 });
+
+describe("Test remove link", () => {
+    let axios: jest.SpyInstance;
+
+    beforeAll(() => {
+        const mockUid = jest.fn(() => 1);
+        Object.defineProperty(AuthHelper, "uid", {
+            get: mockUid,
+        });
+    });
+
+    beforeEach(() => {
+        axios = jest.spyOn(client, "delete");
+    })
+
+    test("should remove sample link", async () => {
+        const data = {
+            status: 200,
+            data: {
+                success: true,
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.removeLink(link);
+
+        // Assert
+        expect(res).toBeUndefined();
+        expect(axios).toBeCalledWith(ApiRoutes.removeLink(1));
+    });
+
+    test("should remove sample link if I pass number", async () => {
+        const data = {
+            status: 200,
+            data: {
+                success: true,
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.removeLink(link.id);
+
+        // Assert
+        expect(res).toBeUndefined();
+        expect(axios).toBeCalledWith(ApiRoutes.removeLink(1));
+    });
+
+    test("should handle noUserFound error", async () => {
+        const data = {
+            status: 403,
+            data: {
+                success: false,
+                error: "no-user-found-error",
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.removeLink(link);
+
+        // Assert
+        expect(res).toBe(ActionLinkError.noUserFound);
+    });
+
+    test("should handle invalidError error", async () => {
+        const data = {}
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.removeLink(link);
+
+        // Assert
+        expect(res).toBe(ActionLinkError.invalidError);
+    });
+
+    test("should handle validationError error", async () => {
+        const data = {
+            status: 403,
+            data: {
+                success: false,
+                error: "validation-error",
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.removeLink(link);
+
+        // Assert
+        expect(res).toBe(ActionLinkError.validationError);
+    });
+
+});

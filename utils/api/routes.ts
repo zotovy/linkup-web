@@ -12,4 +12,5 @@ export default class ApiRoutes {
     static getUserById = (id: number | string) => ApiRoutes.buildRoute(`/user/${id}`);
     static createLink = ApiRoutes.buildRoute("/link");
     static updateLink = (id: number | string) => ApiRoutes.buildRoute(`/link/${id}`);
+    static removeLink = (id: number | string) => ApiRoutes.buildRoute(`/link/${id}`);
 }
