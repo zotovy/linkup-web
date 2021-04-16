@@ -13,6 +13,7 @@ import Settings, { SettingsSkeleton } from "./admin/settings";
 import LinksPage, { LinksLoading } from "./admin/links";
 import Theme, { ThemeSkeleton } from "./admin/theme";
 import Header from "@/components/../components/header";
+import LinkService from "@/services/link-service";
 
 const Page = styled.main`
     margin-top: 50px;
@@ -29,12 +30,13 @@ const Admin: NextPage = () => {
         user,
         goToPromo,
         tab,
-        onLinksUpdate,
+        onLinkUpdate,
         addedLinkIndex,
         onLinkCreate,
         onLinkDelete,
         onThemeChange,
-        changeSettings
+        changeSettings,
+        onLinkSave
     } = useAdminPage();
 
     if (user === null) {
@@ -50,10 +52,11 @@ const Admin: NextPage = () => {
         }
 
         if (tab === "links") return <LinksPage
+                onLinkSave={ onLinkSave }
                 onLinkDelete={ onLinkDelete }
                 onLinkCreate={ onLinkCreate }
                 addedLinkIndex={ addedLinkIndex }
-                onLinksUpdate={ onLinksUpdate }
+                onLinkUpdate={ onLinkUpdate }
                 links={ user.links }/>
         if (tab === "theme") return <Theme onThemeChange={ onThemeChange } theme={ user.theme }/>
         if (tab === "settings") return <Settings onSettingsChanged={ changeSettings } user={ user }/>
@@ -90,15 +93,27 @@ export const useAdminPage = () => {
     let tab = (router.query.tab ?? "links") as "links" | "theme" | "settings";
     if (!["links", "theme", "settings"].includes(tab)) tab = "links";
 
-
     return {
         loading: typeof user === "undefined",
         user,
         goToPromo,
         tab,
-        onLinksUpdate: (links: Link[]) => {
+        onLinkUpdate: (link: Link, i: number) => {
             if (!user) return;
+
+            // Update local state
+            const links = user.links;
+            links[i] = link;
+
+            // Update global state
             dispatch(setUserAction({ ...user, links }));
+        },
+        onLinkSave: (link: Link) => {
+            // Calling API to update link on remote server
+            // only recently created links have id == -1
+            // so, for this links we need to call create() instead of update()
+            if (link.id === -1) LinkService.createLink(link); // todo: error handling
+            else LinkService.updateLink(link); // todo: error handling
         },
         onLinkCreate: () => {
             if (!user) return;
@@ -109,7 +124,7 @@ export const useAdminPage = () => {
                 href: "",
                 subtitle: "",
                 title: "",
-                id: 0,
+                id: -1,
                 user: user,
             }
             const links = [...user.links, link];

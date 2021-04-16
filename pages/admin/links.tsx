@@ -29,16 +29,24 @@ const Container = styled.div`
 
 export type Props = {
     links: Link[],
-    onLinksUpdate: (links: Link[]) => any,
+    onLinkUpdate: (link: Link, i: number) => any,
     onLinkCreate: () => any,
     onLinkDelete: (i: number) => any,
+    onLinkSave: (link: Link) => any,
     addedLinkIndex?: number,
 }
 
-const LinksPage: React.FC<Props> = ({ links, onLinksUpdate, addedLinkIndex, onLinkCreate, onLinkDelete }) => {
+const LinksPage: React.FC<Props> = ({
+                                        links,
+                                        onLinkUpdate,
+                                        addedLinkIndex,
+                                        onLinkSave,
+                                        onLinkCreate,
+                                        onLinkDelete
+                                    }) => {
     const handleChange = (link: Link, i: number) => {
         links[i] = link;
-        onLinksUpdate(links);
+        onLinkUpdate(link, i);
     }
 
     return <React.Fragment>
@@ -49,12 +57,12 @@ const LinksPage: React.FC<Props> = ({ links, onLinksUpdate, addedLinkIndex, onLi
             <Button onClick={ onLinkCreate }>Create link</Button>
             {
                 links.map((e, i) => <LinkComponent
+
                         onChange={ (link) => handleChange(link, i) }
                         link={ e }
                         initialIsOpen={ addedLinkIndex === i }
                         key={ e.createdAt.toString() }
-                        save={ () => {
-                        } }
+                        save={ onLinkSave }
                         remove={ () => onLinkDelete(i) }
                 />)
             }
