@@ -14,6 +14,7 @@ import LinksPage, { LinksLoading } from "./admin/links";
 import Theme, { ThemeSkeleton } from "./admin/theme";
 import Header from "@/components/../components/header";
 import LinkService from "@/services/link-service";
+import UserService from "@/services/user-service";
 
 const Page = styled.main`
     margin-top: 50px;
@@ -142,7 +143,7 @@ export const useAdminPage = () => {
             dispatch(setUserAction({ ...user, theme }));
 
             // commit changes in remove server
-            // todo
+            UserService.changeTheme(theme);
         },
         changeSettings: (user: User) => {
             if (!user) return;
