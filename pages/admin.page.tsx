@@ -158,7 +158,9 @@ export const useAdminPage = () => {
         },
         saveSettings: () => {
             if (!user) return;
-            // todo: call api
+
+            // commit changes in remove server
+            UserService.changeUserName(user);
         },
         addedLinkIndex
     }

@@ -55,7 +55,7 @@ export default class UserService {
     }
 
     static async changeUserName(user: User | { id: number | string, name: string }): Promise<SaveUserResponse> {
-        const response = await client.post(ApiRoutes.updateUser(user.id), {
+        const response = await client.put(ApiRoutes.updateUser(user.id), {
             name: user.name
         });
         if (response.status === 200) return null;

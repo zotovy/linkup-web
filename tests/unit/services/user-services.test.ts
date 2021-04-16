@@ -304,7 +304,7 @@ describe("Test update user name", () => {
     let axios: jest.SpyInstance;
 
     beforeEach(() => {
-        axios = jest.spyOn(client, "post");
+        axios = jest.spyOn(client, "put");
     });
 
     beforeAll(() => {
