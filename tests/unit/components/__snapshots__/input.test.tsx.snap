@@ -45,7 +45,7 @@ exports[`Test input with error label should renders correctly with error 1`] = `
 }
 
 <div
-    class="c0 error"
+    class="c0 error input"
   >
     <input
       class="c1 c2"

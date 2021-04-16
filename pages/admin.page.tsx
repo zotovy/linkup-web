@@ -37,7 +37,8 @@ const Admin: NextPage = () => {
         onLinkDelete,
         onThemeChange,
         changeSettings,
-        onLinkSave
+        onLinkSave,
+        saveSettings
     } = useAdminPage();
 
     if (user === null) {
@@ -52,18 +53,21 @@ const Admin: NextPage = () => {
             if (tab === "settings") return <SettingsSkeleton/>;
         }
 
-        if (tab === "links") return <LinksPage
-                onLinkSave={ onLinkSave }
-                onLinkDelete={ onLinkDelete }
-                onLinkCreate={ onLinkCreate }
-                addedLinkIndex={ addedLinkIndex }
-                onLinkUpdate={ onLinkUpdate }
-                links={ user.links }/>
-        if (tab === "theme") return <Theme onThemeChange={ onThemeChange } theme={ user.theme }/>
-        if (tab === "settings") return <Settings
-                save={() => {}}
-                onSettingsChanged={ changeSettings }
-                user={ user }/>
+        if (tab === "links")
+            return <LinksPage
+                    onLinkSave={ onLinkSave }
+                    onLinkDelete={ onLinkDelete }
+                    onLinkCreate={ onLinkCreate }
+                    addedLinkIndex={ addedLinkIndex }
+                    onLinkUpdate={ onLinkUpdate }
+                    links={ user.links }/>
+        if (tab === "theme")
+            return <Theme onThemeChange={ onThemeChange } theme={ user.theme }/>
+        if (tab === "settings")
+            return <Settings
+                    save={ saveSettings }
+                    onSettingsChanged={ changeSettings }
+                    user={ user }/>
         return <React.Fragment/>
     }
 
@@ -151,6 +155,10 @@ export const useAdminPage = () => {
         changeSettings: (user: User) => {
             if (!user) return;
             dispatch(setUserAction({ ...user }));
+        },
+        saveSettings: () => {
+            if (!user) return;
+            // todo: call api
         },
         addedLinkIndex
     }

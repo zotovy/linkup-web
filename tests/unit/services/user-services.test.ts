@@ -299,3 +299,97 @@ describe("Test change theme", () => {
         expect(axios).toBeCalledWith(ApiRoutes.updateTheme(1, 0),);
     });
 });
+
+describe("Test update user name", () => {
+    let axios: jest.SpyInstance;
+
+    beforeEach(() => {
+        axios = jest.spyOn(client, "post");
+    });
+
+    beforeAll(() => {
+        const mockUid = jest.fn(() => 1);
+        Object.defineProperty(AuthHelper, "uid", {
+            get: mockUid,
+        });
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test("should change name", async () => {
+        // Arrange
+        const data = {
+            status: 200,
+            data: {
+                success: true,
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeUserName(user);
+
+        // Assert
+        expect(res).toBeNull();
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toBeCalledWith(
+            ApiRoutes.updateUser(user.id),
+            {
+                name: user.name,
+            }
+            );
+    });
+
+    test("should handle validation-error", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: false,
+                error: "validation-error"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeUserName(user);
+
+        // Assert
+        expect(res).toEqual("validation_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+    });
+
+    test("should handle forbidden", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: false,
+                error: "forbidden"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeUserName(user);
+
+        // Assert
+        expect(res).toEqual("forbidden");
+        expect(axios).toHaveBeenCalledTimes(1);
+    });
+
+    test("should handle invalid-error", async () => {
+        // Arrange
+        const data = {}
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeUserName(user);
+
+        // Assert
+        expect(res).toEqual("invalid_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+    });
+});

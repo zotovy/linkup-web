@@ -54,6 +54,22 @@ export default class UserService {
         }
     }
 
+    static async changeUserName(user: User | { id: number | string, name: string }): Promise<SaveUserResponse> {
+        const response = await client.post(ApiRoutes.updateUser(user.id), {
+            name: user.name
+        });
+        if (response.status === 200) return null;
+
+        switch (response.data?.error) {
+            case "validation-error":
+                return "validation_error";
+            case "forbidden":
+                return "forbidden";
+            default:
+                return "invalid_error";
+        }
+    }
+
     // static async setAvatar(id: number, file: File): Promise<SetAvatarResponse> {
     //     const form = new FormData();
     //     form.append("image", file);
@@ -87,5 +103,17 @@ type ApiValidationError = {
 export type LoginResponse = "ok" | "invalid_credentials" | "invalid_error";
 export type SignupResponse = "ok" | "email_not_unique_error" | "username_not_unique_error" | "invalid_error";
 export type SetAvatarResponse = "ok" | "invalid_size" | "invalid_error";
-export type UpdateUserResponse = "ok" | "email_not_unique_error" | "email_format_error" | "name_too_long" | "invalid_error";
-export type ChangeThemeResponse = null | "invalid_theme" | "forbidden" | "invalid_error" | "no_user_found";
+export type UpdateUserResponse =
+    "ok"
+    | "email_not_unique_error"
+    | "email_format_error"
+    | "name_too_long"
+    | "invalid_error";
+export type ChangeThemeResponse =
+    null
+    | "invalid_theme"
+    | "forbidden"
+    | "invalid_error"
+    | "no_user_found"
+    | "validation_error";
+export type SaveUserResponse = null | "validation_error" | "forbidden" | "invalid_error";
