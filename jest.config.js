@@ -2,5 +2,11 @@ const {pathsToModuleNameMapper} = require('ts-jest/utils');
 const {compilerOptions} = require('./tsconfig');
 
 module.exports = {
-    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'})
+    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {prefix: '<rootDir>/'}),
+    coveragePathIgnorePatterns: [
+        "node_modules/",
+        "stories/",
+        "tests/"
+    ],
+    collectCoverage: true,
 };

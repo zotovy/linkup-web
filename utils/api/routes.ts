@@ -13,4 +13,5 @@ export default class ApiRoutes {
     static createLink = ApiRoutes.buildRoute("/link");
     static updateLink = (id: number | string) => ApiRoutes.buildRoute(`/link/${id}`);
     static removeLink = (id: number | string) => ApiRoutes.buildRoute(`/link/${id}`);
+    static updateTheme = (id: number | string, theme: number | string) => ApiRoutes.buildRoute(`/user/${id}/theme${theme}`);
 }

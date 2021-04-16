@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing avatar component should renders correctly 1`] = `
-.c0 {
+<DocumentFragment>
+  .c0 {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -12,14 +13,9 @@ exports[`Testing avatar component should renders correctly 1`] = `
 }
 
 <div
-  className="c0 user-avatar"
-  data-testid="avatar"
-  style={
-    Object {
-      "backgroundImage": "url(https://avatars.githubusercontent.com/u/35657233?v=4)",
-      "height": "",
-      "width": "",
-    }
-  }
-/>
+    class="c0 user-avatar"
+    data-testid="avatar"
+    style="background-image: url(https://avatars.githubusercontent.com/u/35657233?v=4);"
+  />
+</DocumentFragment>
 `;

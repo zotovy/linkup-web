@@ -137,7 +137,12 @@ export const useAdminPage = () => {
         },
         onThemeChange: (theme: Theme) => {
             if (!user) return;
+
+            // Change global state
             dispatch(setUserAction({ ...user, theme }));
+
+            // commit changes in remove server
+            // todo
         },
         changeSettings: (user: User) => {
             if (!user) return;

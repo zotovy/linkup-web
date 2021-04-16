@@ -6,6 +6,7 @@ import { user } from "../../data";
 import ApiRoutes from "@/utils/api/routes";
 import client from "@/utils/api/client";
 import { deleteAllCookies } from "../../test-utils";
+import AuthHelper from "@/helpers/auth-helper";
 
 // jest.mock(
 //     "axios",
@@ -167,7 +168,7 @@ describe("Signup user", () => {
         const data = {
             status: 400,
             data: {
-                success: true,
+                success: false,
                 error: "username-already-exists-error"
             }
         }
@@ -187,3 +188,114 @@ describe("Signup user", () => {
     });
 });
 
+describe("Test change theme", () => {
+    let axios: jest.SpyInstance;
+
+    beforeEach(() => {
+        axios = jest.spyOn(client, "post");
+    });
+
+    beforeAll(() => {
+        const mockUid = jest.fn(() => 1);
+        Object.defineProperty(AuthHelper, "uid", {
+            get: mockUid,
+        });
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test("should change theme", async () => {
+        // Arrange
+        const data = {
+            status: 200,
+            data: {
+                success: true,
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeTheme(0);
+
+        // Assert
+        expect(res).toBeNull();
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toBeCalledWith(ApiRoutes.updateTheme(1, 0),);
+    });
+
+    test("should handle invalid-theme", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: false,
+                error: "invalid-theme"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeTheme(0);
+
+        // Assert
+        expect(res).toEqual("invalid_theme");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toBeCalledWith(ApiRoutes.updateTheme(1, 0),);
+    });
+
+    test("should handle no-user-found-error", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: false,
+                error: "no-user-found-error"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeTheme(0);
+
+        // Assert
+        expect(res).toEqual("no_user_found");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toBeCalledWith(ApiRoutes.updateTheme(1, 0),);
+    });
+
+    test("should handle forbidden", async () => {
+        // Arrange
+        const data = {
+            status: 400,
+            data: {
+                success: false,
+                error: "forbidden"
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeTheme(0);
+
+        // Assert
+        expect(res).toEqual("forbidden");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toBeCalledWith(ApiRoutes.updateTheme(1, 0),);
+    });
+
+    test("should handle invalid-error", async () => {
+        // Arrange
+        const data = {}
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.changeTheme(0);
+
+        // Assert
+        expect(res).toEqual("invalid_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+        expect(axios).toBeCalledWith(ApiRoutes.updateTheme(1, 0),);
+    });
+});

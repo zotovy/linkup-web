@@ -1,6 +1,5 @@
 /// <reference types="@types/jest" />
-import { ThemeWrapper } from "../../test-utils";
-import renderer from 'react-test-renderer';
+import { render } from "../../test-utils";
 import '@testing-library/jest-dom';
 import 'jest-styled-components'
 
@@ -18,10 +17,12 @@ describe("Testing avatar component", () => {
 
 
     test("should renders correctly", () => {
-        const tree = renderer
-                .create(<ThemeWrapper><AvatarComponent { ...props }/></ThemeWrapper>)
-                .toJSON();
+        const { asFragment } = render(<AvatarComponent { ...props }/>);
+        expect(asFragment()).toMatchSnapshot();
+    });
 
-        expect(tree).toMatchSnapshot();
+    test("should render placeholder", () => {
+        const { getByTestId } = render(<AvatarComponent/>);
+        expect(getByTestId("avatar")).toHaveStyle("background-image: url(\"/images/user-placeholder.png\");");
     });
 });

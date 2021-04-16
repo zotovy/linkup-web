@@ -38,6 +38,22 @@ export default class UserService {
         return response.data;
     }
 
+    static async changeTheme(theme: Theme): Promise<ChangeThemeResponse> {
+        const response = await client.post(ApiRoutes.updateTheme(AuthHelper.uid, theme));
+        if (response.status === 200) return null;
+
+        switch (response.data?.error) {
+            case "invalid-theme":
+                return "invalid_theme";
+            case "no-user-found-error":
+                return "no_user_found";
+            case "forbidden":
+                return "forbidden";
+            default:
+                return "invalid_error";
+        }
+    }
+
     // static async setAvatar(id: number, file: File): Promise<SetAvatarResponse> {
     //     const form = new FormData();
     //     form.append("image", file);
@@ -72,3 +88,4 @@ export type LoginResponse = "ok" | "invalid_credentials" | "invalid_error";
 export type SignupResponse = "ok" | "email_not_unique_error" | "username_not_unique_error" | "invalid_error";
 export type SetAvatarResponse = "ok" | "invalid_size" | "invalid_error";
 export type UpdateUserResponse = "ok" | "email_not_unique_error" | "email_format_error" | "name_too_long" | "invalid_error";
+export type ChangeThemeResponse = null | "invalid_theme" | "forbidden" | "invalid_error" | "no_user_found";

@@ -45,7 +45,7 @@ const ThemeComponent: React.FC<Props> = (props) => {
 
 export default ThemeComponent;
 
-
+/* istanbul ignore next */
 export const ThemeSkeleton: React.FC = () => {
     return <Container className="theme-component">
         <Skeleton width={165} height={128} style={{ borderRadius: "16px", marginBottom: "7px" }} />
