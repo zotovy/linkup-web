@@ -34,7 +34,7 @@ export const LinksContainer = styled.div`
 export type Props = User;
 
 const PhonePreviewContainer: React.FC<Props> = (props) => {
-    return <Container userTheme={ props.theme }>
+    return <Container userTheme={ props.theme } className="phone-preview">
         <UserInformationPreview { ...props } />
         <LinksContainer>
             {

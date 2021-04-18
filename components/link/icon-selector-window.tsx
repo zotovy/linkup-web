@@ -91,6 +91,7 @@ const IconsGrid = styled.div`
     grid-template-columns: repeat(auto-fit, 64px);
     grid-row-gap: 20px;
     grid-column-gap: 20px;
+    justify-content: center;
 `;
 
 const Container = styled.div`

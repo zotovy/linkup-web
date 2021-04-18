@@ -11,10 +11,13 @@ const Container = styled.div`
         width: 100%;
     }
 
-    .user-skeleton {
-        @media screen and (max-width: 960px) {
-            display: none;
-        }
+    .burger-outside-container.open {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        height: 34px;
+        width: 34px;
+        z-index: 100000000;
     }
 `;
 

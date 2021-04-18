@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -9,7 +9,7 @@ const Container = styled.div`
     cursor: pointer;
     z-index: 10001;
     flex: 0 0 34px;
-    
+
     span {
         display: block;
         position: absolute;
@@ -22,7 +22,7 @@ const Container = styled.div`
         transform: rotate(0deg);
         transition: .25s ease-in-out;
     }
-    
+
     span:nth-child(1) {
         top: 0px;
     }
@@ -60,7 +60,7 @@ const Container = styled.div`
         width: 0%;
         left: 50%;
     }
-    
+
     @media screen and (min-width: 960px) {
         display: none;
     }
@@ -73,17 +73,19 @@ export type Props = {
 
 const BurgerMenu: React.FC<Props> = (props) => {
 
-    return <Container
-            data-testid="burger-menu"
-            onClick={ () => {
-                if (props.onClick) props.onClick(!props.open);
-            }}
-            className={ props.open ? "open" : "" }>
-        <span/>
-        <span/>
-        <span/>
-        <span/>
-    </Container>
+    return <div className={ "burger-outside-container " + (props.open ? "open" : "") } style={ { flex: "0 0 34px" } }>
+        <Container
+                data-testid="burger-menu"
+                onClick={ () => {
+                    if (props.onClick) props.onClick(!props.open);
+                } }
+                className={ (props.open ? "open" : "") + " burger" }>
+            <span/>
+            <span/>
+            <span/>
+            <span/>
+        </Container>
+    </div>
 }
 
 export default BurgerMenu;

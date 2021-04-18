@@ -24,6 +24,12 @@ const Page = styled.main`
     align-items: center;
     ${ props => props.theme.centerContent };
     padding: 20px;
+    
+    @media screen and (max-width: 960px) {
+        .phone-preview {
+            display: none;
+        }
+    }
 `;
 
 const Admin: NextPage = () => {
