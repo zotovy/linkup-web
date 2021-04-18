@@ -30,10 +30,11 @@ const Container = styled.div`
 export type Props = {
     user: User,
     onSettingsChanged: (user: User) => any,
+    onAvatarPicked: (file: File) => any,
     save: () => any,
 }
 
-const Settings: React.FC<Props> = ({ user, onSettingsChanged, save }) => {
+const Settings: React.FC<Props> = ({ user, onSettingsChanged, save, onAvatarPicked }) => {
     const [error, setError] = useState<string | undefined>();
 
     const handleNameChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,8 +56,7 @@ const Settings: React.FC<Props> = ({ user, onSettingsChanged, save }) => {
             <title>Settings</title>
         </Head>
         <Container>
-            <AvatarPicker onPick={ () => {
-            } } profileImagePath={ user.profileImagePath } diameter={ 150 }/>
+            <AvatarPicker onPick={ onAvatarPicked } profileImagePath={ user.profileImagePath } diameter={ 150 }/>
             <Input
                     error={ error }
                     maxLength={ 50 }

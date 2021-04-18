@@ -421,7 +421,7 @@ describe("Test setAvatar", () => {
 
         // Act
         const targetFile: File = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' });
-        const res = await UserService.setAvatar(user.id, targetFile);
+        const res = await UserService.setAvatar(targetFile);
 
         // Assert
         expect(res).toBe(data.data);
@@ -447,7 +447,7 @@ describe("Test setAvatar", () => {
 
         // Act
         const targetFile: File = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' });
-        const res = await UserService.setAvatar(user.id, targetFile);
+        const res = await UserService.setAvatar(targetFile);
 
         // Assert
         expect(res).toBe("invalid_size");
@@ -459,7 +459,7 @@ describe("Test setAvatar", () => {
 
         // Act
         const targetFile: File = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' });
-        const res = await UserService.setAvatar(user.id, targetFile);
+        const res = await UserService.setAvatar(targetFile);
 
         // Assert
         expect(res).toBe("invalid_error");

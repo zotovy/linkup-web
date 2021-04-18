@@ -2,6 +2,7 @@ import client from "@/utils/api/client";
 import AuthHelper from "@/helpers/auth-helper";
 import ApiRoutes from "@/utils/api/routes";
 import { FormValues } from "../pages/signup.page";
+import UiHelper from "@/helpers/ui-helper";
 
 export default class UserService {
 
@@ -70,9 +71,11 @@ export default class UserService {
         }
     }
 
-    static async setAvatar(id: number, file: File): Promise<SetAvatarResponse> {
+    static async setAvatar(file: File): Promise<SetAvatarResponse> {
         const form = new FormData();
         form.append("image", file);
+        const id = AuthHelper.uid;
+
         const response = await client.post(ApiRoutes.changeUserAvatar(id), form);
 
         if (typeof response?.data === "string") return response.data;

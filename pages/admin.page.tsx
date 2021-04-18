@@ -44,7 +44,8 @@ const Admin: NextPage = () => {
         onThemeChange,
         changeSettings,
         onLinkSave,
-        saveSettings
+        saveSettings,
+        setAvatar
     } = useAdminPage();
 
     if (user === null) {
@@ -71,6 +72,7 @@ const Admin: NextPage = () => {
             return <Theme onThemeChange={ onThemeChange } theme={ user.theme }/>
         if (tab === "settings")
             return <Settings
+                    onAvatarPicked={ setAvatar }
                     save={ saveSettings }
                     onSettingsChanged={ changeSettings }
                     user={ user }/>
@@ -167,6 +169,16 @@ export const useAdminPage = () => {
 
             // commit changes in remove server
             UserService.changeUserName(user);
+        },
+        setAvatar: async (file: File) => {
+            if (!user) return;
+
+            // get avatar href
+            const href = await UserService.setAvatar(file);
+            if (href === "invalid_size") return; // TODO: error handling
+
+            // set avatar
+            dispatch(setUserAction({ ...user, profileImagePath: href }));
         },
         addedLinkIndex
     }
