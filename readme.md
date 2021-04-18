@@ -1,14 +1,14 @@
 <h1 align="center">
-	<img src="https://github.com/zotovY/movieman-web/blob/main/.github/logo.png?raw=true" height="100px" />
+	<img src="https://github.com/zotovY/linkup-web/blob/main/.github/logo.png?raw=true" height="100px" />
 	<br/>
-	Movieman
+	Linkup
 </h1>
 
 
-Service where you can write a review for your favourite movies, discuss with a moviegoer and find a great movie for your
-rest
+Free bio link tool for your social medias! Allow you to create a personal page where you 
+can leave your contacts
 
-![Movieman preview](https://github.com/zotovY/movieman-web/blob/main/.github/preview.png?raw=true)
+![Linkup preview](./.github/screenshot.png)
 
 ### Available commands
 
@@ -21,10 +21,10 @@ rest
 
 ### Start locally
 
-- Setup [API server](https://github.com/zotovY/movieman-server)
+- Setup [API server](https://github.com/zotovY/linkup-api)
 - Clone repository
   ```bash
-  git clone https://github.com/zotovY/movieman-web
+  git clone https://github.com/zotovY/linkup-web
   ```
 - Install all dependencies
   ```bash
@@ -44,15 +44,14 @@ rest
  - [Typescript](https://www.typescriptlang.org/)  – programming language
  - [Styled components](https://github.com/styled-components/styled-components) – styling tool
  - [Formik](https://github.com/formium/formik) – tool for building forms
- - [Framer motion](https://www.framer.com/motion/) for animations
  - [Storybook](https://storybook.js.org/) – documentation tool
- - [Jest](https://github.com/facebook/jest) – testing tool
- - [react-toastify](https://github.com/fkhadra/react-toastify), [react-responsive-carousel](https://github.com/leandrowd/react-responsive-carousel), [react-loading-skeleton](https://github.com/dvtng/react-loading-skeleton) for UI
+ - [Jest](https://github.com/facebook/jest) & [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) – testing tools
+ - [react-toastify](https://github.com/fkhadra/react-toastify), [react-loading-skeleton](https://github.com/dvtng/react-loading-skeleton) for UI
 
 ### Contribution
 Do you like this project? Want to contribute and make it cooler? 
 You can easily do it! First, check 
-[contribution.md](https://github.com/zotovY/movieman-web/blob/main/contribution.md). 
+[contribution.md](https://github.com/zotovY/linkup-web/blob/main/contribution.md). 
 Here you can find instructions that can help to build this project. 
 
 ### Author
