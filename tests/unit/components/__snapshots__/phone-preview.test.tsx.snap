@@ -93,7 +93,7 @@ exports[`Testing PhonePreview component should renders correctly 1`] = `
 }
 
 <div
-    class="c0"
+    class="c0 phone-preview"
   >
     <div
       class="c1 UserInformationPreview"

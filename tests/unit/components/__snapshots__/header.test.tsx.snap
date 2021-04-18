@@ -96,6 +96,15 @@ exports[`Testing Header component should render correctly authorized 1`] = `
   width: 100%;
 }
 
+.c0 .burger-outside-container.open {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: 34px;
+  width: 34px;
+  z-index: 100000000;
+}
+
 .c1 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -321,12 +330,6 @@ exports[`Testing Header component should render correctly authorized 1`] = `
 }
 
 @media screen and (max-width:960px) {
-  .c0 .user-skeleton {
-    display: none;
-  }
-}
-
-@media screen and (max-width:960px) {
   .c2 {
     display: none;
   }
@@ -405,13 +408,18 @@ exports[`Testing Header component should render correctly authorized 1`] = `
       </div>
     </div>
     <div
-      class="c6"
-      data-testid="burger-menu"
+      class="burger-outside-container "
+      style="flex: 0 0 34px;"
     >
-      <span />
-      <span />
-      <span />
-      <span />
+      <div
+        class="c6  burger"
+        data-testid="burger-menu"
+      >
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
     </div>
     <div
       class="c7"
@@ -480,6 +488,15 @@ exports[`Testing Header component should render correctly loading 1`] = `
 
 .c0 .space {
   width: 100%;
+}
+
+.c0 .burger-outside-container.open {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  height: 34px;
+  width: 34px;
+  z-index: 100000000;
 }
 
 .c1 {
@@ -670,12 +687,6 @@ exports[`Testing Header component should render correctly loading 1`] = `
 }
 
 @media screen and (max-width:960px) {
-  .c0 .user-skeleton {
-    display: none;
-  }
-}
-
-@media screen and (max-width:960px) {
   .c2 {
     display: none;
   }
@@ -721,13 +732,18 @@ exports[`Testing Header component should render correctly loading 1`] = `
       </span>
     </span>
     <div
-      class="c3"
-      data-testid="burger-menu"
+      class="burger-outside-container "
+      style="flex: 0 0 34px;"
     >
-      <span />
-      <span />
-      <span />
-      <span />
+      <div
+        class="c3  burger"
+        data-testid="burger-menu"
+      >
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
     </div>
     <div
       class="c4"
