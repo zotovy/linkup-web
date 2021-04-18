@@ -10,6 +10,7 @@
 //
 //
 import { user } from "../../data";
+import 'cypress-file-upload';
 
 Cypress.Commands.add('login', () => {
    cy.setCookie("uid", user.id.toString());
