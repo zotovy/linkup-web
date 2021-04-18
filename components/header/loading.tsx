@@ -13,7 +13,7 @@ const LoadingHeader: React.FC = () => {
     const { f: { toggleUserSlide, onTabClick }, v: { isMobileSlideOpen } } = useHeaderLogic();
 
     return <Container>
-        <Logo src="/images/logo-48x35.png"/>
+        <Logo width="48px" height="35px" src="/images/logo-48x35.png"/>
         <Tab className="selected links">Links</Tab>
         <Tab>Theme</Tab>
         <Tab>Settings</Tab>

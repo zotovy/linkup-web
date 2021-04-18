@@ -21,7 +21,7 @@ const Authorized: React.FC<Props> = (props) => {
     const { f, v } = useHeaderLogic();
 
     return <Container>
-        <Logo src="/images/logo-48x35.png"/>
+        <Logo width="48px" height="35px" src="/images/logo-48x35.png"/>
         <Tab className={ f.getTabClass("links") } onClick={ f.onTabClickHandler("links") }>Links</Tab>
         <Tab className={ f.getTabClass("theme") } onClick={ f.onTabClickHandler("theme") }>Theme</Tab>
         <Tab className={ f.getTabClass("settings") } onClick={ f.onTabClickHandler("settings") }>Settings</Tab>

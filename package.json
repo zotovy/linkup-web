@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "NODE_TLS_REJECT_UNAUTHORIZED='0' node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "test": "jest",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook",

@@ -22,7 +22,7 @@ const Container = styled.div`
 
 const WaterMark: React.FC = () => {
     return <Container onClick={() => window.location.href = "https://linkup.com"}>
-        <img src="/images/logo-small.png" alt="linkup logo small"/>
+        <img src="/images/logo-small.png" width="28px" height="25px" alt="linkup logo small"/>
         <span>Linkup</span>
     </Container>
 }

@@ -13,8 +13,8 @@ export default {
 
 type StoriesProps = Props;
 
-const TemplateDefault: Story<StoriesProps> = (args) => <div style={{ width: "400px" }}>
-    <Input {...args} />
+const TemplateDefault: Story<StoriesProps> = (args) => <div style={ { width: "400px" } }>
+    <Input { ...args } />
 </div>;
 
 export const Default = TemplateDefault.bind({});
@@ -27,8 +27,8 @@ Error.args = {
     error: true,
 }
 
-const TemplatePassword: Story<StoriesProps> = (args) => <div style={{ width: "400px" }}>
-    <PasswordInput {...args} />
+const TemplatePassword: Story<StoriesProps> = (args) => <div style={ { width: "400px" } }>
+    <PasswordInput { ...args } error={ args.error ? "Invalid password" : undefined }/>
 </div>
 export const Password = TemplatePassword.bind({});
 Password.args = {
@@ -38,8 +38,8 @@ Password.args = {
 const TemplateError: Story<{ error: string }> = (args) => {
     const error = args.error === "" ? undefined : args.error;
 
-    return <div style={{ width: "400px" }}>
-        <ErrorInput {...args} error={error} />
+    return <div style={ { width: "400px" } }>
+        <ErrorInput { ...args } error={ error }/>
     </div>
 }
 export const WithError = TemplateError.bind({});
