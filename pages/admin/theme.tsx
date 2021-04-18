@@ -10,9 +10,19 @@ const Container = styled.div`
     flex-wrap: wrap;
     padding: 50px;
     align-items: initial;
-    
+
     .theme-component {
         margin: 10px 35px;
+    }
+
+    @media screen and (max-width: 960px) {
+        padding: 20px 0 0;
+    }
+
+    @media screen and (max-width: 550px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: initial;
     }
 `;
 
