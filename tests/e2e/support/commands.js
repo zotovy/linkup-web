@@ -9,8 +9,13 @@
 // ***********************************************
 //
 //
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+import { user } from "../../data";
+
+Cypress.Commands.add('login', () => {
+   cy.setCookie("uid", user.id.toString());
+   cy.setCookie("accessToken", "123.123.123");
+   cy.setCookie("refreshToken", "123.123.123");
+});
 //
 //
 // -- This is a child command --
