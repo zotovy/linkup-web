@@ -346,7 +346,9 @@ exports[`Testing Header component should render correctly authorized 1`] = `
   >
     <img
       class="c1"
+      height="35px"
       src="/images/logo-48x35.png"
+      width="48px"
     />
     <div
       class="c2  links"
@@ -703,7 +705,9 @@ exports[`Testing Header component should render correctly loading 1`] = `
   >
     <img
       class="c1"
+      height="35px"
       src="/images/logo-48x35.png"
+      width="48px"
     />
     <div
       class="c2 selected links"

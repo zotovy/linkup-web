@@ -209,7 +209,9 @@ exports[`Testing PhonePreview component should renders correctly 1`] = `
     >
       <img
         alt="linkup logo small"
+        height="25px"
         src="/images/logo-small.png"
+        width="28px"
       />
       <span>
         Linkup
