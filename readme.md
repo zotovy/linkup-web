@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="https://github.com/zotovY/linkup-web/blob/main/.github/logo.png?raw=true" height="100px" />
+	<img src="https://github.com/zotovY/linkup-web/blob/master/.github/logo.png?raw=true" height="100px" />
 	<br/>
 	Linkup
 </h1>
