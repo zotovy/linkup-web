@@ -393,3 +393,76 @@ describe("Test update user name", () => {
         expect(axios).toHaveBeenCalledTimes(1);
     });
 });
+
+describe("Test setAvatar", () => {
+    let axios: jest.SpyInstance;
+
+    beforeEach(() => {
+        axios = jest.spyOn(client, "post");
+    });
+
+    beforeAll(() => {
+        const mockUid = jest.fn(() => 1);
+        Object.defineProperty(AuthHelper, "uid", {
+            get: mockUid,
+        });
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test("should change pic", async () => {
+        const data = {
+            statusCode: 200,
+            data: "https://domain.my/some-image.png",
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const targetFile: File = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' });
+        const res = await UserService.setAvatar(user.id, targetFile);
+
+        // Assert
+        expect(res).toBe(data.data);
+        expect(axios).toHaveBeenCalledTimes(1);
+
+        const form = new FormData();
+        form.append("image", targetFile);
+        expect(axios).toBeCalledWith(
+            ApiRoutes.changeUserAvatar(user.id),
+            form
+        );
+    });
+
+    test("should handle invalid-image-size-error", async () => {
+        const data = {
+            statusCode: 400,
+            data: {
+                success: false,
+                error: "invalid-image-size-error"
+            },
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const targetFile: File = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' });
+        const res = await UserService.setAvatar(user.id, targetFile);
+
+        // Assert
+        expect(res).toBe("invalid_size");
+        expect(axios).toHaveBeenCalledTimes(1);
+    });
+
+    test("should handle invalid error", async () => {
+        axios.mockImplementationOnce(() => undefined);
+
+        // Act
+        const targetFile: File = new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' });
+        const res = await UserService.setAvatar(user.id, targetFile);
+
+        // Assert
+        expect(res).toBe("invalid_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+    });
+});
