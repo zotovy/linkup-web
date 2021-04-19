@@ -60,6 +60,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 .scrollable
 
 .scrollable::-webkit-scrollbar-button {

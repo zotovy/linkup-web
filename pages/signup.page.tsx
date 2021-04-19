@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { NextPage } from "next";
 import styled from "styled-components";
 import { ToastContainer } from "react-toastify";
@@ -16,6 +17,7 @@ import { withRouter } from "next/router";
 import Button from "@/components/button";
 import Title from "@/components/title";
 import Head from "next/head";
+import AppRoutes from "@/utils/app-routes";
 
 const Page = styled.main`
     ${ CenterLayoutStyles }
@@ -108,7 +110,7 @@ const Form = withRouter(withFormik<WithRouterProps, FormValues>({
 
             return UiHelper.showToast(message);
         }
-        props.router.push("/");
+        props.router.push("/admin");
     },
     validationSchema: ValidationHelper.validateSignupForm,
 })(InnerForm));
@@ -121,9 +123,27 @@ const SignupPage: NextPage = () => {
         <Page>
             <Title>Signup</Title>
             <Form/>
+            <HaveAccount>
+                Already have an account?
+                <Link href={AppRoutes.login}>
+                    <a>Login</a>
+                </Link>
+            </HaveAccount>
         </Page>
         <ToastContainer/>
     </React.Fragment>;
 }
 
 export default SignupPage;
+
+export const HaveAccount = styled.span`
+    margin-top: 15px;
+    text-align: center;
+    color: ${ props => props.theme.colors.text.disabled };
+    font-size: 16px;
+    
+    a {
+        margin-left: 5px;
+        color: ${ props => props.theme.colors.text.disabled };
+    }
+`;

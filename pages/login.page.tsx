@@ -14,6 +14,9 @@ import UserService from "@/services/user-service";
 import UiHelper from "@/helpers/ui-helper";
 import ValidationHelper from "@/helpers/validation-helper";
 import Head from "next/head";
+import Link from "next/link";
+import AppRoutes from "@/utils/app-routes";
+import { HaveAccount } from "./signup.page";
 
 const Page = styled.main`
     ${ CenterLayoutStyles }
@@ -43,6 +46,12 @@ const LoginPage: NextPage = () => {
             <Input onChange={ handleChange("email") } placeholder="Enter your email" type="email"/>
             <PasswordInputInput onChange={ handleChange("password") } placeholder="Enter your password"/>
             <Button onClick={ onLogin }>Login</Button>
+            <HaveAccount>
+                First time?
+                <Link href={AppRoutes.signup}>
+                    <a>Signup</a>
+                </Link>
+            </HaveAccount>
         </Page>
         <ToastContainer/>;
     </React.Fragment>;
