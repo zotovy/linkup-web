@@ -114,6 +114,7 @@ const fade = `animation: fadeAnim 1s ease; animation-fill-mode: both;`;
 const Page = styled.main`
     width: 100%;
     height: 100%;
+    padding: 20px;
 
     @keyframes fadeAnim {
         from {
@@ -146,6 +147,11 @@ const Page = styled.main`
         font-size: 56px;
         font-weight: 500;
         margin-bottom: 20px;
+        text-align: center;
+        
+        @media screen and (max-width: 960px) {
+            font-size: 42px;
+        }
     }
 
     section.main {
@@ -159,11 +165,20 @@ const Page = styled.main`
             color: ${ props => props.theme.colors.text.secondary };
             ${ fade };
             animation-delay: 300ms;
+            text-align: center;
+
+            @media screen and (max-width: 960px) {
+                font-size: 18px;
+            }
         }
 
         .phone-container {
             margin-top: 120px;
             position: relative;
+            
+            @media screen and (max-width: 960px) {
+                transform: scale(0.75);
+            }
 
             .card {
                 position: absolute;
@@ -239,6 +254,24 @@ const Page = styled.main`
             display: flex;
             align-items: center;
             justify-content: center;
+            
+            img {
+                max-width: 100%;
+            }
+
+            @media screen and (max-width: 960px) {
+                max-width: calc(100vw - 40px);
+            }
+        }
+
+        @media screen and (max-width: 960px) {
+            flex-direction: column !important;
+
+            .info {
+                width: 100%;
+                text-align: center;
+                margin: 0 !important;
+            }
         }
 
         &.first-advantage {
