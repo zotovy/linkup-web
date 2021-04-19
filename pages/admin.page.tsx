@@ -15,6 +15,7 @@ import Theme, { ThemeSkeleton } from "./admin/theme";
 import Header from "@/components/../components/header";
 import LinkService from "@/services/link-service";
 import UserService from "@/services/user-service";
+import MadeWithLove from "@/components/made-with-love";
 
 const Page = styled.main`
     margin-top: 50px;
@@ -89,6 +90,7 @@ const Admin: NextPage = () => {
                         : <PhonePreviewSkeleton/>
             }
         </Page>
+        <MadeWithLove/>
     </React.Fragment>;
 }
 
