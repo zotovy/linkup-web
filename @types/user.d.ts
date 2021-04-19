@@ -7,4 +7,5 @@ declare type User = {
     profileImagePath?: string;
     theme: Theme;
     links: Link[];
+    username: string;
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { NextPage } from "next";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +17,7 @@ import Header from "@/components/../components/header";
 import LinkService from "@/services/link-service";
 import UserService from "@/services/user-service";
 import MadeWithLove from "@/components/made-with-love";
+import AppRoutes from "@/utils/app-routes";
 
 const Page = styled.main`
     margin-top: 50px;
@@ -31,6 +33,14 @@ const Page = styled.main`
             display: none;
         }
     }
+`;
+
+const GoToMyPageLink = styled.p`
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    color: ${ props => props.theme.colors.primary };
+    cursor: pointer;
 `;
 
 const Admin: NextPage = () => {
@@ -84,11 +94,16 @@ const Admin: NextPage = () => {
         <Header user={ user }/>
         <Page>
             { getPage() }
-            {
-                user
-                        ? <PhonePreviewContainer { ...user }/>
-                        : <PhonePreviewSkeleton/>
-            }
+            <div>
+                {
+                    user
+                            ? <PhonePreviewContainer { ...user }/>
+                            : <PhonePreviewSkeleton/>
+                }
+                <Link href={AppRoutes.userPage(user?.username)}>
+                    <GoToMyPageLink>Go to my page</GoToMyPageLink>
+                </Link>
+            </div>
         </Page>
         <MadeWithLove/>
     </React.Fragment>;
