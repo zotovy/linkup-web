@@ -59,7 +59,7 @@ export default class AuthHelper {
 
     static get uid(): number {
         const cookies = new Cookies();
-        return parseInt(cookies.get("uid"));
+        return parseInt(cookies.get("uid") ?? "");
     }
 }
 
