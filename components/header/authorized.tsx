@@ -1,4 +1,5 @@
 import React  from "react";
+import Link from "next/link";
 import { ChevronDownOutline } from "react-ionicons";
 import theme from "@/utils/theme";
 import useHeaderLogic from "@/components/header/logic";
@@ -10,11 +11,12 @@ import Logo from "@/components/header/logo";
 import Tab from "@/components/header/tab";
 import MobileMenuSlide from "@/components/header/mobile-menu";
 import BurgerMenu from "@/components/header/burger";
+import AppRoutes from "@/utils/app-routes";
 
 type Props = User | {
-    username: string;
     name: string;
     profileImagePath?: string;
+    username: string;
 };
 
 const Authorized: React.FC<Props> = (props) => {
@@ -30,7 +32,7 @@ const Authorized: React.FC<Props> = (props) => {
             { props.name }
             <ChevronDownOutline cssClasses="chevron" color={ theme.colors.text.disabled }/>
             <UserModelWindow className={ f.getUserModalWindowClass() } data-testid="user-modal-in-header">
-                <a>My page</a>
+                <Link href={AppRoutes.userPage(props?.username)}>My page</Link>
                 <a className="error">Logout</a>
             </UserModelWindow>
         </User>
