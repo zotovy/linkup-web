@@ -80,7 +80,7 @@ export const useLoginPage = () => {
 
         const status = await UserService.loginUser(email, password);
 
-        if (status === "ok") return router.push("/");
+        if (status === "ok") return router.push(AppRoutes.links);
         else if (status === "invalid_credentials") UiHelper.showToast("Invalid email or password");
         else UiHelper.showToast("Invalid error happened. Please, try later");
     }

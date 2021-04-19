@@ -110,7 +110,7 @@ const Form = withRouter(withFormik<WithRouterProps, FormValues>({
 
             return UiHelper.showToast(message);
         }
-        props.router.push("/admin");
+        props.router.push(AppRoutes.links);
     },
     validationSchema: ValidationHelper.validateSignupForm,
 })(InnerForm));
