@@ -60,6 +60,7 @@ exports[`Testing Header component should render correctly authorized 1`] = `
   flex-direction: column;
   width: 100%;
   min-width: 125px;
+  z-index: 10000;
 }
 
 .c5.disabled {
@@ -399,7 +400,9 @@ exports[`Testing Header component should render correctly authorized 1`] = `
         class="c5 disabled"
         data-testid="user-modal-in-header"
       >
-        <a>
+        <a
+          href="/undefined"
+        >
           My page
         </a>
         <a

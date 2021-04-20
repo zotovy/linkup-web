@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import Link from "next/link";
 import { ChevronDownOutline } from "react-ionicons";
 import theme from "@/utils/theme";
@@ -32,13 +32,13 @@ const Authorized: React.FC<Props> = (props) => {
             { props.name }
             <ChevronDownOutline cssClasses="chevron" color={ theme.colors.text.disabled }/>
             <UserModelWindow className={ f.getUserModalWindowClass() } data-testid="user-modal-in-header">
-                <Link href={AppRoutes.userPage(props?.username)}>My page</Link>
-                <a className="error">Logout</a>
+                <Link href={ AppRoutes.userPage(props?.username) }>My page</Link>
+                <a onClick={ f.logout } className="error">Logout</a>
             </UserModelWindow>
         </User>
 
         <BurgerMenu onClick={ f.toggleUserSlide } open={ v.isMobileSlideOpen }/>
-        <MobileMenuSlide user={props} isOpen={ v.isMobileSlideOpen } onTabClick={ (tab) => {
+        <MobileMenuSlide user={ props } isOpen={ v.isMobileSlideOpen } onTabClick={ (tab) => {
             f.toggleUserSlide();
             f.onTabClick(tab);
         } }/>

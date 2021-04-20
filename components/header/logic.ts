@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import AppRoutes from "@/utils/app-routes";
+import AuthHelper from "@/helpers/auth-helper";
 
 const useHeaderLogic = () => {
     const router = useRouter();
@@ -33,6 +34,10 @@ const useHeaderLogic = () => {
             toggleUserModalWindow,
             getUserModalWindowClass,
             toggleUserSlide,
+            logout: () => {
+                AuthHelper.destroyTokens();
+                router.push(AppRoutes.homepage);
+            },
         },
         v: {
             tab,

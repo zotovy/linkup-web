@@ -52,9 +52,10 @@ export default class AuthHelper {
     }
 
     static destroyTokens(): void {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("uid");
+        const cookies = new Cookies();
+        cookies.remove("uid");
+        cookies.remove("accessToken");
+        cookies.remove("refreshToken");
     }
 
     static get uid(): number {

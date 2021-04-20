@@ -36,6 +36,7 @@ export const UserModelWindow = styled.div`
     flex-direction: column;
     width: 100%;
     min-width: 125px;
+    z-index: 10000;
 
     &.disabled {
         transform: translateX(-50px);
