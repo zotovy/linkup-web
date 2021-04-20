@@ -6,6 +6,7 @@ export const link: Link = {
     subtitle: "This is my github account",
     title: "Github",
     user:  {
+        username: "zotovy",
         name: "Yaroslav Zotov",
         id: 1,
         email: "the1ime@yandex.ru",
@@ -18,6 +19,7 @@ export const link: Link = {
 }
 
 export const user: User = {
+    username: "zotovy",
     name: "Yaroslav Zotov",
     id: 1,
     email: "the1ime@yandex.ru",

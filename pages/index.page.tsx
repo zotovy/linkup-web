@@ -9,6 +9,7 @@ import AuthHelper from "@/helpers/auth-helper";
 import { useRouter } from "next/router";
 
 const user: User = {
+    username: "zotovy",
     name: "Yaroslav Zotov",
     id: 1,
     email: "the1ime@yandex.ru",
