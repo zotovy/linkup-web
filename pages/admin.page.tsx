@@ -29,10 +29,14 @@ const Page = styled.main`
     padding: 20px;
     
     @media screen and (max-width: 960px) {
+        flex-direction: column;
+        
         .phone-preview {
             display: none;
         }
+        
     }
+    
 `;
 
 const GoToMyPageLink = styled.p`

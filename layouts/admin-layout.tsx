@@ -7,6 +7,11 @@ export const LayoutStyles = css`
     justify-content: center;
     align-items: center;
     min-height: 740px;
+    
+    @media screen and (max-width: 960px) {
+        height: initial;
+        min-height: calc(100vh - 200px);
+    }
 `;
 
 export default styled.div`${LayoutStyles}`;
