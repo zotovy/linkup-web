@@ -165,8 +165,10 @@ export const useAdminPage = () => {
         },
         onLinkDelete: (i: number) => {
             if (!user) return;
-            const links = user.links.splice(i - 1, 1);
-            dispatch(setUserAction({ ...user, links }));
+            const link = user.links[i];
+            user.links.splice(i, 1);
+            dispatch(setUserAction({ ...user }));
+            LinkService.removeLink(link);
         },
         onThemeChange: (theme: Theme) => {
             if (!user) return;
