@@ -401,7 +401,7 @@ exports[`Testing Header component should render correctly authorized 1`] = `
         data-testid="user-modal-in-header"
       >
         <a
-          href="/undefined"
+          href="/zotovy"
         >
           My page
         </a>
