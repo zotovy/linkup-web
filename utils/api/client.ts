@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import axios from "axios";
 import EnvHelper from "@/helpers/env-helper";
 import AuthHelper from "@/helpers/auth-helper";

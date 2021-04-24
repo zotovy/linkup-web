@@ -4,6 +4,7 @@ import themeStyles from "@/utils/theme";
 
 export default class UiHelper {
 
+    /* istanbul ignore next */
     static showToast(message: string) {
         toast.error(
                 message,
@@ -16,6 +17,7 @@ export default class UiHelper {
         );
     }
 
+    /* istanbul ignore next */
     static getThemedStyles(theme: Theme): ThemedStyles {
         if (theme === 0)  return  {
             text: {

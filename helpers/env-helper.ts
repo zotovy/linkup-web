@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 export default class EnvHelper {
 
     static validateEnv(): void {

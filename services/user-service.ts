@@ -20,12 +20,12 @@ export default class UserService {
 
     static async signupUser(data: User | FormValues): Promise<SignupResponse> {
         const response = await client.post(ApiRoutes.signup, data);
-        if (response.status !== 200) {
+        if (response.status !== 200 || !response.data) {
             if (response.status === 400) {
                 if (response.data.error === "email-already-exists-error") return "email_not_unique_error";
                 if (response.data.error === "username-already-exists-error") return "username_not_unique_error";
-                return "invalid_error";
             }
+            return "invalid_error";
         }
 
         // save tokens
@@ -35,7 +35,7 @@ export default class UserService {
 
     static async fetchUser(id: number): Promise<User | null> {
         const response = await client.get(ApiRoutes.getUserById(id));
-        if (response.status !== 200 || !response.data) return null;
+        if (response.status !== 200 || !response?.data) return null;
         return response.data;
     }
 

@@ -7,6 +7,7 @@ type StyledProps = {
     size: "small" | "default";
 }
 
+/* istanbul ignore next */
 const Container = styled.button<StyledProps>`
     width: 100%;
     font-size: ${ props => props.size === "small" ? "16px" : "18px" };

@@ -90,6 +90,23 @@ describe("Test create link", () => {
         expect(res).toBe(ActionLinkError.validationError);
     });
 
+    test("should handle forbidden error", async () => {
+        const data = {
+            status: 403,
+            data: {
+                success: false,
+                error: "forbidden",
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.createLink(link);
+
+        // Assert
+        expect(res).toBe(ActionLinkError.Forbidden);
+    });
+
 });
 
 describe("Test update link", () => {
@@ -174,6 +191,23 @@ describe("Test update link", () => {
 
         // Assert
         expect(res).toBe(ActionLinkError.validationError);
+    });
+
+    test("should handle forbidden error", async () => {
+        const data = {
+            status: 403,
+            data: {
+                success: false,
+                error: "forbidden",
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.updateLink(link);
+
+        // Assert
+        expect(res).toBe(ActionLinkError.Forbidden);
     });
 
 });
@@ -271,4 +305,20 @@ describe("Test remove link", () => {
         expect(res).toBe(ActionLinkError.validationError);
     });
 
+    test("should handle forbidden error", async () => {
+        const data = {
+            status: 403,
+            data: {
+                success: false,
+                error: "forbidden",
+            }
+        }
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await LinkService.removeLink(link);
+
+        // Assert
+        expect(res).toBe(ActionLinkError.Forbidden);
+    });
 });

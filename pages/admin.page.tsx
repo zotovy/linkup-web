@@ -104,9 +104,9 @@ const Admin: NextPage = () => {
                             ? <PhonePreviewContainer { ...user }/>
                             : <PhonePreviewSkeleton/>
                 }
-                <Link href={AppRoutes.userPage(user?.username)}>
+                <a target="_blank" href={AppRoutes.userPage(user?.username)}>
                     <GoToMyPageLink>Go to my page</GoToMyPageLink>
-                </Link>
+                </a>
             </div>
         </Page>
         <MadeWithLove/>

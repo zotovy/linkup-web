@@ -1,33 +1,10 @@
 /// <reference types="@types/jest" />
-
-import axiosRaw from "axios";
 import UserService from "@/services/user-service";
 import { user } from "../../data";
 import ApiRoutes from "@/utils/api/routes";
 import client from "@/utils/api/client";
 import { deleteAllCookies } from "../../test-utils";
 import AuthHelper from "@/helpers/auth-helper";
-
-// jest.mock(
-//     "axios",
-//     () => {
-//         return {
-//             post: jest.fn(),
-//             default: jest.fn(),
-//             create: jest.fn(() => ({
-//                 get: jest.fn(),
-//                 post: jest.fn(() => Promise.resolve({ data: { lol: 123, } })),
-//                 interceptors: {
-//                     request: { use: jest.fn(), eject: jest.fn() },
-//                     response: { use: jest.fn(), eject: jest.fn() }
-//                 }
-//             }))
-//         }
-//     }
-// );
-// const axios = axiosRaw as jest.Mocked<typeof axiosRaw>;
-// const axios = jest.genMockFromModule('axios') as jest.Mocked<typeof axiosRaw>;
-// axios.create = jest.fn(() => axios);
 
 
 const tokens = {
@@ -99,6 +76,20 @@ describe("Login user", () => {
         );
         expect(document.cookie).toEqual("");
     });
+
+    test("should return 'invalid_error'", async () => {
+        // Arrange
+        const invalidEmail = "lol@mail.com";
+        const data = {}
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.loginUser(invalidEmail, user.password);
+
+        // Assert
+        expect(res).toEqual("invalid_error");
+        expect(axios).toHaveBeenCalledTimes(1);
+    });
 });
 
 describe("Signup user", () => {
@@ -161,6 +152,19 @@ describe("Signup user", () => {
             user,
         );
         expect(document.cookie).toEqual("");
+    });
+
+    test("should return 'invalid_error'", async () => {
+        // Arrange
+        const data = {}
+        axios.mockImplementationOnce(() => Promise.resolve(data));
+
+        // Act
+        const res = await UserService.signupUser(user);
+
+        // Assert
+        expect(res).toEqual("invalid_error");
+        expect(axios).toHaveBeenCalledTimes(1);
     });
 
     test("shouldn't create user if username uniqueness error", async () => {
@@ -466,3 +470,51 @@ describe("Test setAvatar", () => {
         expect(axios).toHaveBeenCalledTimes(1);
     });
 });
+
+describe("Test fetch user", () => {
+    let axios: jest.SpyInstance;
+
+    beforeEach(() => {
+        axios = jest.spyOn(client, "get");
+    });
+
+    beforeAll(() => {
+        const mockUid = jest.fn(() => 1);
+        Object.defineProperty(AuthHelper, "uid", {
+            get: mockUid,
+        });
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test("should fetch user", async () => {
+        axios.mockImplementationOnce(() => Promise.resolve({
+            status: 200,
+            data: user,
+        }));
+
+        // Act
+        const res = await UserService.fetchUser(1);
+
+        // Assert
+        expect(res).toEqual(user);
+    });
+
+    test("should return 404", async () => {
+        axios.mockImplementationOnce(() => Promise.resolve({
+            status: 404,
+            data: {
+                success: false,
+                error: "no-user-found"
+            },
+        }));
+
+        // Act
+        const res = await UserService.fetchUser(1);
+
+        // Assert
+        expect(res).toBeNull();
+    });
+})

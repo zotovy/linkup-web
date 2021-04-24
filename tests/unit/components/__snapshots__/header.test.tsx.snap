@@ -402,6 +402,7 @@ exports[`Testing Header component should render correctly authorized 1`] = `
       >
         <a
           href="/zotovy"
+          target="_blank"
         >
           My page
         </a>

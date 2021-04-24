@@ -32,7 +32,7 @@ const Authorized: React.FC<Props> = (props) => {
             { props.name }
             <ChevronDownOutline cssClasses="chevron" color={ theme.colors.text.disabled }/>
             <UserModelWindow className={ f.getUserModalWindowClass() } data-testid="user-modal-in-header">
-                <Link href={ AppRoutes.userPage(props?.username) }>My page</Link>
+                <a target="_blank" href={ AppRoutes.userPage(props?.username) }>My page</a>
                 <a onClick={ f.logout } className="error">Logout</a>
             </UserModelWindow>
         </User>
