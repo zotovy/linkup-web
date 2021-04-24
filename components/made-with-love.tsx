@@ -16,11 +16,9 @@ const Link = styled.a`
     }
 `;
 
-export type Props = {}
-
-const MadeWithLove: React.FC<Props> = (props) => {
+const MadeWithLove: React.FC = () => {
     return <Container>
-        Made with 🖤&nbsp; by <Link href="https://linkup.ru/zotovy">Yaroslav Zotov</Link>
+        Made with 🖤&nbsp; by <Link href="https://linkup.zotov.dev/zotovy">Yaroslav Zotov</Link>
     </Container>
 }
 
