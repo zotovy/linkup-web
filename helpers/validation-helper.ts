@@ -2,10 +2,10 @@ import * as Yup from "yup";
 
 export default class ValidationHelper {
 
-    static PasswordValidator = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/)
-    static UsernameValidator = new RegExp(/^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/)
-    static TextValidator = new RegExp(/^([\x00-\x7F]|([\xC2-\xDF]|\xE0[\xA0-\xBF]|\xED[\x80-\x9F]|(|[\xE1-\xEC]|[\xEE-\xEF]|\xF0[\x90-\xBF]|\xF4[\x80-\x8F]|[\xF1-\xF3][\x80-\xBF])[\x80-\xBF])[\x80-\xBF])+$/);
-    static HrefValidator = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/);
+    static PasswordValidator = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}/
+    static UsernameValidator = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/
+    static TextValidator = /^[^~,]*$/;
+    static HrefValidator = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
 
     static validateLoginForm = Yup.object().shape({
         email: Yup.string().required().email(),
