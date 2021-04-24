@@ -34,6 +34,7 @@ export default class MyDocument extends Document {
         return (
                 <Html lang="en">
                     <Head>
+                        <meta property="og:image" content="/images/og-image.jpg" />
                         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
                     </Head>
                     <body>
