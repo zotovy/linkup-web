@@ -140,8 +140,8 @@ describe("Testing link component", () => {
 
     test("should validate link", () => {
         const wrongData = {
-            title: "≥≥aß∂¡™£¡™∂ßå∂åß",
-            subtitle: "¡ºª™∆¡¬™˚™∆¡¬",
+            title: "",
+            subtitle: "",
             href: "loook at me",
         }
         let isSaved = false;
