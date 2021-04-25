@@ -153,8 +153,14 @@ export const useAdminPage = () => {
             // Calling API to update link on remote server
             // only recently created links have id == -1
             // so, for this links we need to call create() instead of update()
-            if (link.id === -1) LinkService.createLink(link); // todo: error handling
-            else LinkService.updateLink(link); // todo: error handling
+            if (link.id === -1) LinkService.createLink(link).then(id => {
+                if (!user) return;
+                if (typeof id != "number") return; // todo: error handling
+                console.log(id);
+                user.links[user.links.length - 1].id = id;
+                dispatch(setUserAction(user));
+            }) // todo: error handling
+            else LinkService.updateLink(link);
         },
         onLinkCreate: () => {
             if (!user) return;

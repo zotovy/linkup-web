@@ -18,7 +18,7 @@ export default class LinkService {
     }
 
     /// Create received link
-    static async createLink(link: Link): Promise<ActionLinkResponse> {
+    static async createLink(link: Link): Promise<ActionLinkError | number> {
         const body = {
             userId: AuthHelper.uid,
             title: link.title,
@@ -29,7 +29,7 @@ export default class LinkService {
 
         const res = await client.post(ApiRoutes.createLink, body);
 
-        if (res.status === 200) return;
+        if (res.status === 200) return res.data.id;
         return LinkService._handleError(res.data);
     }
 
