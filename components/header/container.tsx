@@ -19,6 +19,12 @@ const Container = styled.div`
         width: 34px;
         z-index: 100000000;
     }
+    
+    @media screen and (max-width: 960px) {
+        .user-skeleton {
+            display: none;
+        }
+    }
 `;
 
 export default Container;

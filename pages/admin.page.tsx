@@ -36,7 +36,6 @@ const Page = styled.main`
         .phone-preview {
             display: none;
         }
-        
     }
     
 `;
