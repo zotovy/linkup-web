@@ -12,6 +12,12 @@ module.exports = {
     ],
     webpackFinal: async (config) => {
         config.resolve.plugins.push(new TsconfigPathsPlugin({}));
-        return config;
+        return {
+            ...config,
+            node: {
+                ...config.node,
+                fs: 'empty',
+            },
+        };
     },
 }
