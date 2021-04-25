@@ -216,7 +216,7 @@ export const useAdminPage = () => {
 export const getStaticProps = async (args: GetStaticPropsContext) => {
     return {
         props: {
-            ...await serverSideTranslations(args.locale as string, ["admin"]),
+            ...await serverSideTranslations(args.locale as string, ["admin", "link-component"]),
         }
     };
 }

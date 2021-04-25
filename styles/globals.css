@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 * {
     box-sizing: border-box;
+    user-select: none;
 }
 
 .button-ripple {
@@ -60,11 +61,10 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, a:active {
     text-decoration: underline;
+    text-decoration-color: var(--primary);
 }
-
-.scrollable
 
 .scrollable::-webkit-scrollbar-button {
     width: 0;

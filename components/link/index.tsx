@@ -4,11 +4,13 @@ import * as icons from "react-ionicons";
 import { ChevronForwardOutline } from "react-ionicons";
 import UiHelper from "@/helpers/ui-helper";
 import theme from "@/utils/theme";
+import { TFunction, withTranslation } from "next-i18next";
 
 import { ContainerStyles, Information } from "@/components/phone-preview/link";
 import IconSelector from "@/components/link/icon-selector";
 import Input from "@/components/input";
 import ValidationHelper from "@/helpers/validation-helper";
+import { WithTranslation } from "react-i18next";
 
 export type Props = {
     link: Link;
@@ -16,7 +18,7 @@ export type Props = {
     remove: (link: Link) => any;
     onChange: (link: Link) => any;
     initialIsOpen?: boolean;
-}
+} & WithTranslation;
 
 type State = {
     link: Link;
@@ -96,11 +98,12 @@ class LinkComponent extends React.Component<Props, State> {
     handleRemove = () => this.props.remove(this.state.link);
 
     render() {
+        const t = this.props.t;
         const iconName = this.state.link.iconName;
         // @ts-ignore because react-icons have badly support ts
         const IconComponent = icons[UiHelper.formatNameToIcon(iconName)];
 
-        return <Container className="link-component" isOpen={ this.state.isOpen } data-testid="link">
+        return <Container className={`link-component lang-${ this.props.i18n.language }`} isOpen={ this.state.isOpen } data-testid="link">
             <HeaderContainer open={ this.state.isOpen } userTheme={ 0 } onClick={ this.open } data-testid="link-header">
                 <IconComponent { ...this.iconProps } />
                 <Information userTheme={ 0 }>
@@ -114,7 +117,7 @@ class LinkComponent extends React.Component<Props, State> {
                         e.stopPropagation();
                         this.handleSave();
                     } }>
-                        Save
+                        { t("save") }
                     </SaveText>
                 </OpenTrigger>
             </HeaderContainer>
@@ -123,19 +126,19 @@ class LinkComponent extends React.Component<Props, State> {
                 <Input onChange={ this.handleLinkChange("title") }
                        defaultValue={ this.props.link.title }
                        error={ this.state.errors.title }
-                       placeholder="Title"/>
+                       placeholder={ t("title") } />
                 <Input onChange={ this.handleLinkChange("subtitle") }
                        defaultValue={ this.props.link.subtitle }
                        error={ this.state.errors.subtitle }
-                       placeholder="Subtitle"/>
+                       placeholder={ t("subtitle") }/>
                 <Input onChange={ this.handleLinkChange("href") }
                        defaultValue={ this.props.link.href }
                        error={ this.state.errors.href }
-                       placeholder="Link"/>
+                       placeholder={ t("link") }/>
 
                 <DeleteContainer>
                     <IconSelector iconName={ this.props.link.iconName } onIconChange={ this.handleIconChange }/>
-                    <DeleteText onClick={ this.handleRemove }>Delete</DeleteText>
+                    <DeleteText onClick={ this.handleRemove }>{ t("delete") }</DeleteText>
                 </DeleteContainer>
             </EditLinkContainer>
         </Container>
@@ -152,14 +155,7 @@ class LinkComponent extends React.Component<Props, State> {
     }
 }
 
-export default LinkComponent;
-
-const Container = styled.div<{ isOpen: boolean }>`
-    height: ${ props => props.isOpen ? "355px" : "69px" };
-    transition: height 200ms ease;
-    background-color: white;
-    border-radius: 16px;
-`;
+export default withTranslation("link-component")(LinkComponent);
 
 const HeaderContainer = styled.div<{ userTheme: Theme, open: boolean }>`
     ${ ContainerStyles };
@@ -211,7 +207,7 @@ const SaveText = styled.span`
 `;
 
 const OpenTrigger = styled.div`
-    width: 45px;
+    flex: 0 0 45px;
     height: 24px;
     overflow: hidden;
     position: relative;
@@ -233,6 +229,23 @@ const OpenTrigger = styled.div`
 
         .chevron {
             transform: translateX(calc(-100% - 22px));
+        }
+    }
+`;
+
+const Container = styled.div<{ isOpen: boolean }>`
+    height: ${ props => props.isOpen ? "355px" : "69px" };
+    transition: height 200ms ease;
+    background-color: white;
+    border-radius: 16px;
+    
+    &.lang-ru ${OpenTrigger} {
+        flex: 0 0 81px;
+
+        &[data-open=true] {
+            .chevron {
+                transform: translateX(calc(-100% - 60px));
+            }
         }
     }
 `;

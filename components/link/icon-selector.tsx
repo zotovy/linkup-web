@@ -4,12 +4,13 @@ import * as icons from "react-ionicons";
 import UiHelper from "@/helpers/ui-helper";
 import theme from "@/utils/theme";
 import IconSelectorWindow from "@/components/link/icon-selector-window";
+import { WithTranslation, withTranslation } from "next-i18next";
 
 
 export type Props = {
     iconName: string;
     onIconChange: (iconName: string) => any,
-}
+} & WithTranslation
 
 type State = {
     iconName: string;
@@ -17,7 +18,6 @@ type State = {
 }
 
 class IconSelector extends React.Component<Props, State> {
-
     constructor(props: Props) {
         super(props);
         this.openSelector = this.openSelector.bind(this);
@@ -48,7 +48,7 @@ class IconSelector extends React.Component<Props, State> {
                           width="42px"
                           height="42px"/>
                 </IconContainer>
-                <ChangeIconText>Change icon</ChangeIconText>
+                <ChangeIconText>{ this.props.t("change-icon") }</ChangeIconText>
             </Container>
 
             {
@@ -60,7 +60,7 @@ class IconSelector extends React.Component<Props, State> {
     }
 }
 
-export default IconSelector;
+export default withTranslation("link-component")(IconSelector);
 
 export const IconContainer = styled.div`
     background: #F3EFFF;
