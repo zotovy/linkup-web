@@ -6,6 +6,15 @@ export default class ValidationHelper {
     static UsernameValidator = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$/
     static TextValidator = /^[^~,]*$/;
     static HrefValidator = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/;
+    static MailHrefValidator = /^mailto:(\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$/;
+    static PhoneHrefValidator = /^tel:(\+?)(\d{1,16})$/;
+
+    private static linkHrefValidator = (v: string | undefined): boolean => {
+        if (!v) return false;
+        return ValidationHelper.HrefValidator.test(v)
+            || ValidationHelper.MailHrefValidator.test(v)
+            || ValidationHelper.PhoneHrefValidator.test(v);
+    }
 
     static validateLoginForm = Yup.object().shape({
         email: Yup.string().required().email(),
@@ -23,6 +32,6 @@ export default class ValidationHelper {
     static LinkValidator = Yup.object().shape({
         title: Yup.string().required("title").max(150, "title").matches(ValidationHelper.TextValidator, "title"),
         subtitle: Yup.string().required("subtitle").max(150, "subtitle").matches(ValidationHelper.TextValidator, "subtitle"),
-        href: Yup.string().required("href").max(150, "href").matches(ValidationHelper.HrefValidator, "href"),
+        href: Yup.string().required("href").max(150, "href").test("href", "href", ValidationHelper.linkHrefValidator)
     });
 }
