@@ -4,7 +4,7 @@ import * as icons from "react-ionicons";
 import { ChevronForwardOutline } from "react-ionicons";
 import UiHelper from "@/helpers/ui-helper";
 import theme from "@/utils/theme";
-import { TFunction, withTranslation } from "next-i18next";
+import { withTranslation } from "next-i18next";
 
 import { ContainerStyles, Information } from "@/components/phone-preview/link";
 import IconSelector from "@/components/link/icon-selector";
@@ -18,7 +18,7 @@ export type Props = {
     remove: (link: Link) => any;
     onChange: (link: Link) => any;
     initialIsOpen?: boolean;
-} & WithTranslation;
+};
 
 type State = {
     link: Link;
@@ -31,9 +31,9 @@ type State = {
 }
 
 
-class LinkComponent extends React.Component<Props, State> {
+class LinkComponent extends React.Component<Props & WithTranslation, State> {
 
-    constructor(props: Props) {
+    constructor(props: Props & WithTranslation) {
         super(props);
         this.handleIconChange = this.handleIconChange.bind(this);
         this.handleLinkChange = this.handleLinkChange.bind(this);

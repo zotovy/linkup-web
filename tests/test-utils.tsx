@@ -1,12 +1,15 @@
-import React, { FC, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
-import { withTranslation } from "react-i18next";
+import { I18nextProvider, withTranslation } from "react-i18next";
 import { ThemeProvider } from 'styled-components'
+import i18n from "./i18n";
 import theme from "@/utils/theme";
 
 const AllTheProviders = withTranslation("en")(({ children }) => {
     return <ThemeProvider theme={ theme }>
-        { children }
+        <I18nextProvider i18n={i18n}>
+            { children }
+        </I18nextProvider>
     </ThemeProvider>
 })
 

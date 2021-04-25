@@ -13,7 +13,7 @@ exports[`Testing link component should renders correctly 1`] = `
   animation-timing-function: linear;
 }
 
-.c5 svg {
+.c6 svg {
   height: 22px;
   width: 22px;
   color: #D9DDE9;
@@ -24,7 +24,7 @@ exports[`Testing link component should renders correctly 1`] = `
   animation-timing-function: linear;
 }
 
-.c15 svg {
+.c16 svg {
   height: 42px;
   width: 42px;
   color: #5f2eea;
@@ -61,7 +61,7 @@ exports[`Testing link component should renders correctly 1`] = `
   color: #4e4b66;
 }
 
-.c10 {
+.c11 {
   border: 1.5px solid #D9DDE9;
   padding: 7px 14px;
   border-radius: 10px;
@@ -75,11 +75,11 @@ exports[`Testing link component should renders correctly 1`] = `
   transition: border 200ms;
 }
 
-.c10:focus {
+.c11:focus {
   border: 1.5px solid #14142B;
 }
 
-.c14 {
+.c15 {
   background: #F3EFFF;
   border-radius: 16px;
   padding: 9px;
@@ -88,14 +88,14 @@ exports[`Testing link component should renders correctly 1`] = `
   cursor: pointer;
 }
 
-.c16 {
+.c17 {
   font-size: 16px;
   line-height: 24px;
   color: #5f2eea;
   cursor: pointer;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,16 +106,8 @@ exports[`Testing link component should renders correctly 1`] = `
   align-items: center;
 }
 
-.c12 .c13 {
+.c13 .c14 {
   margin-right: 20px;
-}
-
-.c0 {
-  height: 69px;
-  -webkit-transition: height 200ms ease;
-  transition: height 200ms ease;
-  background-color: white;
-  border-radius: 16px;
 }
 
 .c1 {
@@ -144,7 +136,7 @@ exports[`Testing link component should renders correctly 1`] = `
   background-color: #fEfEfE;
 }
 
-.c8 {
+.c9 {
   width: calc(100% - 20px);
   overflow: hidden;
   height: 0;
@@ -162,11 +154,11 @@ exports[`Testing link component should renders correctly 1`] = `
   padding-top: 20px;
 }
 
-.c8 .c9 {
+.c9 .c10 {
   margin-bottom: 20px;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -181,14 +173,14 @@ exports[`Testing link component should renders correctly 1`] = `
   align-items: center;
 }
 
-.c17 {
+.c18 {
   font-size: 16px;
   line-height: 24px;
   color: #ed2e7e;
   cursor: pointer;
 }
 
-.c7 {
+.c8 {
   font-size: 16px;
   line-height: 24px;
   color: #5f2eea;
@@ -199,40 +191,62 @@ exports[`Testing link component should renders correctly 1`] = `
   pointer-events: all;
 }
 
-.c4 {
-  width: 45px;
+.c5 {
+  -webkit-flex: 0 0 45px;
+  -ms-flex: 0 0 45px;
+  flex: 0 0 45px;
   height: 24px;
   overflow: hidden;
   position: relative;
   margin-top: 13.5px;
 }
 
-.c4 .chevron {
+.c5 .chevron {
   position: absolute;
   right: 0;
 }
 
-.c4 .c6,
-.c4 .chevron {
+.c5 .c7,
+.c5 .chevron {
   -webkit-transition: -webkit-transform 200ms ease;
   -webkit-transition: transform 200ms ease;
   transition: transform 200ms ease;
 }
 
-.c4[data-open=true] .c6 {
+.c5[data-open=true] .c7 {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 
-.c4[data-open=true] .chevron {
+.c5[data-open=true] .chevron {
   -webkit-transform: translateX(calc(-100% - 22px));
   -ms-transform: translateX(calc(-100% - 22px));
   transform: translateX(calc(-100% - 22px));
 }
 
+.c0 {
+  height: 69px;
+  -webkit-transition: height 200ms ease;
+  transition: height 200ms ease;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.c0.lang-ru .c4 {
+  -webkit-flex: 0 0 81px;
+  -ms-flex: 0 0 81px;
+  flex: 0 0 81px;
+}
+
+.c0.lang-ru .c4[data-open=true] .chevron {
+  -webkit-transform: translateX(calc(-100% - 60px));
+  -ms-transform: translateX(calc(-100% - 60px));
+  transform: translateX(calc(-100% - 60px));
+}
+
 <div
-    class="c0 link-component"
+    class="c0 link-component lang-en"
     data-testid="link"
   >
     <div
@@ -272,11 +286,11 @@ exports[`Testing link component should renders correctly 1`] = `
         </span>
       </div>
       <div
-        class="c4"
+        class="c4 c5"
         data-open="false"
       >
         <span
-          class="c5"
+          class="c6"
           color="#D9DDE9"
           height="22px"
           rotate="0"
@@ -298,43 +312,43 @@ exports[`Testing link component should renders correctly 1`] = `
           </svg>
         </span>
         <span
-          class="c6 c7"
+          class="c7 c8"
         >
           Save
         </span>
       </div>
     </div>
     <div
-      class="c8"
+      class="c9"
       data-testid="link-edit"
     >
       <input
-        class="c9 c10"
+        class="c10 c11"
         placeholder="Title"
         value="Github"
       />
       <input
-        class="c9 c10"
+        class="c10 c11"
         placeholder="Subtitle"
         value="This is my github account"
       />
       <input
-        class="c9 c10"
+        class="c10 c11"
         placeholder="Link"
         value="https://github.com/zotovY"
       />
       <div
-        class="c11"
+        class="c12"
       >
         <div
-          class="c12"
+          class="c13"
           data-testid="link-icon-selector"
         >
           <div
-            class="c13 c14"
+            class="c14 c15"
           >
             <span
-              class="c15"
+              class="c16"
               color="#5f2eea"
               height="42px"
               rotate="0"
@@ -352,13 +366,13 @@ exports[`Testing link component should renders correctly 1`] = `
             </span>
           </div>
           <span
-            class="c16"
+            class="c17"
           >
             Change icon
           </span>
         </div>
         <span
-          class="c17"
+          class="c18"
         >
           Delete
         </span>
@@ -381,7 +395,7 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   animation-timing-function: linear;
 }
 
-.c5 svg {
+.c6 svg {
   height: 22px;
   width: 22px;
   color: #D9DDE9;
@@ -392,7 +406,7 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   animation-timing-function: linear;
 }
 
-.c15 svg {
+.c16 svg {
   height: 42px;
   width: 42px;
   color: #5f2eea;
@@ -429,7 +443,7 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   color: #4e4b66;
 }
 
-.c10 {
+.c11 {
   border: 1.5px solid #D9DDE9;
   padding: 7px 14px;
   border-radius: 10px;
@@ -443,11 +457,11 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   transition: border 200ms;
 }
 
-.c10:focus {
+.c11:focus {
   border: 1.5px solid #14142B;
 }
 
-.c14 {
+.c15 {
   background: #F3EFFF;
   border-radius: 16px;
   padding: 9px;
@@ -456,14 +470,14 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   cursor: pointer;
 }
 
-.c16 {
+.c17 {
   font-size: 16px;
   line-height: 24px;
   color: #5f2eea;
   cursor: pointer;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -474,16 +488,8 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   align-items: center;
 }
 
-.c12 .c13 {
+.c13 .c14 {
   margin-right: 20px;
-}
-
-.c0 {
-  height: 355px;
-  -webkit-transition: height 200ms ease;
-  transition: height 200ms ease;
-  background-color: white;
-  border-radius: 16px;
 }
 
 .c1 {
@@ -512,11 +518,11 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   background-color: #fEfEfE;
 }
 
-.c18 .c9 {
+.c20 .c10 {
   margin-bottom: 20px;
 }
 
-.c8 {
+.c9 {
   width: calc(100% - 20px);
   overflow: hidden;
   height: calc(100% - 69px);
@@ -534,11 +540,11 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   padding-top: 20px;
 }
 
-.c8 .c9 {
+.c9 .c10 {
   margin-bottom: 20px;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -553,14 +559,14 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   align-items: center;
 }
 
-.c17 {
+.c18 {
   font-size: 16px;
   line-height: 24px;
   color: #ed2e7e;
   cursor: pointer;
 }
 
-.c7 {
+.c8 {
   font-size: 16px;
   line-height: 24px;
   color: #5f2eea;
@@ -571,40 +577,74 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
   pointer-events: all;
 }
 
-.c4 {
-  width: 45px;
+.c5 {
+  -webkit-flex: 0 0 45px;
+  -ms-flex: 0 0 45px;
+  flex: 0 0 45px;
   height: 24px;
   overflow: hidden;
   position: relative;
   margin-top: 13.5px;
 }
 
-.c4 .chevron {
+.c5 .chevron {
   position: absolute;
   right: 0;
 }
 
-.c4 .c6,
-.c4 .chevron {
+.c5 .c7,
+.c5 .chevron {
   -webkit-transition: -webkit-transform 200ms ease;
   -webkit-transition: transform 200ms ease;
   transition: transform 200ms ease;
 }
 
-.c4[data-open=true] .c6 {
+.c5[data-open=true] .c7 {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%);
 }
 
-.c4[data-open=true] .chevron {
+.c5[data-open=true] .chevron {
   -webkit-transform: translateX(calc(-100% - 22px));
   -ms-transform: translateX(calc(-100% - 22px));
   transform: translateX(calc(-100% - 22px));
 }
 
+.c19.lang-ru .c4 {
+  -webkit-flex: 0 0 81px;
+  -ms-flex: 0 0 81px;
+  flex: 0 0 81px;
+}
+
+.c19.lang-ru .c4[data-open=true] .chevron {
+  -webkit-transform: translateX(calc(-100% - 60px));
+  -ms-transform: translateX(calc(-100% - 60px));
+  transform: translateX(calc(-100% - 60px));
+}
+
+.c0 {
+  height: 355px;
+  -webkit-transition: height 200ms ease;
+  transition: height 200ms ease;
+  background-color: white;
+  border-radius: 16px;
+}
+
+.c0.lang-ru .c4 {
+  -webkit-flex: 0 0 81px;
+  -ms-flex: 0 0 81px;
+  flex: 0 0 81px;
+}
+
+.c0.lang-ru .c4[data-open=true] .chevron {
+  -webkit-transform: translateX(calc(-100% - 60px));
+  -ms-transform: translateX(calc(-100% - 60px));
+  transform: translateX(calc(-100% - 60px));
+}
+
 <div
-    class="c0 link-component"
+    class="c0 link-component lang-en"
     data-testid="link"
   >
     <div
@@ -645,11 +685,11 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
         </span>
       </div>
       <div
-        class="c4"
+        class="c4 c5"
         data-open="true"
       >
         <span
-          class="c5"
+          class="c6"
           color="#D9DDE9"
           height="22px"
           rotate="0"
@@ -671,43 +711,43 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
           </svg>
         </span>
         <span
-          class="c6 c7"
+          class="c7 c8"
         >
           Save
         </span>
       </div>
     </div>
     <div
-      class="c8"
+      class="c9"
       data-testid="link-edit"
     >
       <input
-        class="c9 c10"
+        class="c10 c11"
         placeholder="Title"
         value="Github"
       />
       <input
-        class="c9 c10"
+        class="c10 c11"
         placeholder="Subtitle"
         value="This is my github account"
       />
       <input
-        class="c9 c10"
+        class="c10 c11"
         placeholder="Link"
         value="https://github.com/zotovY"
       />
       <div
-        class="c11"
+        class="c12"
       >
         <div
-          class="c12"
+          class="c13"
           data-testid="link-icon-selector"
         >
           <div
-            class="c13 c14"
+            class="c14 c15"
           >
             <span
-              class="c15"
+              class="c16"
               color="#5f2eea"
               height="42px"
               rotate="0"
@@ -725,13 +765,13 @@ exports[`Testing link component should renders correctly in edit mode 1`] = `
             </span>
           </div>
           <span
-            class="c16"
+            class="c17"
           >
             Change icon
           </span>
         </div>
         <span
-          class="c17"
+          class="c18"
         >
           Delete
         </span>

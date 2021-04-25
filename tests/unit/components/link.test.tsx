@@ -18,6 +18,7 @@ describe("Testing link component", () => {
         },
         onChange: () => {
         },
+
     }
 
     test("should renders correctly", () => {
@@ -32,14 +33,6 @@ describe("Testing link component", () => {
 
         expect(asFragment()).toMatchSnapshot();
     });
-
-    test("should renders correctly in edit mode with open icon selector window", () => {
-        const { asFragment, getByTestId } = render(<LinkComponent { ...props } />);
-        fireEvent.click(getByTestId("link-header"));
-        fireEvent.click(getByTestId("link-icon-selector"));
-        expect(asFragment()).toMatchSnapshot();
-    });
-
 
     test("should change title", () => {
         const expectedLink = { ...props.link, title: "HEEEEY" };

@@ -343,6 +343,12 @@ exports[`Testing Header component should render correctly authorized 1`] = `
 }
 
 @media screen and (max-width:960px) {
+  .c0 .user-skeleton {
+    display: none;
+  }
+}
+
+@media screen and (max-width:960px) {
   .c2 {
     display: none;
   }
@@ -366,17 +372,17 @@ exports[`Testing Header component should render correctly authorized 1`] = `
     <div
       class="c2  links "
     >
-      links
+      Links
     </div>
     <div
       class="c2  theme "
     >
-      theme
+      Theme
     </div>
     <div
       class="c2 selected settings "
     >
-      settings
+      Settings
     </div>
     <div
       class="space"
@@ -416,12 +422,12 @@ exports[`Testing Header component should render correctly authorized 1`] = `
           href="/zotovy"
           target="_blank"
         >
-          my_page
+          My page
         </a>
         <a
           class="error"
         >
-          logout
+          Logout
         </a>
       </div>
     </div>
@@ -463,22 +469,22 @@ exports[`Testing Header component should render correctly authorized 1`] = `
         <p
           class="c11"
         >
-          links
+          Links
         </p>
         <p
           class="c11"
         >
-          theme
+          Theme
         </p>
         <p
           class="c11"
         >
-          settings
+          Settings
         </p>
         <p
           class="c11"
         >
-          logout
+          Logout
         </p>
         <a
           href="/zotovy"
@@ -487,7 +493,7 @@ exports[`Testing Header component should render correctly authorized 1`] = `
           <p
             class="c11"
           >
-            my_page
+            My page
           </p>
         </a>
       </div>
@@ -722,6 +728,12 @@ exports[`Testing Header component should render correctly loading 1`] = `
 }
 
 @media screen and (max-width:960px) {
+  .c0 .user-skeleton {
+    display: none;
+  }
+}
+
+@media screen and (max-width:960px) {
   .c2 {
     display: none;
   }
@@ -792,17 +804,17 @@ exports[`Testing Header component should render correctly loading 1`] = `
         <p
           class="c6"
         >
-          links
+          Links
         </p>
         <p
           class="c6"
         >
-          theme
+          Theme
         </p>
         <p
           class="c6"
         >
-          settings
+          Settings
         </p>
         <p
           class="c6"
