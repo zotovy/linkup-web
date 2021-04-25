@@ -18,6 +18,7 @@ class IconSelectorWindow extends React.Component<Props, State> {
         this.handleSearch = this.handleSearch.bind(this);
         this.handleSelection = this.handleSelection.bind(this);
         this.isIconSuitableForShow = this.isIconSuitableForShow.bind(this);
+        this.findBestIcons();
     }
 
     state: State = {
@@ -38,15 +39,24 @@ class IconSelectorWindow extends React.Component<Props, State> {
         return iconName.includes(this.state.search);
     }
 
-    render() {
-        const icons = Object.keys(iconsRaw);
+    findBestIcons() {
+        const icons: string[] = needsToBeFirst;
+        for (const icon of this.icons) {
 
+            if (!needsToBeFirst.includes(icon)) icons.push(icon)
+        }
+        this.icons = icons;
+    }
+
+    icons = Object.keys(iconsRaw);
+
+    render() {
         return <Container>
             <Window className="scrollable">
                 <Input onChange={ this.handleSearch } placeholder="Enter your icon name"/>
                 <IconsGrid>
                     {
-                        icons.map(e => {
+                        this.icons.map(e => {
                             if (!this.isIconSuitableForShow(e)) return <React.Fragment key={ e }/>
 
                             // @ts-ignore because react-icons have badly support ts
@@ -67,6 +77,8 @@ class IconSelectorWindow extends React.Component<Props, State> {
         </Container>
     }
 }
+
+const needsToBeFirst = ["LogoInstagram", "LogoTiktok", "LogoYoutube", "LogoTwitter", "LogoWechat", "PaperPlaneOutline", "LogoWhatsapp", "LogoVk", "LogoFacebook", "LogoDiscord", "LogoMedium", "LogoSoundcloud", "LogoSnapchat", "LogoLinkedin", "LogoPaypal", "LogoSkype", "LogoSteam", "LogoSlack", "LogoGithub", "LogoReddit", "LogoDribbble", "LogoBehance", "LogoPinterest", "LogoCodepen", "LogoDropbox", "LogoApple", "LogoPlaystation", "LogoBitbucket"]
 
 const Window = styled.div`
     margin: 20px;
