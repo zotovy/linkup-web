@@ -3,6 +3,8 @@ import styled from "styled-components";
 import UserAvatar from "@/components/avatar";
 import { useRouter } from "next/router";
 import AppRoutes from "@/utils/app-routes";
+import { useTranslation } from "next-i18next";
+import AuthHelper from "@/helpers/auth-helper";
 
 const Container = styled.div`
     position: fixed;
@@ -56,11 +58,19 @@ export type Props = {
     user?: User | {
         name: string;
         profileImagePath?: string;
+        username: string;
     },
 }
 
 const MobileMenuSlide: React.FC<Props> = (props) => {
     const router = useRouter();
+    const { t } = useTranslation("admin");
+
+    const logout = () => {
+        AuthHelper.destroyTokens();
+        router.push("/");
+    }
+
 
     return <Container>
         <Slide open={ props.isOpen } data-testid="mobile-slide-slide">
@@ -75,20 +85,22 @@ const MobileMenuSlide: React.FC<Props> = (props) => {
                         : <React.Fragment/>
             }
 
-            <Tab onClick={ () => props.onTabClick("links") }>Links</Tab>
-            <Tab onClick={ () => props.onTabClick("theme") }>Theme</Tab>
-            <Tab onClick={ () => props.onTabClick("settings") }>Settings</Tab>
+            <Tab onClick={ () => props.onTabClick("links") }>{ t("links") }</Tab>
+            <Tab onClick={ () => props.onTabClick("theme") }>{ t("theme") }</Tab>
+            <Tab onClick={ () => props.onTabClick("settings") }>{ t("settings") }</Tab>
 
             {
                 !props.user
                         ? <React.Fragment>
-                            <Tab onClick={ () => router.push(AppRoutes.login) }>Login</Tab>
-                            <Tab onClick={ () => router.push(AppRoutes.signup) }>Signup</Tab>
+                            <Tab onClick={ () => router.push(AppRoutes.login) }>{ t("login") }</Tab>
+                            <Tab onClick={ () => router.push(AppRoutes.signup) }>{ t("signup") }</Tab>
                         </React.Fragment>
                         : <React.Fragment>
                             {/* TODO: logout & my page */}
-                            <Tab onClick={ () => console.log("TODO: logout") }>Login</Tab>
-                            <Tab onClick={ () => console.log("TODO: go to my page") }>Signup</Tab>
+                            <Tab onClick={ logout }>{ t("logout") }</Tab>
+                            <a href={ AppRoutes.userPage(props.user.username) } target="_blank">
+                                <Tab>{ t("my_page") }</Tab>
+                            </a>
                         </React.Fragment>
             }
         </Slide>

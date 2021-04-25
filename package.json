@@ -20,6 +20,7 @@
     "formik": "^2.2.6",
     "framer-motion": "^4.0.3",
     "next": "10.0.9 d",
+    "next-i18next": "^8.2.0",
     "next-redux-wrapper": "^6.0.2",
     "react": "17.0.1",
     "react-cookie": "^4.0.3",

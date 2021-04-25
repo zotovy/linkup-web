@@ -6,6 +6,7 @@ import { LayoutStyles } from "@/layouts/admin-layout";
 import LinkSkeleton from "@/components/link/skeleton";
 import LinkComponent from "@/components/link";
 import Button from "@/components/button";
+import { useTranslation } from "next-i18next";
 
 const Container = styled.div`
     ${ LayoutStyles };
@@ -36,34 +37,29 @@ export type Props = {
     addedLinkIndex?: number,
 }
 
-const LinksPage: React.FC<Props> = ({
-                                        links,
-                                        onLinkUpdate,
-                                        addedLinkIndex,
-                                        onLinkSave,
-                                        onLinkCreate,
-                                        onLinkDelete
-                                    }) => {
+const LinksPage: React.FC<Props> = (props: Props) => {
+    const { t } = useTranslation("admin")
+
     const handleChange = (link: Link, i: number) => {
-        links[i] = link;
-        onLinkUpdate(link, i);
+        props.links[i] = link;
+        props.onLinkUpdate(link, i);
     }
 
     return <React.Fragment>
         <Head>
-            <title>Links</title>
+            <title>{ t("links") }</title>
         </Head>
         <Container>
-            <Button onClick={ onLinkCreate }>Create link</Button>
+            <Button onClick={ props.onLinkCreate }>{ t("button_create") }</Button>
             {
-                links.map((e, i) => <LinkComponent
+                props.links.map((e, i) => <LinkComponent
 
                         onChange={ (link) => handleChange(link, i) }
                         link={ e }
-                        initialIsOpen={ addedLinkIndex === i }
+                        initialIsOpen={ props.addedLinkIndex === i }
                         key={ e.createdAt.toString() }
-                        save={ onLinkSave }
-                        remove={ () => onLinkDelete(i) }
+                        save={ props.onLinkSave }
+                        remove={ () => props.onLinkDelete(i) }
                 />)
             }
         </Container>
@@ -73,9 +69,11 @@ const LinksPage: React.FC<Props> = ({
 export default LinksPage;
 
 export const LinksLoading: React.FC = () => {
+    const { t } = useTranslation("admin")
+
     return <React.Fragment>
         <Head>
-            <title>Links</title>
+            <title>{ t("links") }</title>
         </Head>
         <Container>
             <LinkSkeleton/>

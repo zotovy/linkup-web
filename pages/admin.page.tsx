@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { NextPage } from "next";
+import { GetStaticPropsContext, NextPage } from "next";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "@/redux/store"
@@ -18,6 +18,8 @@ import LinkService from "@/services/link-service";
 import UserService from "@/services/user-service";
 import MadeWithLove from "@/components/made-with-love";
 import AppRoutes from "@/utils/app-routes";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Page = styled.main`
     margin-top: 50px;
@@ -63,6 +65,8 @@ const Admin: NextPage = () => {
         setAvatar
     } = useAdminPage();
 
+    const { t } = useTranslation("admin");
+
     if (user === null) {
         goToPromo();
         return <React.Fragment/>;
@@ -105,7 +109,7 @@ const Admin: NextPage = () => {
                             : <PhonePreviewSkeleton/>
                 }
                 <a target="_blank" href={AppRoutes.userPage(user?.username)}>
-                    <GoToMyPageLink>Go to my page</GoToMyPageLink>
+                    <GoToMyPageLink>{ t("link-to-page") }</GoToMyPageLink>
                 </a>
             </div>
         </Page>
@@ -205,4 +209,14 @@ export const useAdminPage = () => {
         },
         addedLinkIndex
     }
+}
+
+
+// Used only for translation
+export const getStaticProps = async (args: GetStaticPropsContext) => {
+    return {
+        props: {
+            ...await serverSideTranslations(args.locale as string, ["admin"]),
+        }
+    };
 }

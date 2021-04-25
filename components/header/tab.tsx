@@ -52,7 +52,20 @@ const Tab = styled.div`
         &.settings:after {
             width: 98px;
         }
+        
+        &.locale-ru {
+            &.links:after {
+                width: 87px;
+            }
 
+            &.theme:after {
+                width: 61px;
+            }
+
+            &.settings:after {
+                width: 122px;
+            }
+        }
     }
 
     &:not(.selected) {

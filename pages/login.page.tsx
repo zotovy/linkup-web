@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { NextPage } from "next";
+import { GetStaticPropsContext, NextPage } from "next";
 import styled from "styled-components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +17,8 @@ import Head from "next/head";
 import Link from "next/link";
 import AppRoutes from "@/utils/app-routes";
 import { HaveAccount } from "./signup.page";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const Page = styled.main`
     ${ CenterLayoutStyles }
@@ -36,20 +38,21 @@ const Page = styled.main`
 
 const LoginPage: NextPage = () => {
     const { handleChange, onLogin } = useLoginPage();
+    const { t } = useTranslation("login");
 
     return <React.Fragment>
         <Head>
-            <title>Login</title>
+            <title>{ t("title") }</title>
         </Head>
         <Page>
-            <Title>Login</Title>
-            <Input onChange={ handleChange("email") } placeholder="Enter your email" type="email"/>
-            <PasswordInputInput onChange={ handleChange("password") } placeholder="Enter your password"/>
-            <Button onClick={ onLogin }>Login</Button>
+            <Title>{ t("title") }</Title>
+            <Input onChange={ handleChange("email") } placeholder={ t("input_email") } type="email"/>
+            <PasswordInputInput onChange={ handleChange("password") } placeholder={ t("input_password") }/>
+            <Button onClick={ onLogin }>{ t("title") }</Button>
             <HaveAccount>
-                First time?
+                { t("signup-link-1") }
                 <Link href={AppRoutes.signup}>
-                    <a>Signup</a>
+                    <a>{ t("signup-link-2") }</a>
                 </Link>
             </HaveAccount>
         </Page>
@@ -89,4 +92,13 @@ export const useLoginPage = () => {
         handleChange,
         onLogin,
     }
+}
+
+// Used only for translation
+export const getStaticProps = async (args: GetStaticPropsContext) => {
+    return {
+        props: {
+            ...await serverSideTranslations(args.locale as string, ["login"]),
+        }
+    };
 }

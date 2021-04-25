@@ -8,6 +8,7 @@ import Input from "@/components/input/error";
 import Button from "@/components/button";
 import Head from "next/head";
 import ValidationHelper from "@/helpers/validation-helper";
+import { useTranslation } from "next-i18next";
 
 const Container = styled.div`
     ${ LayoutStyles };
@@ -51,9 +52,11 @@ const Settings: React.FC<Props> = ({ user, onSettingsChanged, save, onAvatarPick
         save();
     }
 
+    const { t } = useTranslation("admin")
+
     return <React.Fragment>
         <Head>
-            <title>Settings</title>
+            <title>{ t("settings") }</title>
         </Head>
         <Container>
             <AvatarPicker onPick={ onAvatarPicked } profileImagePath={ user.profileImagePath } diameter={ 150 }/>
@@ -61,9 +64,9 @@ const Settings: React.FC<Props> = ({ user, onSettingsChanged, save, onAvatarPick
                     error={ error }
                     maxLength={ 50 }
                     onChange={ handleNameChanged }
-                    placeholder="Your name"
+                    placeholder={ t("settings-input") }
                     defaultValue={ user.name }/>
-            <Button onClick={ handleSave }>Save</Button>
+            <Button onClick={ handleSave }>{ t("save") }</Button>
         </Container>
     </React.Fragment>
 }

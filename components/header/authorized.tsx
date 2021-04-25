@@ -12,6 +12,7 @@ import Tab from "@/components/header/tab";
 import MobileMenuSlide from "@/components/header/mobile-menu";
 import BurgerMenu from "@/components/header/burger";
 import AppRoutes from "@/utils/app-routes";
+import { useTranslation } from "next-i18next";
 
 type Props = User | {
     name: string;
@@ -21,19 +22,21 @@ type Props = User | {
 
 const Authorized: React.FC<Props> = (props) => {
     const { f, v } = useHeaderLogic();
+    const { t } = useTranslation("admin");
+
 
     return <Container>
         <Logo width="48px" height="35px" src="/images/logo-48x35.png"/>
-        <Tab className={ f.getTabClass("links") } onClick={ f.onTabClickHandler("links") }>Links</Tab>
-        <Tab className={ f.getTabClass("theme") } onClick={ f.onTabClickHandler("theme") }>Theme</Tab>
-        <Tab className={ f.getTabClass("settings") } onClick={ f.onTabClickHandler("settings") }>Settings</Tab>
+        <Tab className={ f.getTabClass("links") } onClick={ f.onTabClickHandler("links") }>{ t("links") }</Tab>
+        <Tab className={ f.getTabClass("theme") } onClick={ f.onTabClickHandler("theme") }>{ t("theme") }</Tab>
+        <Tab className={ f.getTabClass("settings") } onClick={ f.onTabClickHandler("settings") }>{ t("settings") }</Tab>
         <div className="space"/>
         <User onClick={ f.toggleUserModalWindow } data-testid="user-in-header">
             { props.name }
             <ChevronDownOutline cssClasses="chevron" color={ theme.colors.text.disabled }/>
             <UserModelWindow className={ f.getUserModalWindowClass() } data-testid="user-modal-in-header">
-                <a target="_blank" href={ AppRoutes.userPage(props?.username) }>My page</a>
-                <a onClick={ f.logout } className="error">Logout</a>
+                <a target="_blank" href={ AppRoutes.userPage(props?.username) }>{ t("my_page") }</a>
+                <a onClick={ f.logout } className="error">{ t("logout") }</a>
             </UserModelWindow>
         </User>
 

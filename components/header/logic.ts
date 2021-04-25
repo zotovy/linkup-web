@@ -14,7 +14,7 @@ const useHeaderLogic = () => {
         setTab(queryTab);
     }, []);
 
-    const getTabClass = (_: string) => `${ tab === _ ? "selected" : "" } ${ _ }`;
+    const getTabClass = (_: string) => `${ tab === _ ? "selected" : "" } ${ _ } ${ router.locale === "ru" ? "locale-ru" : "" }`;
     const onTabClickHandler = (_: "links" | "theme" | "settings") => () => onTabClick(_);
     const onTabClick = (tab: "links" | "theme" | "settings") => {
         const route = AppRoutes[tab];

@@ -1,0 +1,19 @@
+{
+  "links": "Links",
+  "theme": "Theme",
+  "settings": "Settings",
+  "button_create": "Create link",
+  "link-to-page": "Go to my page",
+  "save": "Save",
+  "title": "Title",
+  "subtitle": "Subtitle",
+  "link": "Link",
+  "change-icon": "Change icon",
+  "delete": "Delete",
+  "choose_icon-input": "Enter your icon name",
+  "theme-light": "Light theme",
+  "theme-dark": "Dark theme",
+  "settings-input": "Your name",
+  "my_page": "My page",
+  "logout": "Logout"
+}

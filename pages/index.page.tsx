@@ -1,11 +1,14 @@
 import React from "react";
 import Head from "next/head";
-import { NextPage } from "next";
+import { GetStaticPropsContext, NextPage } from "next";
 import styled from "styled-components";
 import { link } from "../stories/data";
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
 import PhonePreviewContainer from "@/components/phone-preview";
-import Button from "@/components/button";
 import AuthHelper from "@/helpers/auth-helper";
+import Button from "@/components/button";
 import { useRouter } from "next/router";
 
 const user: User = {
@@ -38,6 +41,7 @@ const user: User = {
 
 const PromoPage: NextPage = () => {
     const router = useRouter();
+    const { t } = useTranslation("promo");
 
     const handleStart = () => {
         const authorized = !isNaN(AuthHelper.uid);
@@ -46,14 +50,12 @@ const PromoPage: NextPage = () => {
     }
 
     return <React.Fragment>
-        <Head><title>Linkup | The best link tool</title></Head>
+        <Head><title>{ t("title") }</title></Head>
         <Page>
             <section className="main">
-                <h1>Only One Link For Your Need</h1>
-                <p className="subtitle">
-                    Create a link with all your contacts inside.
-                </p>
-                <Button onClick={ handleStart }>Get started</Button>
+                <h1>{ t("main_title") }</h1>
+                <p className="subtitle">{ t("main_subtitle") }</p>
+                <Button onClick={ handleStart }>{ t("button_text") }</Button>
                 <div className="phone-container">
                     <PhonePreviewContainer { ...user } />
                     <div className="card tiktok"><img src="/icons/tiktok.png" alt=""/></div>
@@ -64,12 +66,8 @@ const PromoPage: NextPage = () => {
             </section>
             <section className="advantage first-advantage">
                 <div className="info">
-                    <h3 className="title">One link for everything</h3>
-                    <p>
-                        Create your LinkUp link and use it everywhere.
-                        There's no need to remember every social media
-                        account, just use LinkUp!
-                    </p>
+                    <h3 className="title">{ t("adv1_title") }</h3>
+                    <p>{ t("adv1_subtitle") }</p>
                 </div>
                 <div className="preview">
                     <img src="/images/promo-2.png" alt="promo"/>
@@ -77,12 +75,8 @@ const PromoPage: NextPage = () => {
             </section>
             <section className="advantage second-advantage">
                 <div className="info">
-                    <h3 className="title">Convenient for your subscribers</h3>
-                    <p>
-                        You can put anything your subscribers might
-                        try to find on your link page.
-                        It is very good if everything is in one place.
-                    </p>
+                    <h3 className="title">{ t("adv2_title") }</h3>
+                    <p>{ t("adv2_subtitle") }</p>
                 </div>
                 <div className="preview">
                     <img src="/images/promo-1.png" alt="promo"/>
@@ -90,19 +84,16 @@ const PromoPage: NextPage = () => {
             </section>
             <section className="advantage third-advantage">
                 <div className="info">
-                    <h3 className="title">Easily to customize</h3>
-                    <p>
-                        Intuitive link builder make your life much easily.
-                        Just enter link and choose one of beautiful themes
-                    </p>
+                    <h3 className="title">{ t("adv3_title") }</h3>
+                    <p>{ t("adv3_subtitle") }</p>
                 </div>
                 <div className="preview">
                     <img src="/images/promo-3.png" alt="promo"/>
                 </div>
             </section>
             <section className="final">
-                <h2>Start using LinkUp now!</h2>
-                <Button onClick={ handleStart }>Get started</Button>
+                <h2>{ t("footer_title") }</h2>
+                <Button onClick={ handleStart }>{ t("button_text") }</Button>
             </section>
         </Page>
     </React.Fragment>;
@@ -321,3 +312,12 @@ const Page = styled.main`
         align-items: center;
     }
 `;
+
+// Used only for translation
+export const getStaticProps = async (args: GetStaticPropsContext) => {
+    return {
+        props: {
+            ...await serverSideTranslations(args.locale as string, ["promo"]),
+        }
+    };
+}

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LayoutStyles } from "@/layouts/admin-layout";
 import ThemeComponent, { ThemeSkeleton as ThemeSkeletonComponent } from "@/components/theme";
 import Head from "next/head";
+import { useTranslation } from "next-i18next";
 
 const Container = styled.div`
     ${ LayoutStyles };
@@ -32,14 +33,17 @@ export type Props = {
 }
 
 const Theme: React.FC<Props> = (props) => {
+
+    const { t } = useTranslation("admin");
+
     return <React.Fragment>
         <Head>
-            <title>Theme</title>
+            <title>{ t("theme") }</title>
         </Head>
         <Container>
             {
                 themes.map(theme => <ThemeComponent
-                        name={theme.name}
+                        name={ t(theme.name) }
                         gradient={theme.gradient}
                         onClick={() => props.onThemeChange(theme.theme)}
                         isSelected={props.theme === theme.theme}
@@ -53,12 +57,12 @@ export default Theme;
 
 const themes = [
     {
-        name: "Light theme",
+        name: "theme-light",
         gradient: ["#F3EFFF", "#F3EFFF"] as [string, string],
         theme: 0
     },
     {
-        name: "Dark theme",
+        name: "theme-dark",
         gradient: ["#3A3A60", "#19192F"] as [string, string],
         theme: 1,
     },

@@ -13,11 +13,11 @@ export default class ValidationHelper {
     });
 
     static validateSignupForm = Yup.object().shape({
-        name: Yup.string().required("Name is required").max(1024, "Name is too long").matches(ValidationHelper.TextValidator, "Invalid name"),
-        username: Yup.string().required("Username is required").max(1024, "Username is too long").matches(ValidationHelper.UsernameValidator, "Invalid username").notOneOf(["admin"], "You can't use this username"),
-        email: Yup.string().required("Email is required").email("Email is invalid").max(1024, "Email is too long"),
-        password: Yup.string().required("Password is required").matches(ValidationHelper.PasswordValidator, "Password must have minimum eight characters, at least one letter and one number"),
-        confirmPassword: Yup.string().required("Confirm your password").oneOf([Yup.ref("password")], "Passwords don't match")
+        name: Yup.string().required("error.name.required").max(1024, "error.name.length").matches(ValidationHelper.TextValidator, "error.name.matches"),
+        username: Yup.string().required("error.username.required").max(1024, "error.username.length").matches(ValidationHelper.UsernameValidator, "error.username.matches").notOneOf(["admin", "login", "signup", "404", "505"], "error.username.notOneOf"),
+        email: Yup.string().required("error.email.required").email("error.email.matches").max(1024, "error.email.length"),
+        password: Yup.string().required("error.password.required").matches(ValidationHelper.PasswordValidator, "error.password.matches"),
+        confirmPassword: Yup.string().required("error.password-confirm.required").oneOf([Yup.ref("password")], "error.password-confirm.match")
     })
 
     static LinkValidator = Yup.object().shape({
