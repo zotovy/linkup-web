@@ -167,6 +167,18 @@ exports[`Testing Header component should render correctly authorized 1`] = `
   width: 98px;
 }
 
+.c2.selected.locale-ru.links:after {
+  width: 87px;
+}
+
+.c2.selected.locale-ru.theme:after {
+  width: 61px;
+}
+
+.c2.selected.locale-ru.settings:after {
+  width: 122px;
+}
+
 .c2:not(.selected) {
   cursor: pointer;
 }
@@ -352,19 +364,19 @@ exports[`Testing Header component should render correctly authorized 1`] = `
       width="48px"
     />
     <div
-      class="c2  links"
+      class="c2  links "
     >
-      Links
+      links
     </div>
     <div
-      class="c2  theme"
+      class="c2  theme "
     >
-      Theme
+      theme
     </div>
     <div
-      class="c2 selected settings"
+      class="c2 selected settings "
     >
-      Settings
+      settings
     </div>
     <div
       class="space"
@@ -404,12 +416,12 @@ exports[`Testing Header component should render correctly authorized 1`] = `
           href="/zotovy"
           target="_blank"
         >
-          My page
+          my_page
         </a>
         <a
           class="error"
         >
-          Logout
+          logout
         </a>
       </div>
     </div>
@@ -451,28 +463,33 @@ exports[`Testing Header component should render correctly authorized 1`] = `
         <p
           class="c11"
         >
-          Links
+          links
         </p>
         <p
           class="c11"
         >
-          Theme
+          theme
         </p>
         <p
           class="c11"
         >
-          Settings
+          settings
         </p>
         <p
           class="c11"
         >
-          Login
+          logout
         </p>
-        <p
-          class="c11"
+        <a
+          href="/zotovy"
+          target="_blank"
         >
-          Signup
-        </p>
+          <p
+            class="c11"
+          >
+            my_page
+          </p>
+        </a>
       </div>
     </div>
   </div>
@@ -564,6 +581,18 @@ exports[`Testing Header component should render correctly loading 1`] = `
 
 .c2.selected.settings:after {
   width: 98px;
+}
+
+.c2.selected.locale-ru.links:after {
+  width: 87px;
+}
+
+.c2.selected.locale-ru.theme:after {
+  width: 61px;
+}
+
+.c2.selected.locale-ru.settings:after {
+  width: 122px;
 }
 
 .c2:not(.selected) {
@@ -763,27 +792,27 @@ exports[`Testing Header component should render correctly loading 1`] = `
         <p
           class="c6"
         >
-          Links
+          links
         </p>
         <p
           class="c6"
         >
-          Theme
+          theme
         </p>
         <p
           class="c6"
         >
-          Settings
+          settings
         </p>
         <p
           class="c6"
         >
-          Login
+          login
         </p>
         <p
           class="c6"
         >
-          Signup
+          signup
         </p>
       </div>
     </div>

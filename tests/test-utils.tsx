@@ -1,13 +1,14 @@
 import React, { FC, ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
+import { withTranslation } from "react-i18next";
 import { ThemeProvider } from 'styled-components'
 import theme from "@/utils/theme";
 
-const AllTheProviders: FC = ({ children }) => {
-    return <ThemeProvider theme={theme}>
-        {children}
+const AllTheProviders = withTranslation("en")(({ children }) => {
+    return <ThemeProvider theme={ theme }>
+        { children }
     </ThemeProvider>
-}
+})
 
 const customRender = (
         ui: ReactElement,
@@ -19,7 +20,7 @@ export * from '@testing-library/react'
 export { customRender as render }
 
 export const ThemeWrapper: React.FC = ({ children }) => {
-    return <ThemeProvider theme={theme}>
+    return <ThemeProvider theme={ theme }>
         { children }
     </ThemeProvider>
 }
